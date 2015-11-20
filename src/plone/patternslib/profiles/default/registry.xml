@@ -427,7 +427,7 @@
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
         <value key="resources" purge="false">
             <element>plone</element>
-            
+
 <!--             <element>AnythingSlider</element> -->
             <!--element>doc-ready</element-->
 <!--             <element>eventEmitter</element>
@@ -499,7 +499,7 @@
             <element>pat-switch</element>
             <!--element>pat-toggle</element-->
             <!--element>pat-tooltip</element-->
-            <element>pat-validation</element>
+            <!--element>pat-validation</element-->
             <element>pat-zoom</element>
 
         </value>
