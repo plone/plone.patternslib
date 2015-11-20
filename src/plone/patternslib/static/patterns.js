@@ -7,6 +7,7 @@
  * directly in your RequireJS configuration.
  */
 define('patterns', [
+    "pat-registry",
     "modernizr",
     "pat-ajax",
     "pat-auto-scale",
@@ -36,10 +37,14 @@ define('patterns', [
     "pat-stacks",
     "pat-switch",
     "pat-zoom"
-], function($, registry) {
-    // Since we are in a non-AMD env, register a few useful utilites
-    $(function () {
+], function(registry) {
+    if (!registry.initialized) {
         registry.init();
-    });
-    return registry;
+    }
 });
+
+(function(root) {
+    require(['patterns'], function (patterns) {
+        //patterns is now loaded.
+    });
+})(window);
