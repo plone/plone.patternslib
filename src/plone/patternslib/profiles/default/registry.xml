@@ -3,4 +3,11 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plone">
 
+
+  <records prefix="plone.resources/auto-scale"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++static/components/patternslib/src/pat/auto-scale/autoscale.js</value>
+  </records>
+
+
 </registry>
