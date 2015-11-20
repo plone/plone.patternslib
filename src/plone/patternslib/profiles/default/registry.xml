@@ -7,7 +7,7 @@
     <!-- patternslib dependencies fetched by Bower -->
     <!-- ######################################### -->
     
-    <records prefix="plone.resources/AnythingSlider"
+    <records prefix="plone.resources/jquery.anythingslider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/AnythingSlider/js/jquery.anythingslider.js</value>
     </records>
@@ -48,7 +48,7 @@
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/imagesloaded/imagesloaded.pkgd.min.js</value>
     </records>
 
-    <records prefix="plone.resources/jquery.browser.js"
+    <records prefix="plone.resources/jquery.browser"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery.browser/dist/jquery.browser.min.js</value>
     </records>
@@ -58,7 +58,7 @@
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jcrop/js/jquery.Jcrop.min.js</value>
     </records>
 
-    <records prefix="plone.resources/jquery-placeholder"
+    <records prefix="plone.resources/jquery.placeholder"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery-placeholder/jquery.placeholder.min.js</value>
     </records>
@@ -81,6 +81,11 @@
     <records prefix="plone.resources/modernizr"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/modernizr/modernizr.js</value>
+    </records>
+
+    <records prefix="plone.resources/modernizr-csspositionsticky"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/modernizr/feature-detects/css-positionsticky.js</value>
     </records>
 
     <records prefix="plone.resources/moment-timezone"
@@ -157,6 +162,11 @@
     <!-- #################### -->
     <!-- patternslib patterns -->
     <!-- #################### -->
+
+    <records prefix="plone.resources/pat-depends_parse"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/lib/depends_parse.js</value>
+    </records>
 
     <records prefix="plone.resources/pat-dependshandler"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
