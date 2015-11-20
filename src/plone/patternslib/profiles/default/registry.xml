@@ -442,8 +442,9 @@
             <element>jquery-textchange</element>
             <element>masonry</element>
             <element>matches-selector</element>
+        -->
             <element>modernizr</element>
-            <element>moment-timezone</element>
+<!--            <element>moment-timezone</element>
             <element>outlayer</element>
             <element>item</element>
             <element>photoswipe</element>
