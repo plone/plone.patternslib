@@ -48,8 +48,8 @@
   
   <plone:static
     directory="static"
-    type="patternslib"
-    name="static"
+    type="plone"
+    name="patternslib"
     />
 
 </configure>
