@@ -11,17 +11,17 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
         <h1>Depends</h1>
         <article>
-            <a href="/++plone++patternslib/components/patternslib/src/pat//depends/documentation.md"
+            <a href="++plone++patternslib/components/patternslib/src/pat//depends/documentation.md"
                 class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
         </article>
 
         <h2>Demo</h2>
         <div id="demo" class="pattern-demo">
-            <a href="/++plone++patternslib/components/patternslib/src/pat//depends/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
+            <a href="++plone++patternslib/components/patternslib/src/pat//depends/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
         </div>
 
         <article>
-            <a href="/++plone++patternslib/components/patternslib/src/pat//depends/documentation.md#documentation"
+            <a href="++plone++patternslib/components/patternslib/src/pat//depends/documentation.md#documentation"
                 class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
         </article>
         <div tal:replace="structure provider:plone.belowcontentbody" />
