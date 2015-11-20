@@ -436,7 +436,6 @@
             <element>patterns</element>
         </value>
           <value key="enabled">True</value>
-          <value key="jscompilation">++plone++patternslib/patterns-compiled.js</value>
           <value key="last_compilation">2014-08-14 00:00:00</value>
     </records>
 
