@@ -48,6 +48,11 @@
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/imagesloaded/imagesloaded.pkgd.min.js</value>
     </records>
 
+    <records prefix="plone.resources/jquery.browser.js"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery.browser/dist/jquery.browser.min.js</value>
+    </records>
+
     <records prefix="plone.resources/jcrop"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jcrop/js/jquery.Jcrop.min.js</value>
@@ -96,6 +101,11 @@
     <records prefix="plone.resources/photoswipe"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe/dist/photoswipe.min.js</value>
+    </records>
+
+    <records prefix="plone.resources/photoswipe-ui"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe/dist/photoswipe-ui-default.min.js</value>
     </records>
 
     <records prefix="plone.resources/prefixfree"
@@ -148,6 +158,35 @@
     <!-- patternslib patterns -->
     <!-- #################### -->
 
+    <records prefix="plone.resources/pat-dependshandler"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/lib/dependshandler.js</value>
+    </records>
+
+    <records prefix="plone.resources/pat-input-change-events"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/lib/input-change-events.js</value>
+    </records>
+
+    <records prefix="plone.resources/pat-htmlparser"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/lib/htmlparser.js</value>
+    </records>
+
+    <records prefix="plone.resources/pat-parser"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/parser.js</value>
+    </records>
+
+    <records prefix="plone.resources/pat-remove"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/remove.js</value>
+    </records>
+
+    <records prefix="plone.resources/pat-store"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/store.js</value>
+    </records>
 
     <records prefix="plone.resources/pat-ajax"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -193,11 +232,11 @@
     </records>
     -->
 
-    <records prefix="plone.resources/pat-carousel"
+<!--     <records prefix="plone.resources/pat-carousel"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/carousel/carousel.js</value>
     </records>
-
+ -->
     <records prefix="plone.resources/pat-checked-flag"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/checked-flag/checked-flag.js</value>
@@ -405,6 +444,7 @@
             <element>spectrum</element>
             <element>validate</element>
         -->
+            <element>pat-parser</element>
             <element>pat-ajax</element>
             <element>pat-auto-scale</element>
             <element>pat-auto-submit</element>
@@ -425,7 +465,7 @@
             <element>pat-focus</element>
             <element>pat-form-state</element>
             <element>pat-forward</element>
-            <element>pat-gallery</element>
+            <!--element>pat-gallery</element-->
             <element>pat-grid</element>
             <element>pat-image-crop</element>
             <element>pat-inject</element>
@@ -440,7 +480,7 @@
             <element>pat-scroll</element>
             <element>pat-selectbox</element>
             <element>pat-separator</element>
-            <element>pat-slides</element>
+            <!--element>pat-slides</element-->
             <element>pat-slideshow-builder</element>
             <!--element>pat-sortable</element-->
             <element>pat-stacks</element>
