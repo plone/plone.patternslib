@@ -27,10 +27,11 @@
         <value key="js">++patternslib++static/components/patternslib/src/bower_components/eventie/eventie.js</value>
     </records>
 
-    <records prefix="patternslib.resources/fullcalendar"
+    <!-- not yet functional -->
+    <!--records prefix="patternslib.resources/fullcalendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++patternslib++static/components/patternslib/src/bower_components/fullcalendar/fullcalendar.min.js</value>
-    </records>
+    </records-->
 
     <records prefix="patternslib.resources/get-size"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -99,7 +100,7 @@
 
     <records prefix="patternslib.resources/requirejs-tpl"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++patternslib++static/components/patternslib/src/bower_components/requirejs-tpl/tpl.js</value>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/requirejs-tpl-jcbrand/tpl.js</value>
     </records>
 
     <records prefix="patternslib.resources/showdown"
