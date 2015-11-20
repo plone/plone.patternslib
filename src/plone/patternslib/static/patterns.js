@@ -28,6 +28,7 @@ define('patterns', [
     "pat-input-change-events",
     "pat-legend",
     "pat-masonry",
+    "pat-markdown",
     "pat-menu",
     "pat-modal",
     "pat-navigation",

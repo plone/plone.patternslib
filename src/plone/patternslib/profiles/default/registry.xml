@@ -421,8 +421,6 @@
     </records>
 
 
-
-
     <records prefix="plone.resources/patterns"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++resource++patterns.js</value>
