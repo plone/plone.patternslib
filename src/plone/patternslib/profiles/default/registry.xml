@@ -421,12 +421,20 @@
     </records>
 
 
+
+
+    <records prefix="plone.resources/patterns"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++resource++patterns.js</value>
+    </records>
+
+
     <!-- Registration of the patternslib patterns into the plone bundle -->
 
-    <records prefix="plone.bundles/plone"
+    <records prefix="plone.bundles/patterns"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
         <value key="resources" purge="false">
-            <element>plone</element>
+            <element>patterns</element>
 
 <!--             <element>AnythingSlider</element> -->
             <!--element>doc-ready</element-->
@@ -443,7 +451,7 @@
             <element>masonry</element>
             <element>matches-selector</element>
         -->
-            <element>modernizr</element>
+            <!-- <element>modernizr</element> -->
 <!--            <element>moment-timezone</element>
             <element>outlayer</element>
             <element>item</element>
@@ -455,16 +463,16 @@
             <element>spectrum</element>
             <element>validate</element>
         -->
-            <element>pat-parser</element>
+<!--             <element>pat-parser</element>
             <element>pat-ajax</element>
             <element>pat-auto-scale</element>
             <element>pat-auto-submit</element>
             <element>pat-auto-suggest</element>
-            <!--element>pat-autofocus</element-->
-            <element>pat-breadcrumbs</element>
+ -->            <!--element>pat-autofocus</element-->
+<!--             <element>pat-breadcrumbs</element>
             <element>pat-bumper</element>
-            <!-- <element>pat-calendar</element> -->
-            <element>pat-carousel</element>
+ -->            <!-- <element>pat-calendar</element> -->
+<!--             <element>pat-carousel</element>
             <element>pat-checked-flag</element>
             <element>pat-checklist</element>
             <element>pat-clone</element>
@@ -476,8 +484,8 @@
             <element>pat-focus</element>
             <element>pat-form-state</element>
             <element>pat-forward</element>
-            <!--element>pat-gallery</element-->
-            <element>pat-grid</element>
+ -->            <!--element>pat-gallery</element-->
+<!--             <element>pat-grid</element>
             <element>pat-image-crop</element>
             <element>pat-inject</element>
             <element>pat-inject-history</element>
@@ -491,17 +499,17 @@
             <element>pat-scroll</element>
             <element>pat-selectbox</element>
             <element>pat-separator</element>
-            <!--element>pat-slides</element-->
-            <element>pat-slideshow-builder</element>
-            <!--element>pat-sortable</element-->
-            <element>pat-stacks</element>
+ -->            <!--element>pat-slides</element-->
+<!--             <element>pat-slideshow-builder</element>
+ -->            <!--element>pat-sortable</element-->
+<!--             <element>pat-stacks</element>
             <element>pat-subform</element>
             <element>pat-switch</element>
-            <!--element>pat-toggle</element-->
+ -->            <!--element>pat-toggle</element-->
             <!--element>pat-tooltip</element-->
             <!--element>pat-validation</element-->
-            <element>pat-zoom</element>
-
+<!--             <element>pat-zoom</element>
+ -->
         </value>
     </records>
 
