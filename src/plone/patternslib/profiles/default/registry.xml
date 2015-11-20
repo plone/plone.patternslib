@@ -162,10 +162,13 @@
         <value key="js">++patternslib++static/components/patternslib/src/pat/bumper/bumber.js</value>
     </records>
 
+    <!-- pat-calendar needs a lot of backend code to make it useful. Disable
+         for the time being.
     <records prefix="patternslib.resources/pat-calendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++patternslib++static/components/patternslib/src/pat/calendar/calendar.js</value>
     </records>
+    -->
 
     <records prefix="patternslib.resources/pat-carousel"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -367,7 +370,7 @@
             <element>doc-ready</element>
             <element>eventEmitter</element>
             <element>eventie</element>
-            <element>fullcalendar</element>
+            <!-- <element>fullcalendar</element> -->
             <element>get-size</element>
             <element>get-style-property</element>
             <element>imagesloaded</element>
@@ -393,7 +396,7 @@
             <!--element>pat-autofocus</element-->
             <element>pat-breadcrumbs</element>
             <element>pat-bumper</element>
-            <element>pat-calendar</element>
+            <!-- <element>pat-calendar</element> -->
             <element>pat-carousel</element>
             <element>pat-checked-flag</element>
             <element>pat-checklist</element>
