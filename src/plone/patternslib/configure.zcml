@@ -48,7 +48,7 @@
   
   <plone:static
     directory="static"
-    type="plone"
+    type="patternslib"
     name="static"
     />
 
