@@ -34,6 +34,8 @@ define([
             event.stopPropagation();
         }
     };
+
+
     registry.register(_);
     return _;
 });

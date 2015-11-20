@@ -1,4 +1,4 @@
-/* Clone pattern */
+/* pat-clone */
 define("pat-clone",[
     "jquery",
     "pat-parser",

@@ -1,45 +1,52 @@
 /**
- * Stacks pattern
+ * Patterns stacks
  *
  * Copyright 2013 Simplon B.V. - Wichert Akkerman
  */
 define([
     "jquery",
     "pat-parser",
-    "pat-base",
     "pat-logger",
     "pat-utils",
     "pat-registry"
-], function($, Parser, Base, logging, utils, registry) {
-    "use strict";
+], function($, Parser, logging, utils, registry) {
     var log = logging.getLogger("stacks"),
         parser = new Parser("stacks");
+
     parser.addArgument("selector", "> *[id]");
     parser.addArgument("transition", "none", ["none", "css", "fade", "slide"]);
     parser.addArgument("effect-duration", "fast");
     parser.addArgument("effect-easing", "swing");
 
-    return Base.extend({
+    var stacks = {
         name: "stacks",
         trigger: ".pat-stacks",
         document: document,
 
         init: function($el, opts) {
-            this.options = parser.parse(this.$el, opts);
-            this._setupStack();
-            $(this.document).on("click", "a", this._onClick.bind(this));
-            return $el;
+            var fragment = this._currentFragment();
+
+            return $el.each(function() {
+                stacks._setupStack(this, opts, fragment);
+            });
         },
 
-        _setupStack: function() {
-            var selected = this._currentFragment(),
-                $sheets = this.$el.find(this.options.selector),
-                $visible = [],
-                $invisible;
+        _setup: function() {
+            $(this.document).on("click", "a", this._onClick);
+        },
+
+        _setupStack: function(container, options, selected) {
+            var $container = $(container),
+                $sheets, $visible, $invisible;
+            options=parser.parse($container, options);
+            $container.data("pat-stacks", options);
+            $sheets=$container.find(options.selector);
+
             if ($sheets.length < 2) {
-                log.warn("Stacks pattern: must have more than one sheet.", this.$el[0]);
+                log.warn("Stacks pattern: must have more than one sheet.", $container[0]);
                 return;
             }
+            $visible = [];
             if (selected) {
                 try {
                     $visible = $sheets.filter("#"+selected);
@@ -48,13 +55,13 @@ define([
                 }
             }
             if (!$visible.length) {
-                $visible = $sheets.first();
-                selected = $visible[0].id;
+                $visible=$sheets.first();
+                selected=$visible[0].id;
             }
-            $invisible = $sheets.not($visible);
-            utils.hideOrShow($visible, true, {transition: "none"}, this.name);
-            utils.hideOrShow($invisible, false, {transition: "none"}, this.name);
-            this._updateAnchors(selected);
+            $invisible=$sheets.not($visible);
+            utils.hideOrShow($visible, true, {transition: "none"}, stacks.name);
+            utils.hideOrShow($invisible, false, {transition: "none"}, stacks.name);
+            stacks._updateAnchors($container, selected);
         },
 
          _base_URL: function() {
@@ -63,56 +70,57 @@ define([
 
         _currentFragment: function() {
             var parts = this.document.URL.split("#");
-            if (parts.length === 1) {
+            if (parts.length===1)
                 return null;
-            }
             return parts[parts.length-1];
         },
 
         _onClick: function(e) {
-            var base_url = this._base_URL(),
-                href_parts = e.currentTarget.href.split("#");
+            var base_url = stacks._base_URL(),
+                href_parts = e.currentTarget.href.split("#"),
+                $stack;
             // Check if this is an in-document link and has a fragment
-            if (base_url !== href_parts[0] || !href_parts[1]) {
+            if (base_url!==href_parts[0] || !href_parts[1])
                 return;
-            }
-            if (!this.$el.has("#"+href_parts[1]).length) {
+            $stack=$(stacks.trigger+":has(#"+href_parts[1]+")");
+            if (!$stack.length)
                 return;
-            }
             e.preventDefault();
-            this._updateAnchors(href_parts[1]);
-            this._switch(href_parts[1]);
-            $(e.target).trigger("pat-update", {
-                pattern: "stacks",
-                originalEvent: e
-            });
+            stacks._updateAnchors($stack, href_parts[1]);
+            stacks._switch($stack, href_parts[1]);
         },
 
-        _updateAnchors: function(selected) {
-            var $sheets = this.$el.find(this.options.selector),
-                base_url = this._base_URL();
-            $sheets.each(function (idx, sheet) {
+        _updateAnchors: function($container, selected) {
+            var options = $container.data("pat-stacks"),
+                $sheets = $container.find(options.selector),
+                base_url = stacks._base_URL();
+            for (var i=0; i<$sheets.length; i++) {
                 // This may appear odd, but: when querying a browser uses the
                 // original href of an anchor as it appeared in the document
-                // source, but when you access the href property you always get
+                // source, but when you access the href property you always
                 // the fully qualified version.
-                var $anchors = $("a[href=\""+base_url+"#"+sheet.id+"\"],a[href=\"#"+sheet.id+"\"]");
-                if (sheet.id === selected) {
+                var sheet = $sheets[i],
+                    $anchors = $("a[href=\""+base_url+"#"+sheet.id+"\"],a[href=\"#"+sheet.id+"\"]");
+                if (sheet.id===selected)
                     $anchors.addClass("current");
-                } else {
+                else
                     $anchors.removeClass("current");
-                }
-            });
+            }
         },
 
-        _switch: function(sheet_id) {
-            var $sheet = this.$el.find("#"+sheet_id);
-            if (!$sheet.length || $sheet.hasClass("visible")) {
+        _switch: function($container, sheet_id) {
+            var options = $container.data("pat-stacks"),
+                $sheet = $container.find("#"+sheet_id),
+                $invisible;
+            if (!$sheet.length || $sheet.hasClass("visible"))
                 return;
-            }
-            var $invisible = this.$el.find(this.options.selector).not($sheet);
-            utils.hideOrShow($invisible, false, this.options, this.name);
-            utils.hideOrShow($sheet, true, this.options, this.name);
+            $invisible=$container.find(options.selector).not($sheet);
+            utils.hideOrShow($invisible, false, options, stacks.name);
+            utils.hideOrShow($sheet, true, options, stacks.name);
         }
-    });
+    };
+
+    stacks._setup();
+    registry.register(stacks);
+    return stacks;
 });

@@ -31,13 +31,6 @@ define([
                     ev.preventDefault();
                     this.smoothScroll();
                 }.bind(this));
-                this.$el.on("pat-update", this.onPatternsUpdate.bind(this));
-            }
-        },
-
-        onPatternsUpdate: function(ev, data) {
-            if (data.originalEvent && data.originalEvent.type === "click") {
-                this.smoothScroll();
             }
         },
 
@@ -48,7 +41,7 @@ define([
                 $el = this.options.selector ? $(this.options.selector) : this.$el;
                 options[scroll] = this.options.offset;
             } else {
-                $el = $('body, html');
+                $el = $('body');
                 options[scroll] = $(this.$el.attr('href')).offset().top;
             }
             $el.animate(options, 500);
