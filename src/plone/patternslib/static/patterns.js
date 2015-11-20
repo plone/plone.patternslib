@@ -6,7 +6,8 @@
  * only want to use selected patterns you will need to pull in the patterns
  * directly in your RequireJS configuration.
  */
-define('patternslib', [
+define('patterns', [
+    "modernizr",
     "pat-ajax",
     "pat-auto-scale",
     "pat-auto-submit",

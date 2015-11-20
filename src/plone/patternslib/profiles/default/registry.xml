@@ -247,7 +247,7 @@
         <value key="js">++plone++patternslib/components/patternslib/src/pat/carousel/carousel.js</value>
     </records>
  -->
-    <records prefix="plone.resources/pat-checkedflag"
+    <records prefix="plone.resources/pat-checked-flag"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/checked-flag/checked-flag.js</value>
     </records>
@@ -282,7 +282,7 @@
         <value key="js">++plone++patternslib/components/patternslib/src/pat/equaliser/equaliser.js</value>
     </records>
 
-    <records prefix="plone.resources/pat-expandable-tree"
+    <records prefix="plone.resources/pat-expandable"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/expandable-tree/expandable-tree.js</value>
     </records>
