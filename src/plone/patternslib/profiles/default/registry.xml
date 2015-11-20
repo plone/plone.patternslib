@@ -3,9 +3,9 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plone">
 
-    <!-- ----------------------------------------- -->
+    <!-- ######################################### -->
     <!-- patternslib dependencies fetched by Bower -->
-    <!-- ----------------------------------------- -->
+    <!-- ######################################### -->
     
     <records prefix="patternslib.resources/AnythingSlider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -123,9 +123,9 @@
         <value key="js">++patternslib++static/components/patternslib/src/bower_components/validate/validate.min.js</value>
     </records>
 
-    <!-- -------------------- -->
+    <!-- #################### -->
     <!-- patternslib patterns -->
-    <!-- -------------------- -->
+    <!-- #################### -->
 
     <records prefix="patternslib.resources/pat-ajax"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
