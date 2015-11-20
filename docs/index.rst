@@ -1,0 +1,5 @@
+====================
+plone.patternslib
+====================
+
+User documentation

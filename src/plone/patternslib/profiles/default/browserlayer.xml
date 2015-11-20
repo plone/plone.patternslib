@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+      name="plone.patternslib"
+      interface="plone.patternslib.interfaces.IPlonePatternslibLayer"
+      />
+</layers>
