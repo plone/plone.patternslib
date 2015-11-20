@@ -103,7 +103,7 @@
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/prefixfree/prefixfree.min.js</value>
     </records>
 
-    <records prefix="plone.resources/requirejs-tpl"
+    <records prefix="plone.resources/tpl"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/requirejs-tpl-jcbrand/tpl.js</value>
     </records>
@@ -111,6 +111,16 @@
     <records prefix="plone.resources/showdown"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/showdown.min.js</value>
+    </records>
+
+    <records prefix="plone.resources/showdown-github"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/extensions/github.min.js</value>
+    </records>
+
+    <records prefix="plone.resources/showdown-table"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/extensions/table.min.js</value>
     </records>
 
     <records prefix="plone.resources/slides"
@@ -369,11 +379,12 @@
         <value key="resources" purge="false">
             <element>plone</element>
             
-            <element>AnythingSlider</element>
+<!--             <element>AnythingSlider</element> -->
             <!--element>doc-ready</element-->
-            <element>eventEmitter</element>
+<!--             <element>eventEmitter</element>
             <element>eventie</element>
-            <!-- <element>fullcalendar</element> -->
+ -->            <!-- <element>fullcalendar</element> -->
+        <!--
             <element>get-size</element>
             <element>get-style-property</element>
             <element>imagesloaded</element>
@@ -388,11 +399,12 @@
             <element>item</element>
             <element>photoswipe</element>
             <element>prefixfree</element>
-            <element>requirejs-tpl</element>
+            <element>tpl</element>
             <element>showdown</element>
             <element>slides</element>
             <element>spectrum</element>
             <element>validate</element>
+        -->
             <element>pat-ajax</element>
             <element>pat-auto-scale</element>
             <element>pat-auto-submit</element>
