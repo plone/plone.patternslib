@@ -5,3 +5,4 @@ patternslib:: ## Get the latest version of the patternslib
 	else \
 		cd static/components/patternslib && git pull; \
 	fi;
+	cd static/components/patternslib/ && make stamp-bower

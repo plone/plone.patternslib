@@ -3,11 +3,436 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plone">
 
-
-  <records prefix="plone.resources/auto-scale"
+    <!-- ----------------------------------------- -->
+    <!-- patternslib dependencies fetched by Bower -->
+    <!-- ----------------------------------------- -->
+    
+    <records prefix="patternslib.resources/AnythingSlider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="js">++plone++static/components/patternslib/src/pat/auto-scale/autoscale.js</value>
-  </records>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/AnythingSlider/jquery.anythingslider.min.js</value>
+    </records>
 
+    <records prefix="patternslib.resources/doc-ready"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/doc-ready/doc-ready.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/eventEmitter"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/eventEmitter/EventEmitter.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/eventie"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/eventie/eventie.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/fullcalendar"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/fullcalendar/fullcalendar.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/get-size"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/get-size/get-size.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/get-style-property"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/get-style-property/get-style-property.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/imagesloaded"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/imagesloaded/imagesloaded.pkgd.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/jcrop"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/jcrop/js/jquery.Jcrop.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/jquery-placeholder"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/jquery-placeholder/jquery.placeholder.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/jquery-textchange"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/jquery-textchange/jquery.textchange.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/masonry"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/masonry/dist/masonry.pkgd.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/matches-selector"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/matches-selector/matches-selector.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/modernizr"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/modernizr/modernizr.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/moment-timezone"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/moment-timezone/moment-timezone.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/outlayer"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/outlayer/outlayer.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/photoswipe"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/photoswipe/dist/photoswipe.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/prefixfree"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/prefixfree/prefixfree.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/requirejs-tpl"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/requirejs-tpl/tpl.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/showdown"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/showdown/compressed/showdown.min.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/slides"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/slides/src/slides.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/spectrum"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/spectrum/spectrum.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/validate"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/bower_components/validate/validate.min.js</value>
+    </records>
+
+    <!-- -------------------- -->
+    <!-- patternslib patterns -->
+    <!-- -------------------- -->
+
+    <records prefix="patternslib.resources/pat-ajax"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/ajax/ajax.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-auto-scale"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/auto-scale/autoscale.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-auto-submit"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/auto-submit/auto-submit.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-auto-suggest"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/auto-suggest/auto-suggest.js</value>
+    </records>
+
+    <!-- Conflicts with mockup autofocus -->
+    <!--records prefix="patternslib.resources/pat-autofocus"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/autofocus/autofocus.js</value>
+    </records-->
+
+    <records prefix="patternslib.resources/pat-breadcrumbs"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/breadcrumbs/breadcrumbs.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-bumper"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/bumper/bumber.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-calendar"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/calendar/calendar.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-carousel"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/carousel/carousel.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-checked-flag"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/checked-flag/checked-flag.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-checklist"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/checklist/checklist.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-clone"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/clone/clone.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-collapsible"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/collapsible/collapsible.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-colour-picker"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/colour-picker/colour-picker.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-depends"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/depends/depends.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-equaliser"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/equaliser/equaliser.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-expandable-tree"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/expandable-tree/expandable-tree.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-focus"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/focus/focus.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-form-state"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/form-state/form-state.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-forward"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/forward/forward.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-gallery"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/gallery/gallery.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-grid"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/grid/grid.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-image-crop"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/image-crop/image-crop.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-inject"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/inject/inject.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-inject-history"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/inject-history/inject-history.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-legend"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/legend/legend.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-markdown"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/markdown/markdown.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-masonry"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/masonry/masonry.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-menu"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/menu/menu.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-modal"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/modal/modal.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-navigation"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/navigation/navigation.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-placeholder"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/placeholder/placeholder.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-scroll"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/scroll/scroll.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-selectbox"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/selectbox/selectbox.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-separator"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/separator/separator.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-slides"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/slides/slides.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-slideshow-builder"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/slideshow-builder/slideshow-builder.js</value>
+    </records>
+
+    <!-- Conflicts with mockup sortable -->
+    <!--records prefix="patternslib.resources/pat-sortable"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/sortable/sortable.js</value>
+    </records-->
+
+    <records prefix="patternslib.resources/pat-stacks"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/stacks/stacks.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-subform"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/subform/subform.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-switch"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/switch/switch.js</value>
+    </records>
+
+    <!-- Conflicts with mockup toggle -->
+    <!--records prefix="patternslib.resources/pat-toggle"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/toggle/toggle.js</value>
+    </records-->
+
+    <!-- Conflicts with mockup tooltip -->
+    <!--records prefix="patternslib.resources/pat-tooltip"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/tooltip/tooltip.js</value>
+    </records-->
+
+    <records prefix="patternslib.resources/pat-validation"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/validation/validation.js</value>
+    </records>
+
+    <records prefix="patternslib.resources/pat-zoom"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++patternslib++static/components/patternslib/src/pat/zoom/zoom.js</value>
+    </records>
+
+
+    <!-- Registration of the patternslib patterns into the plone bundle -->
+
+    <records prefix="plone.bundles/plone"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources" purge="false">
+            <element>plone</element>
+            
+            <element>AnythingSlider</element>
+            <element>doc-ready</element>
+            <element>eventEmitter</element>
+            <element>eventie</element>
+            <element>fullcalendar</element>
+            <element>get-size</element>
+            <element>get-style-property</element>
+            <element>imagesloaded</element>
+            <element>jcrop</element>
+            <element>jquery-placeholder</element>
+            <element>jquery-textchange</element>
+            <element>masonry</element>
+            <element>matches-selector</element>
+            <element>modernizr</element>
+            <element>moment-timezone</element>
+            <element>outlayer</element>
+            <element>photoswipe</element>
+            <element>prefixfree</element>
+            <element>requirejs-tpl</element>
+            <element>showdown</element>
+            <element>slides</element>
+            <element>spectrum</element>
+            <element>validate</element>
+            <element>pat-ajax</element>
+            <element>pat-auto-scale</element>
+            <element>pat-auto-submit</element>
+            <element>pat-auto-suggest</element>
+            <!--element>pat-autofocus</element-->
+            <element>pat-breadcrumbs</element>
+            <element>pat-bumper</element>
+            <element>pat-calendar</element>
+            <element>pat-carousel</element>
+            <element>pat-checked-flag</element>
+            <element>pat-checklist</element>
+            <element>pat-clone</element>
+            <element>pat-collapsible</element>
+            <element>pat-colour-picker</element>
+            <element>pat-depends</element>
+            <element>pat-equaliser</element>
+            <element>pat-expandable-tree</element>
+            <element>pat-focus</element>
+            <element>pat-form-state</element>
+            <element>pat-forward</element>
+            <element>pat-gallery</element>
+            <element>pat-grid</element>
+            <element>pat-image-crop</element>
+            <element>pat-inject</element>
+            <element>pat-inject-history</element>
+            <element>pat-legend</element>
+            <element>pat-markdown</element>
+            <element>pat-masonry</element>
+            <element>pat-menu</element>
+            <element>pat-modal</element>
+            <element>pat-navigation</element>
+            <element>pat-placeholder</element>
+            <element>pat-scroll</element>
+            <element>pat-selectbox</element>
+            <element>pat-separator</element>
+            <element>pat-slides</element>
+            <element>pat-slideshow-builder</element>
+            <!--element>pat-sortable</element-->
+            <element>pat-stacks</element>
+            <element>pat-subform</element>
+            <element>pat-switch</element>
+            <!--element>pat-toggle</element-->
+            <!--element>pat-tooltip</element-->
+            <element>pat-validation</element>
+            <element>pat-zoom</element>
+
+        </value>
+    </records>
 
 </registry>
