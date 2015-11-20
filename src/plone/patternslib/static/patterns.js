@@ -8,7 +8,6 @@
  */
 define([
     "pat-ajax",
-    "pat-auto-focus",
     "pat-auto-scale",
     "pat-auto-submit",
     "pat-auto-suggest",
