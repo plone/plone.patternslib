@@ -4,11 +4,15 @@ components/spectrum/
 components/prefixfree
 components/patternslib/src/legacy/*
 components/patternslib/tests/
+components/patternslib/tests.html
+components/patternslib/index.html
 components/patternslib/.*
 components/patternslib/src/lib/*/*.txt
 components/patternslib/src/pat/*/*.md
 components/patternslib/src/pat/*/*.html
 components/patternslib/src/pat/*/*.scss
+components/patternslib/src/pat/*/*.css
+components/patternslib/src/pat/*/style/*.css
 components/patternslib/src/pat/*/*.jpg
 components/patternslib/src/pat/*/*.png
 components/patternslib/src/pat/*/*.svg
