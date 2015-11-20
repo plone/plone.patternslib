@@ -247,7 +247,7 @@
         <value key="js">++plone++patternslib/components/patternslib/src/pat/carousel/carousel.js</value>
     </records>
  -->
-    <records prefix="plone.resources/pat-checked-flag"
+    <records prefix="plone.resources/pat-checkedflag"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/checked-flag/checked-flag.js</value>
     </records>
@@ -511,6 +511,10 @@
             <element>pat-zoom</element>
 
         </value>
+          <value key="enabled">True</value>
+          <value key="jscompilation">++plone++patternslib/patterns-compiled.js</value>
+          <value key="last_compilation">2014-08-14 00:00:00</value>
     </records>
+
 
 </registry>
