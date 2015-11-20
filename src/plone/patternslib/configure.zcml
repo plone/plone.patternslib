@@ -7,6 +7,7 @@
     i18n_domain="plone.patternslib">
 
   <includeDependencies package="." />
+  <include package=".browser" />
 
 
   <genericsetup:registerProfile

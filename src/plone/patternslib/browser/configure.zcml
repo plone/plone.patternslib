@@ -1,0 +1,35 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.xmpp.extauth">
+
+    <browser:page
+        name="pat-depends"
+        for="*"
+        template="./demo/depends.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="pat-inject"
+        for="*"
+        template="./demo/inject.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="pat-masonry"
+        for="*"
+        template="./demo/masonry.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="pat-switch"
+        for="*"
+        template="./demo/switch.pt"
+        permission="zope2.View"
+        />
+
+</configure>
