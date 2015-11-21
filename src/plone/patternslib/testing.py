@@ -26,7 +26,7 @@ PLONE_PATTERNSLIB_FIXTURE = PlonePatternslibLayer()
 
 PLONE_PATTERNSLIB_INTEGRATION_TESTING = IntegrationTesting(
     bases=(PLONE_PATTERNSLIB_FIXTURE,),
-    name='DensoTecdbLayer:IntegrationTesting'
+    name='PlonePatternslibLayer:IntegrationTesting'
 )
 
 
