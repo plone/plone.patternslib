@@ -26,7 +26,10 @@ define('patterns', [
     "pat-forward",
     "pat-inject",
     "pat-input-change-events",
-    "pat-legend",
+
+/* Conflicts with pat-autotoc */
+/*    "pat-legend",  */
+
     "pat-masonry",
     "pat-markdown",
     "pat-menu",
