@@ -1,4 +1,4 @@
-denso.tecdb Copyright 2015, Syslab.com
+plone.patternslib Copyright 2015, Syslab.com
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License version 2

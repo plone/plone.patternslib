@@ -38,14 +38,14 @@ This product has been translated into
 Installation
 ------------
 
-Install denso.tecdb by adding it to your buildout::
+Install plone.patternslib by adding it to your buildout::
 
     [buildout]
 
     ...
 
     eggs =
-        denso.tecdb
+        plone.patternslib
 
 
 and then running ``bin/buildout``
@@ -54,8 +54,8 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/denso.tecdb/issues
-- Source Code: https://github.com/collective/denso.tecdb
+- Issue Tracker: https://github.com/collective/plone.patternslib/issues
+- Source Code: https://github.com/collective/plone.patternslib
 - Documentation: https://docs.plone.org/foo/bar
 
 
