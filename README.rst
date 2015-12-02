@@ -6,12 +6,20 @@
 plone.patternslib
 ==============================================================================
 
-An add-on to make patternslib patterns available within Plone 5.
+An experimental add-on to make patternslib patterns available within Plone 5.
 
 Features
 --------
 
-- Can be bullet points
+The Plone 5 mockup patterns parser and the Patternslib parser have already been re-unified. So for quite some time it had been theoretically possible to run patternslib patters in Plone 5. This package proves that it is possible and makes a selection of the Patternslib patters available in Plone 5.
+
+This is currently in an experimental state - so use at your own risk and not in production - but everyone is invited to give it a try and report back issues. 
+
+
+Known Issues
+------------
+
+There are still a few patterns that both Plone 5 and Patternslib have. They either conflict, because they use the same name or they conflict, because they attempt to do the same or similar things. For now we chose to explicitly exclude them here.
 
 
 Examples
