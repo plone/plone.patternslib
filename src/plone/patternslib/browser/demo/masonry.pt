@@ -1,60 +1,33 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Patterns library</title>
-		<link rel="stylesheet" href="/style/screen.css" media="screen" type="text/css">
-    	<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script src="/patternslib/bundle.js" type="text/javascript"></script>
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37987884-1']);
-		  _gaq.push(['_trackPageview']);
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master">
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
 
-		</script>
+			<div id="demo" class="pattern-demo">
+			    <a href="++plone++patternslib/components/patternslib/src/pat/masonry/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
+			</div>
 
-		<link rel="icon" type="image/png" href="/media/favicon.png" />
-		<!--[if IE]>
-				<link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico" />
-		<![endif]-->
-	</head>
-	<body class="state-demo">
-		<a href="https://github.com/patternslib/patterns"><img style="z-index: 99; position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-		<header id="site-header" class="down">
-			<nav class="global-nav navigation">
-				<a class="pat-switch download pat-inject" data-pat-switch="body state-* state-download" href="/download.html#content" data-pat-inject="history: record">Download</a>
-				<a class="pat-switch patterns pat-inject" data-pat-switch="body state-* state-home" href="/index.html#content" data-pat-inject="history: record">Patterns</a>
-				<a class="pat-switch documentation pat-inject" data-pat-switch="body state-* state-documentation" href="/documentation.html#content" data-pat-inject="history: record">Documentation</a>
-			</nav>
-			<figure>
-				<img src="/style/blackboard.svg" class="pat-switch" data-pat-switch="#site-header up down; store: local">
-				<figcaption><button class="pat-button pat-switch" data-pat-switch="#site-header down up; store: local">Show me some!</button></figcaption>
-			</figure>
-		</header>
-		<div id="content">
 			<h1>Masonry</h1>
 
-<article>
-    <a href="/patternslib/src/pat//masonry/documentation.md"
-        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
-</article>
+			<article>
+			    <a href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md"
+			        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
+			</article>
 
-<h2>Demo</h2>
-<div id="demo" class="pattern-demo">
-    <a href="/patternslib/src/pat//masonry/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
-</div>
+			<article>
+			    <a href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md#documentation"
+			        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
+			</article>
 
-<article>
-    <a href="/patternslib/src/pat//masonry/documentation.md#documentation"
-        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
-</article>
-
-		</div>
-	</body>
+    </tal:main-macro>
+</metal:main>
+</body>
 </html>
+
