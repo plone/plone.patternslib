@@ -25,22 +25,26 @@ There are still a few patterns that both Plone 5 and Patternslib have. They eith
 Examples
 --------
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+There are example browser views for four patterns in the browser directory. If all went well, you can test the following patterns by calling their browser view examples on your plone site:
+
+- @@pat-depends
+- @@pat-inject
+- @@pat-masonry
+- @@pat-switch
 
 
 Documentation
 -------------
 
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+Full documentation for end users can currently not be found in the "docs" folder, but might be in the future
 
 
-Translations
-------------
+Development
+-----------
 
-This product has been translated into
+This package is built similarly to how the mockup sources are pulled into the Plone egg. There is a Makefile which clones patternslib. It is currently hardcoded to patternslib version 2.0.11, as this is the same parser version used in Plone 5.0. These versions need to be in sync, otherwise this will not work. So don't attempt to upgrade the patterns version unless you also upgraded mockup in Plone.
 
-- Klingon (thanks, K'Plai)
+Again similar to how it is done in Plone5, Patternslib is cloned and built, but only the necessary parts of it are checked in in to plone.patternslib. 
 
 
 Installation
@@ -58,20 +62,20 @@ Install plone.patternslib by adding it to your buildout::
 
 and then running ``bin/buildout``
 
+Install the plone.patternslib package into your site. It will register a patternslib resource bundle in addition to the existing plone mockup bundles.
 
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/plone.patternslib/issues
-- Source Code: https://github.com/collective/plone.patternslib
-- Documentation: https://docs.plone.org/foo/bar
+- Issue Tracker: https://github.com/plone/plone.patternslib/issues
+- Source Code: https://github.com/plone/plone.patternslib
+- Documentation: https://docs.plone.org/plone.patternslib  (not yet)
 
 
 Support
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+If you are having issues, please put them into the Issue Tracker.
 
 
 License
