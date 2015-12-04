@@ -6,7 +6,7 @@
 plone.patternslib
 ==============================================================================
 
-An experimental add-on to make patternslib patterns available within Plone 5.
+An experimental add-on to make `patternslib <http://patternslib.com/>`_ patterns available within Plone 5.
 
 Features
 --------
