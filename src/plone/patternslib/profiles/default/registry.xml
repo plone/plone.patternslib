@@ -1,26 +1,28 @@
 <?xml version="1.0" ?>
-<registry 
+<registry
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plone">
 
     <!-- ######################################### -->
     <!-- patternslib dependencies fetched by Bower -->
     <!-- ######################################### -->
-    
-    <records prefix="plone.resources/jquery.anythingslider"
+
+    <!-- commented, reasons: does not exist [jensens]
+        <records prefix="plone.resources/jquery.anythingslider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/AnythingSlider/js/jquery.anythingslider.js</value>
-    </records>
+    </records> -->
 
     <!--records prefix="plone.resources/doc-ready"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/doc-ready/doc-ready.js</value>
     </records-->
 
+    <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/eventEmitter"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/eventEmitter/EventEmitter.js</value>
-    </records>
+    </records> -->
 
     <records prefix="plone.resources/eventie"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -98,20 +100,22 @@
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/outlayer/outlayer.js</value>
     </records>
 
+    <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/item"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/outlayer/item.js</value>
-    </records>
+    </records>  -->
 
     <records prefix="plone.resources/photoswipe"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe/dist/photoswipe.min.js</value>
     </records>
 
+    <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/photoswipe-ui"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe/dist/photoswipe-ui-default.min.js</value>
-    </records>
+        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe-ui/dist/photoswipe-ui-default.min.js</value>
+    </records> -->
 
     <records prefix="plone.resources/prefixfree"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
