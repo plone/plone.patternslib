@@ -9,6 +9,7 @@ define([
     var parser = new Parser("modal");
     parser.addArgument("class");
     parser.addArgument("closing", ["close-button"], ["close-button", "outside"], true);
+    parser.addArgument("close-text", 'Close');
 
     return Base.extend({
         name: "modal",
@@ -18,8 +19,9 @@ define([
         trigger: "div.pat-modal, a.pat-modal, form.pat-modal, .pat-modal.pat-subform",
         init: function ($el, opts, trigger) {
             this.options = parser.parse(this.$el, opts);
-            if (trigger && trigger.type === "injection")
+            if (trigger && trigger.type === "injection") {
                 $.extend(this.options, parser.parse($(trigger.element), {}, false, false));
+            }
             if (this.$el.is("div")) {
                 this._init_div1();
             } else {
@@ -37,42 +39,43 @@ define([
             if (!this.$el.closest("#pat-modal")) {
                 $("#pat-modal").detach();
             }
-
             this.$el.on("pat-inject-missingSource pat-inject-missingTarget", function() {
                 $("#pat-modal").detach();
             });
-
             inject.init(this.$el, opts);
         },
 
         _init_div1: function () {
-            var $header = $("<div class='header' />"),
-                activeElement = document.activeElement;
-
-            if (this.options.closing.indexOf("close-button")!==-1)
-                $("<button type='button' class='close-panel'>Close</button>").appendTo($header);
-
+            var $header = $("<div class='header' />");
+            if (this.options.closing.indexOf("close-button")!==-1) {
+                $("<button type='button' class='close-panel'>" + this.options.closeText + "</button>").appendTo($header);
+            }
             // We cannot handle text nodes here
-            this.$el.children(":last, :not(:first)")
-                .wrapAll("<div class='panel-content' />");
+            var $children = this.$el.children(":last, :not(:first)");
+            if ($children.length) {
+                $children.wrapAll("<div class='panel-content' />");
+            } else {
+                this.$el.append("<div class='panel-content' />");
+            }
             $(".panel-content", this.$el).before($header);
             this.$el.children(":first:not(.header)").prependTo($header);
 
             // Restore focus in case the active element was a child of $el and
             // the focus was lost during the wrapping.
-            activeElement.focus();
+            document.activeElement.focus();
             this._init_handlers();
             this.resize();
             this.setPosition();
+            $('body').addClass("modal-active");
         },
 
         _init_handlers: function() {
             var $el = this.$el;
             $(document).on("click.pat-modal", ".close-panel", this.destroy.bind(this));
             $(document).on("keyup.pat-modal", this._onKeyUp.bind(this));
-            if (this.options.closing.indexOf("outside")!==-1)
+            if (this.options.closing.indexOf("outside")!==-1) {
                 $(document).on("click.pat-modal", this._onPossibleOutsideClick.bind(this));
-
+            }
             $(window).on("resize.pat-modal-position",
                 utils.debounce(this.resize.bind(this), 400));
             $(document).on("pat-inject-content-loaded.pat-modal-position", "#pat-modal",
@@ -145,6 +148,7 @@ define([
         destroy: function() {
             $(document).off(".pat-modal");
             this.$el.remove();
+            $('body').removeClass("modal-active");
         }
     });
 });
