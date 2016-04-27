@@ -19,7 +19,7 @@ long_description = (
 
 setup(
     name='plone.patternslib',
-    version='1.0a1',
+    version='0.1',
     description="An add-on to make patternslib patterns available within Plone 5.",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers

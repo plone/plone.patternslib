@@ -1,9 +1,7 @@
 Changelog
 =========
 
-
-1.0a1 (unreleased)
-------------------
+0.1 (2016-04-27)
+----------------
 
 - Initial release.
-  [pilz]
