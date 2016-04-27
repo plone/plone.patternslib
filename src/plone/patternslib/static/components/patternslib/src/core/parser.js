@@ -12,6 +12,32 @@ define([
 ], function($, _, utils, logger) {
     "use strict";
 
+    if (typeof utils.removeDuplicateObjects === "undefined") {
+        // XXX: Adding method not in utils of Patternslib 2.0.11 so that we
+        // can use newest Patternslib parser and patterns with Plone 5.0.x
+        utils.removeDuplicateObjects = function (objs) {
+            /* Given an array of objects, remove any duplicate objects which
+             * might be present.
+             */
+            var comparator = function(v, k) {
+                return this[k] === v;
+            };
+            return _.reduce(objs, function(list, next_obj) {
+                var is_duplicate = false;
+                _.each(list, function(obj) {
+                    is_duplicate = (
+                        (_.keys(obj).length === _.keys(next_obj).length) &&
+                        (!_.chain(obj).omit(comparator.bind(next_obj)).keys().value().length)
+                    );
+                });
+                if (!is_duplicate) {
+                    list.push(next_obj);
+                }
+                return list;
+            }, []);
+        };
+    }
+
     function ArgumentParser(name, opts) {
         opts = opts || {};
         this.order = [];
