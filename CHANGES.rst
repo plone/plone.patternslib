@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 (unreleased)
+0.2 (2016-04-27)
 ----------------
 
 - Polyfill removeDuplicateObjects so that we can use version 2.0.13 of
