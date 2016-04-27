@@ -65,10 +65,16 @@ Full documentation for end users can currently not be found in the "docs" folder
 Development
 -----------
 
-This package is built similarly to how the mockup sources are pulled into the Plone egg. There is a Makefile which clones patternslib. It is currently hardcoded to patternslib version 2.0.11, as this is the same parser version used in Plone 5.0. These versions need to be in sync, otherwise this will not work. So don't attempt to upgrade the patterns version unless you also upgraded mockup in Plone.
+This package is built similarly to how the mockup sources are pulled into the Plone egg. There is a Makefile which clones patternslib. 
+Similarly to how it is done in Plone5, Patternslib is cloned and built, but only the necessary parts of it are checked in to plone.patternslib. 
 
-Again similarly to how it is done in Plone5, Patternslib is cloned and built, but only the necessary parts of it are checked in to plone.patternslib. 
-
+Make sure that when you update Patternslib that the newer version or files are
+compatible with the version of `pat-utils` that are in Mockup/Plone 5.0.x. We are able to
+override the version of `pat-parser`, but not `pat-utils`, because it's
+included in the `plone-compiled.js` bundle ("baked into the cake" so to speak).
+This means that we have to rely on the version of `pat-utils` in Mockup/Plone
+5.0.x. If no new methods have been added to `pat-utils` in later versions of
+Patternslib, then it shouldn't be an issue.
 
 Installation
 ------------
