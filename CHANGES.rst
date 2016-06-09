@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Remove browserlayer and add upgrade step for removal from component registry.
+  [thet]
+
 - Cleanup.
   [thet]
 
