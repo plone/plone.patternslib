@@ -10,6 +10,19 @@
   <includeDependencies package="." />
   <include package=".browser" />
 
+  <include package="plone.resource" file="meta.zcml"/>
+
+  <browser:resource
+     name="patterns.js"
+     file="static/patterns.js"
+     />
+
+  <plone:static
+    directory="static"
+    type="plone"
+    name="patternslib"
+    />
+
 
   <genericsetup:registerProfile
       name="default"
@@ -19,14 +32,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-
-  <genericsetup:importStep
-      name="plone.patternslib-postInstall"
-      title="plone.patternslib post_install import step"
-      description="Post install import step from plone.patternslib"
-      handler=".setuphandlers.post_install">
-  </genericsetup:importStep>
-
   <genericsetup:registerProfile
       name="uninstall"
       title="plone.patternslib"
@@ -34,30 +39,5 @@
       description="Uninstalls the plone.patternslib add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
-  <genericsetup:importStep
-      name="plone.patternslib-uninstall"
-      title="plone.patternslib uninstall import step"
-      description="Import step run during ininstalling plone.patternslib"
-      handler=".setuphandlers.uninstall">
-  </genericsetup:importStep>
-
-  <utility
-      factory=".setuphandlers.HiddenProfiles"
-      name="plone.patternslib-hiddenprofiles" />
-
-  <include package="plone.resource" file="meta.zcml"/>
-  
-  <browser:resource
-     name="patterns.js"
-     file="static/patterns.js"
-     />
-
-
-  <plone:static
-    directory="static"
-    type="plone"
-    name="patternslib"
-    />
 
 </configure>

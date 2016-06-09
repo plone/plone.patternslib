@@ -4,7 +4,8 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Cleanup.
+  [thet]
 
 
 0.2 (2016-04-27)

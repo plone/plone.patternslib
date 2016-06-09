@@ -5,24 +5,18 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-long_description = (
-    open('README.rst').read() +
-    '\n' +
-    'Contributors\n' +
-    '============\n' +
-    '\n' +
-    open('CONTRIBUTORS.rst').read() +
-    '\n' +
-    open('CHANGES.rst').read() +
-    '\n')
+long_description = '\n\n'.join([
+    open('README.rst').read(),
+    open('CONTRIBUTORS.rst').read(),
+    open('CHANGES.rst').read(),
+])
 
 
 setup(
     name='plone.patternslib',
     version='0.3.dev0',
-    description="An add-on to make patternslib patterns available within Plone 5.",
+    description="An add-on to make patternslib patterns available within Plone 5.",  # noqa
     long_description=long_description,
-    # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Plone",
