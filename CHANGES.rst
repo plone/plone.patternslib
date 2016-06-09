@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Use bower to manage resources instead of Makefile script.
+  [thet]
+
 - Remove browserlayer and add upgrade step for removal from component registry.
   [thet]
 

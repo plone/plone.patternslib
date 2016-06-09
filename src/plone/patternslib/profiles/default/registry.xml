@@ -10,151 +10,151 @@
     <!-- commented, reasons: does not exist [jensens]
         <records prefix="plone.resources/jquery.anythingslider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/AnythingSlider/js/jquery.anythingslider.js</value>
+        <value key="js">++plone++patternslib/components/AnythingSlider/js/jquery.anythingslider.js</value>
     </records> -->
 
     <!--records prefix="plone.resources/doc-ready"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/doc-ready/doc-ready.js</value>
+        <value key="js">++plone++patternslib/components/doc-ready/doc-ready.js</value>
     </records-->
 
     <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/eventEmitter"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/eventEmitter/EventEmitter.js</value>
+        <value key="js">++plone++patternslib/components/eventEmitter/EventEmitter.js</value>
     </records> -->
 
     <records prefix="plone.resources/eventie"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/eventie/eventie.js</value>
+        <value key="js">++plone++patternslib/components/eventie/eventie.js</value>
     </records>
 
     <!-- not yet functional -->
     <!--records prefix="plone.resources/fullcalendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/fullcalendar/fullcalendar.min.js</value>
+        <value key="js">++plone++patternslib/components/fullcalendar/fullcalendar.min.js</value>
     </records-->
 
     <records prefix="plone.resources/get-size"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/get-size/get-size.js</value>
+        <value key="js">++plone++patternslib/components/get-size/get-size.js</value>
     </records>
 
     <records prefix="plone.resources/get-style-property"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/get-style-property/get-style-property.js</value>
+        <value key="js">++plone++patternslib/components/get-style-property/get-style-property.js</value>
     </records>
 
     <records prefix="plone.resources/imagesloaded"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/imagesloaded/imagesloaded.pkgd.min.js</value>
+        <value key="js">++plone++patternslib/components/imagesloaded/imagesloaded.pkgd.min.js</value>
     </records>
 
     <records prefix="plone.resources/jquery.browser"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery.browser/dist/jquery.browser.min.js</value>
+        <value key="js">++plone++patternslib/components/jquery.browser/dist/jquery.browser.min.js</value>
     </records>
 
     <records prefix="plone.resources/jcrop"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jcrop/js/jquery.Jcrop.min.js</value>
+        <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.min.js</value>
     </records>
 
     <records prefix="plone.resources/jquery.placeholder"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery-placeholder/jquery.placeholder.min.js</value>
+        <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.min.js</value>
     </records>
 
     <records prefix="plone.resources/jquery-textchange"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery-textchange/jquery.textchange.js</value>
+        <value key="js">++plone++patternslib/components/jquery-textchange/jquery.textchange.js</value>
     </records>
 
     <records prefix="plone.resources/masonry"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/masonry/dist/masonry.pkgd.min.js</value>
+        <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.min.js</value>
     </records>
 
     <records prefix="plone.resources/matches-selector"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/matches-selector/matches-selector.js</value>
+        <value key="js">++plone++patternslib/components/matches-selector/matches-selector.js</value>
     </records>
 
     <records prefix="plone.resources/modernizr"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/modernizr/modernizr.js</value>
+        <value key="js">++plone++patternslib/components/modernizr/modernizr.js</value>
     </records>
 
     <records prefix="plone.resources/modernizr-csspositionsticky"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/modernizr/feature-detects/css-positionsticky.js</value>
+        <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
     </records>
 
     <records prefix="plone.resources/moment-timezone"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/moment-timezone/moment-timezone.js</value>
+        <value key="js">++plone++patternslib/components/moment-timezone/moment-timezone.js</value>
     </records>
 
     <records prefix="plone.resources/outlayer"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/outlayer/outlayer.js</value>
+        <value key="js">++plone++patternslib/components/outlayer/outlayer.js</value>
     </records>
 
     <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/item"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/outlayer/item.js</value>
+        <value key="js">++plone++patternslib/components/outlayer/item.js</value>
     </records>  -->
 
     <records prefix="plone.resources/photoswipe"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe/dist/photoswipe.min.js</value>
+        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe.min.js</value>
     </records>
 
     <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/photoswipe-ui"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe-ui/dist/photoswipe-ui-default.min.js</value>
+        <value key="js">++plone++patternslib/components/photoswipe-ui/dist/photoswipe-ui-default.min.js</value>
     </records> -->
 
     <records prefix="plone.resources/prefixfree"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/prefixfree/prefixfree.min.js</value>
+        <value key="js">++plone++patternslib/components/prefixfree/prefixfree.min.js</value>
     </records>
 
     <records prefix="plone.resources/tpl"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/requirejs-tpl-jcbrand/tpl.js</value>
+        <value key="js">++plone++patternslib/components/requirejs-tpl-jcbrand/tpl.js</value>
     </records>
 
     <records prefix="plone.resources/showdown"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/showdown.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/showdown.min.js</value>
     </records>
 
     <records prefix="plone.resources/showdown-github"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/extensions/github.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/extensions/github.min.js</value>
     </records>
 
     <records prefix="plone.resources/showdown-table"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/extensions/table.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/extensions/table.min.js</value>
     </records>
 
     <records prefix="plone.resources/slides"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/slides/src/slides.js</value>
+        <value key="js">++plone++patternslib/components/slides/src/slides.js</value>
     </records>
 
     <records prefix="plone.resources/spectrum"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/spectrum/spectrum.js</value>
+        <value key="js">++plone++patternslib/components/spectrum/spectrum.js</value>
     </records>
 
     <records prefix="plone.resources/validate"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/validate/validate.min.js</value>
+        <value key="js">++plone++patternslib/components/validate/validate.min.js</value>
     </records>
 
     <!-- ######################### -->
