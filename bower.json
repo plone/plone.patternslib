@@ -2,6 +2,7 @@
   "name": "plone.patternslib",
   "description": "Patternslib integration into Plone",
   "dependencies": {
-    "patternslib": "master"
+    "patternslib": "master",
+    "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master"
   }
 }

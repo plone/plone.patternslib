@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Add ``pat-leaflet`` resources.
+  [thet]
+
 - Use bower to manage resources instead of Makefile script.
   [thet]
 
