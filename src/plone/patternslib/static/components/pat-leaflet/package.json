@@ -1,0 +1,28 @@
+{
+  "name": "pat-leaflet",
+  "description": "Patternslib Leaflet integration",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "latest",
+    "requirejs": "",
+    "http-server": "",
+    "grunt": "",
+    "grunt-contrib-concat": "",
+    "grunt-contrib-uglify": "",
+    "grunt-contrib-copy": "",
+    "grunt-sed": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/collective/plone.formwidget.geolocation"
+  },
+  "keywords": [
+    "patternslib",
+    "pattern",
+    "leaflet",
+    "map",
+    "geo"
+  ],
+  "license": "BSD-3-Clause"
+}

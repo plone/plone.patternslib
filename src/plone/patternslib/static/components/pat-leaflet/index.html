@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>pat-leaflet demo</title>
+    <link rel="stylesheet" href="src/bower_components/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="src/bower_components/Leaflet.fullscreen/dist/leaflet.fullscreen.css"/>
+    <link rel="stylesheet" href="src/bower_components/L.GeoSearch/src/css/l.geosearch.css"/>
+    <link rel="stylesheet" href="src/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
+    <link rel="stylesheet" href="src/bower_components/leaflet.markercluster/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="src/bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="src/bower_components/leaflet.locatecontrol/dist/L.Control.Locate.css"/>
+    <link rel="stylesheet" href="src/bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="src/bower_components/Leaflet-MiniMap/dist/Control.MiniMap.min.css"/>
+    <link rel="stylesheet" href="src/bower_components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.css"/>
+    <link rel="stylesheet" href="src/pat-leaflet.css"/>
+    <script data-main="main" src="src/bower_components/requirejs/require.js"></script>
+  </head>
+  <body role="document">
+
+    <h1>pat-leaflet demo - minimal</h1>
+    <div id="map1" class="pat-leaflet" data-pat-leaflet='
+    {
+      "fullscreencontrol": false,
+      "locatecontrol": false,
+      "zoomcontrol": false,
+      "map_layers": [{"title": "Map", "id": "OpenStreetMap.Mapnik"}]
+    }'></div>
+
+    <pre>
+&lt;div id=&quot;map1&quot; class=&quot;pat-leaflet&quot; data-pat-leaflet=' { &quot;fullscreencontrol&quot;: false, &quot;locatecontrol&quot;: false, &quot;zoomcontrol&quot;: false, &quot;map_layers&quot;: [{&quot;title&quot;: &quot;Map&quot;, &quot;id&quot;: &quot;OpenStreetMap.Mapnik&quot;}] }'&gt;&lt;/div&gt;
+    </pre>
+
+    <h1>pat-leaflet demo - full</h1>
+    <div id="map2" class="pat-leaflet"
+        data-pat-leaflet='{
+"fullscreencontrol": true,
+"locatecontrol": true,
+"zoomcontrol": true,
+"minimap": true,
+"geosearch": true,
+"geosearch_provider": "google",
+"addmarker": true
+}'
+        data-geojson='{
+"type": "FeatureCollection",
+"features": [
+    {
+        "type": "Feature",
+        "id": 1,
+        "properties": {
+            "popup": "reverse - copenhagen international poetry festival (dnk), copenhagen, denmark",
+            "editable": true
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                12.55568,
+                55.69078
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 2,
+        "properties": {
+          "popup": "hoergeREDE (aut), graz, austria"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                15.4382918,
+                47.0708101
+            ]
+        }
+    },
+    {
+        "type": "Feature",
+        "id": 3,
+        "properties": {
+          "popup": "sarajevo days of poetry (bih), sarajevo, bosnia"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                18.3886134,
+                43.8514981
+            ]
+        }
+    }
+]}'></div>
+
+    <pre>
+&lt;div id=&quot;map2&quot; class=&quot;pat-leaflet&quot; data-pat-leaflet='{ &quot;fullscreencontrol&quot;: true, &quot;locatecontrol&quot;: true, &quot;zoomcontrol&quot;: true, &quot;minimap&quot;: true, &quot;geosearch&quot;: true, &quot;geosearch_provider&quot;: &quot;google&quot;, &quot;addmarker&quot;: true }' data-geojson='{ &quot;type&quot;: &quot;FeatureCollection&quot;, &quot;features&quot;: [ { &quot;type&quot;: &quot;Feature&quot;, &quot;id&quot;: 1, &quot;properties&quot;: { &quot;popup&quot;: &quot;reverse - copenhagen international poetry festival (dnk), copenhagen, denmark&quot;, &quot;editable&quot;: true }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 12.55568, 55.69078 ] } }, { &quot;type&quot;: &quot;Feature&quot;, &quot;id&quot;: 2, &quot;properties&quot;: { &quot;popup&quot;: &quot;hoergeREDE (aut), graz, austria&quot; }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 15.4382918, 47.0708101 ] } }, { &quot;type&quot;: &quot;Feature&quot;, &quot;id&quot;: 3, &quot;properties&quot;: { &quot;popup&quot;: &quot;sarajevo days of poetry (bih), sarajevo, bosnia&quot; }, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 18.3886134, 43.8514981 ] } } ]}'&gt;&lt;/div&gt; 
+    </pre>
+
+  </body>
+</html>
