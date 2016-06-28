@@ -143,14 +143,19 @@
 
     <records prefix="plone.resources/photoswipe"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe.min.js</value>
+        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/photoswipe/dist/photoswipe.css</element>
+        </value>
     </records>
 
-    <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/photoswipe-ui"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/photoswipe-ui/dist/photoswipe-ui-default.min.js</value>
-    </records> -->
+        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe-ui-default.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/photoswipe/dist/default-skin/default-skin.css</element>
+        </value>
+    </records>
 
     <records prefix="plone.resources/prefixfree"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -472,6 +477,7 @@
     <records prefix="plone.resources/pat-gallery"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/gallery/gallery.js</value>
+        <value key="url">++plone++patternslib/components/patternslib/src/pat/gallery</value>
     </records>
 
     <records prefix="plone.resources/pat-grid"

@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Better ``pat-gallery`` integration.
+  [thet]
+
 - Add ``pat-leaflet`` resources.
   [thet]
 
