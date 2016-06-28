@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1 - unreleased
+
+- Fix ``pat-gallery`` to work with ``requirejs-text`` instead ``requirejs-tpl-jcbrand``.
+  Fixes an obscure "window undefined" error.
+  Backwards incompatible change: The ``photoswipe-template`` RequireJS configuration variable is removed and a the ``pat-gallery-url`` variable is defined instead.
+
 ## 2.0.13 - Apr. 27, 2016
 
 - New property for sortable pattern, `drag-class`, the CSS class to apply to item being dragged. Is `"dragged"` by default.
