@@ -1,0 +1,8 @@
+{
+  "name": "plone.patternslib",
+  "description": "Patternslib integration into Plone",
+  "dependencies": {
+    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-fixgallery",
+    "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master"
+  }
+}

@@ -11,17 +11,3 @@ class HiddenProfiles(object):
         return [
             'plone.patternslib:uninstall',
         ]
-
-
-def post_install(context):
-    """Post install script"""
-    if context.readDataFile('plonepatternslib_default.txt') is None:
-        return
-    # Do something during the installation of this package
-
-
-def uninstall(context):
-    """Uninstall script"""
-    if context.readDataFile('plonepatternslib_uninstall.txt') is None:
-        return
-    # Do something during the uninstallation of this package

@@ -42,7 +42,7 @@ The Patternslib patterns that are currently **disabled** (for various reasons) a
 * **pat-subform**
 * **pat-tabs**: New, unreleased Patternslib pattern. Not aware of any conflicts.
 * **pat-toggle**: Naming conflict with *pat-toggle* in Mockup.
-* **pat-tooltip**: Naming conflict with *pat-toggle* in Mockup.
+* **pat-tooltip**: Naming conflict with *pat-tooltip* in Mockup.
 * **pat-validation**
 
 Examples

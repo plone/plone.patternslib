@@ -7,155 +7,313 @@
     <!-- patternslib dependencies fetched by Bower -->
     <!-- ######################################### -->
 
+
+    <!-- re-define CMFPlones patternslib dependencies. Ours are more recent. -->
+    <records prefix="plone.resources/pat-base"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/base.js</value>
+    </records>
+    <records prefix="plone.resources/pat-compat"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/compat.js</value>
+    </records>
+    <records prefix="plone.resources/pat-registry"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/registry.js</value>
+    </records>
+    <records prefix="plone.resources/pat-jquery-ext"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/jquery-ext.js</value>
+    </records>
+    <records prefix="plone.resources/pat-logger"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/logger.js</value>
+    </records>
+    <records prefix="plone.resources/pat-utils"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/utils.js</value>
+    </records>
+    <records prefix="plone.resources/pat-mockup-parser"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/core/mockup-parser.js</value>
+    </records>
+    <records prefix="plone.resources/logging"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/logging/src/logging.js</value>
+    </records>
+
     <!-- commented, reasons: does not exist [jensens]
         <records prefix="plone.resources/jquery.anythingslider"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/AnythingSlider/js/jquery.anythingslider.js</value>
+        <value key="js">++plone++patternslib/components/AnythingSlider/js/jquery.anythingslider.js</value>
     </records> -->
 
     <!--records prefix="plone.resources/doc-ready"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/doc-ready/doc-ready.js</value>
+        <value key="js">++plone++patternslib/components/doc-ready/doc-ready.js</value>
     </records-->
 
     <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/eventEmitter"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/eventEmitter/EventEmitter.js</value>
+        <value key="js">++plone++patternslib/components/eventEmitter/EventEmitter.js</value>
     </records> -->
 
     <records prefix="plone.resources/eventie"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/eventie/eventie.js</value>
+        <value key="js">++plone++patternslib/components/eventie/eventie.js</value>
     </records>
 
     <!-- not yet functional -->
     <!--records prefix="plone.resources/fullcalendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/fullcalendar/fullcalendar.min.js</value>
+        <value key="js">++plone++patternslib/components/fullcalendar/fullcalendar.min.js</value>
     </records-->
 
     <records prefix="plone.resources/get-size"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/get-size/get-size.js</value>
+        <value key="js">++plone++patternslib/components/get-size/get-size.js</value>
     </records>
 
     <records prefix="plone.resources/get-style-property"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/get-style-property/get-style-property.js</value>
+        <value key="js">++plone++patternslib/components/get-style-property/get-style-property.js</value>
     </records>
 
     <records prefix="plone.resources/imagesloaded"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/imagesloaded/imagesloaded.pkgd.min.js</value>
+        <value key="js">++plone++patternslib/components/imagesloaded/imagesloaded.pkgd.min.js</value>
     </records>
 
     <records prefix="plone.resources/jquery.browser"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery.browser/dist/jquery.browser.min.js</value>
+        <value key="js">++plone++patternslib/components/jquery.browser/dist/jquery.browser.min.js</value>
     </records>
 
     <records prefix="plone.resources/jcrop"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jcrop/js/jquery.Jcrop.min.js</value>
+        <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.min.js</value>
     </records>
 
     <records prefix="plone.resources/jquery.placeholder"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery-placeholder/jquery.placeholder.min.js</value>
+        <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.min.js</value>
     </records>
 
     <records prefix="plone.resources/jquery-textchange"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/jquery-textchange/jquery.textchange.js</value>
+        <value key="js">++plone++patternslib/components/jquery-textchange/jquery.textchange.js</value>
     </records>
 
     <records prefix="plone.resources/masonry"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/masonry/dist/masonry.pkgd.min.js</value>
+        <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.min.js</value>
     </records>
 
     <records prefix="plone.resources/matches-selector"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/matches-selector/matches-selector.js</value>
+        <value key="js">++plone++patternslib/components/matches-selector/matches-selector.js</value>
     </records>
 
     <records prefix="plone.resources/modernizr"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/modernizr/modernizr.js</value>
+        <value key="js">++plone++patternslib/components/modernizr/modernizr.js</value>
     </records>
 
     <records prefix="plone.resources/modernizr-csspositionsticky"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/modernizr/feature-detects/css-positionsticky.js</value>
+        <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
     </records>
 
     <records prefix="plone.resources/moment-timezone"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/moment-timezone/moment-timezone.js</value>
+        <value key="js">++plone++patternslib/components/moment-timezone/moment-timezone.js</value>
     </records>
 
     <records prefix="plone.resources/outlayer"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/outlayer/outlayer.js</value>
+        <value key="js">++plone++patternslib/components/outlayer/outlayer.js</value>
     </records>
 
     <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/item"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/outlayer/item.js</value>
+        <value key="js">++plone++patternslib/components/outlayer/item.js</value>
     </records>  -->
 
     <records prefix="plone.resources/photoswipe"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe/dist/photoswipe.min.js</value>
+        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/photoswipe/dist/photoswipe.css</element>
+        </value>
     </records>
 
-    <!-- commented, reasons: does not exist [jensens]
     <records prefix="plone.resources/photoswipe-ui"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/photoswipe-ui/dist/photoswipe-ui-default.min.js</value>
-    </records> -->
+        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe-ui-default.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/photoswipe/dist/default-skin/default-skin.css</element>
+        </value>
+    </records>
 
     <records prefix="plone.resources/prefixfree"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/prefixfree/prefixfree.min.js</value>
+        <value key="js">++plone++patternslib/components/prefixfree/prefixfree.min.js</value>
     </records>
 
     <records prefix="plone.resources/tpl"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/requirejs-tpl-jcbrand/tpl.js</value>
+        <value key="js">++plone++patternslib/components/requirejs-tpl-jcbrand/tpl.js</value>
     </records>
 
     <records prefix="plone.resources/showdown"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/showdown.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/showdown.min.js</value>
     </records>
 
     <records prefix="plone.resources/showdown-github"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/extensions/github.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/extensions/github.min.js</value>
     </records>
 
     <records prefix="plone.resources/showdown-table"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/showdown/compressed/extensions/table.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/extensions/table.min.js</value>
     </records>
 
     <records prefix="plone.resources/slides"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/slides/src/slides.js</value>
+        <value key="js">++plone++patternslib/components/slides/src/slides.js</value>
     </records>
 
     <records prefix="plone.resources/spectrum"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/spectrum/spectrum.js</value>
+        <value key="js">++plone++patternslib/components/spectrum/spectrum.js</value>
     </records>
 
     <records prefix="plone.resources/validate"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/bower_components/validate/validate.min.js</value>
+        <value key="js">++plone++patternslib/components/validate/validate.min.js</value>
     </records>
+
+
+    <!-- Leaflet dependencies -->
+
+    <records prefix="plone.resources/leaflet"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/leaflet/dist/leaflet-src.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/leaflet/dist/leaflet.css</element>
+        </value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-fullscreen"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/Leaflet.fullscreen/dist/Leaflet.fullscreen.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/Leaflet.fullscreen/dist/leaflet.fullscreen.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-providers"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/leaflet-providers/leaflet-providers.js</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-geosearch"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.control.geosearch.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/L.GeoSearch/src/css/l.geosearch.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-geosearch-esri"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.esri.js</value>
+        <value key="deps">leaflet-geosearch</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-geosearch-bing"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.bing.js</value>
+        <value key="deps">leaflet-geosearch</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-geosearch-google"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.google.js</value>
+        <value key="deps">leaflet-geosearch</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-geosearch-openstreetmap"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.openstreetmap.js</value>
+        <value key="deps">leaflet-geosearch</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-markercluster"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/leaflet.markercluster/dist/leaflet.markercluster-src.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.Default.css</element>
+            <element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-awesomemarkers"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-locatecontrol"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/leaflet.locatecontrol/src/L.Control.Locate.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/leaflet.locatecontrol/dist/L.Control.Locate.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-minimap"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/Leaflet-MiniMap/dist/Control.MiniMap.min.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/Leaflet-MiniMap/dist/Control.MiniMap.min.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-sleep"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/Leaflet.Sleep/Leaflet.Sleep.js</value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/leaflet-simplemarkers"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
+    <records prefix="plone.resources/font-awesome"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="css">
+            <element>++plone++patternslib/components/font-awesome/css/font-awesome.css</element>
+        </value>
+    </records>
+
 
     <!-- ######################### -->
     <!-- patternslib core patterns -->
@@ -166,6 +324,16 @@
     <!-- #################### -->
     <!-- patternslib patterns -->
     <!-- #################### -->
+
+    <records prefix="plone.resources/pat-leaflet"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/pat-leaflet/src/pat-leaflet.js</value>
+        <value key="css">
+            <element>++plone++patternslib/components/pat-leaflet/src/pat-leaflet.css</element>
+        </value>
+        <value key="deps">leaflet</value>
+    </records>
+
 
     <records prefix="plone.resources/pat-depends_parse"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -309,6 +477,7 @@
     <records prefix="plone.resources/pat-gallery"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/gallery/gallery.js</value>
+        <value key="url">++plone++patternslib/components/patternslib/src/pat/gallery</value>
     </records>
 
     <records prefix="plone.resources/pat-grid"
@@ -422,25 +591,6 @@
     <records prefix="plone.resources/pat-zoom"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/zoom/zoom.js</value>
-    </records>
-
-
-    <records prefix="plone.resources/patterns"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++resource++patterns.js</value>
-    </records>
-
-
-    <!-- Registration of the patternslib patterns into the plone bundle -->
-    <records prefix="plone.bundles/patterns"
-             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-        <value key="resources" purge="false">
-            <element>patterns</element>
-        </value>
-          <value key="enabled">True</value>
-          <value key="depends">plone</value>
-          <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
-          <value key="last_compilation">2015-11-23 22:55:00</value>
     </records>
 
 </registry>
