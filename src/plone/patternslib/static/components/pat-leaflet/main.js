@@ -1,7 +1,7 @@
 require.config({
-    baseUrl: "src",
     paths: {
-        "leaflet":           "bower_components/leaflet/dist/leaflet-src",
+        "pat-leaflet":             "src/pat-leaflet",
+        "leaflet":                 "bower_components/leaflet/dist/leaflet-src",
         "leaflet-fullscreen":      "bower_components/Leaflet.fullscreen/dist/Leaflet.fullscreen",
         "leaflet-providers":       "bower_components/leaflet-providers/leaflet-providers",
         "leaflet-geosearch":       "bower_components/L.GeoSearch/src/js/l.control.geosearch",
