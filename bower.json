@@ -9,6 +9,7 @@
     "imagesloaded": "~4.1.0",
     "masonry": "~4.1.0",
     "get-size": "^2.0.2",
-    "outlayer": "^2.1.0"
+    "outlayer": "^2.1.0",
+    "jquery": "1.11.1"
   }
 }
