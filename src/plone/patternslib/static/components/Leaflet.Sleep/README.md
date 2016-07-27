@@ -1,29 +1,28 @@
 # Leaflet.Sleep
 
-When scrolling a page and your cursor crosses a leaflet map, the scroll is
-stopped and the map zooms &mdash; not friendly.
+Leaflet's stock maps are event-greedy and interfere with scrolling.
 
-`L.Sleep` removes the **dilemma** between
+`Leaflet.Sleep` is an interaction manager, helping your
+map do what you want when you want.
 
-  * disabling scrollZoom for the pages sake
-  * enabling scrollZoom for the map's sake
-
-It's an interaction-manager for your map:
-with user-interest it wakes the map and
-when ignored the map won't interfere.
-
-### [demo/example](http://cliffcloud.github.io/Leaflet.Sleep)
+### [demo](http://cliffcloud.github.io/Leaflet.Sleep)
 
 ## Use
 
-Either
-[`npm install leaflet-sleep`](https://www.npmjs.com/package/leaflet-sleep)
-or copy/paste the
+Available on [npm](#npm), [bower](#bower), and straight from the single
 [source](https://github.com/CliffCloud/Leaflet.Sleep/blob/master/Leaflet.Sleep.js)
+file
 
-all you need to do is include the plugin and you'll be good to go
+`Leaflet.Sleep` is enabled by default, and can be disabled with the map's `sleep`
+option.
 
-    <script src="Leaflet.Sleep.js"></script>
+### npm
+
+[`npm install leaflet-sleep`](https://www.npmjs.com/package/leaflet-sleep)
+
+### bower
+
+`bower install leaflet-sleep`
 
 ## Config
 
@@ -39,16 +38,19 @@ These are the new options available for `L.map` and their defaults.
         // time(ms) until map wakes on mouseover
         wakeTime: 750,
 
-        // defines whether the user is prompted on how to wake map
+        // should the user receive wake instrurctions?
         sleepNote: true,
 
-        // should hovering wake the map?
+        // should hovering wake the map? (non-touch devices only)
         hoverToWake: true,
 
-        // specify a custom message to notify users how to wake
-        wakeMessage: ('Click ' + (hoverToWake?' or Hover ' : '') + 'to Wake'),
+        // a message to inform users about waking the map
+        wakeMessage: 'Click or Hover to Wake',
 
-        // opacity (between 0 and 1) of inactive map
+        // a constructor for a control button
+        sleepButton: L.Control.sleepMapControl,
+
+        // opacity for the sleeping map
         sleepOpacity: .7
     }
 

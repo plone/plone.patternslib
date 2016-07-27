@@ -1,8 +1,8 @@
 {
   "name": "leaflet-sleep",
-  "version": "0.3.1",
+  "version": "0.5.1",
   "main": "Leaflet.Sleep.js",
-  "description": "Plugin for Leaflet for preventing unwanted scroll capturing",
+  "description": "Leaflet plugin preventing unwanted scroll capturing",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
