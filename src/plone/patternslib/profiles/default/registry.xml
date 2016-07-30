@@ -67,7 +67,7 @@
     <!-- not yet functional -->
     <!--records prefix="plone.resources/fullcalendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/fullcalendar/fullcalendar.min.js</value>
+        <value key="js">++plone++patternslib/components/fullcalendar/fullcalendar.js</value>
     </records-->
 
     <records prefix="plone.resources/get-size"
@@ -82,22 +82,22 @@
 
     <records prefix="plone.resources/imagesloaded"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/imagesloaded/imagesloaded.pkgd.min.js</value>
+        <value key="js">++plone++patternslib/components/imagesloaded/imagesloaded.pkgd.js</value>
     </records>
 
     <records prefix="plone.resources/jquery.browser"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jquery.browser/dist/jquery.browser.min.js</value>
+        <value key="js">++plone++patternslib/components/jquery.browser/dist/jquery.browser.js</value>
     </records>
 
     <records prefix="plone.resources/jcrop"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.min.js</value>
+        <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.js</value>
     </records>
 
     <records prefix="plone.resources/jquery.placeholder"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.min.js</value>
+        <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.js</value>
     </records>
 
     <records prefix="plone.resources/jquery-textchange"
@@ -107,7 +107,7 @@
 
     <records prefix="plone.resources/masonry"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.min.js</value>
+        <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.js</value>
     </records>
 
     <records prefix="plone.resources/matches-selector"
@@ -169,7 +169,7 @@
 
     <records prefix="plone.resources/showdown"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/showdown/compressed/showdown.min.js</value>
+        <value key="js">++plone++patternslib/components/showdown/compressed/showdown.js</value>
     </records>
 
     <records prefix="plone.resources/showdown-github"
@@ -194,7 +194,7 @@
 
     <records prefix="plone.resources/validate"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/validate/validate.min.js</value>
+        <value key="js">++plone++patternslib/components/validate/validate.js</value>
     </records>
 
 
