@@ -3,13 +3,15 @@
   "description": "Patternslib integration into Plone",
   "dependencies": {
     "patternslib": "https://github.com/Patternslib/Patterns.git#thet-masonryupd",
-    "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master"
+    "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master",
+    "font-awesome": "~4.6.3"
   },
   "resolutions": {
     "imagesloaded": "~4.1.0",
     "masonry": "~4.1.0",
     "get-size": "^2.0.2",
     "outlayer": "^2.1.0",
-    "jquery": "1.11.1"
+    "jquery": "1.11.3",
+    "font-awesome": "~4.6.3"
   }
 }
