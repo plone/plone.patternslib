@@ -310,7 +310,7 @@
     <records prefix="plone.resources/font-awesome"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="css">
-            <element>++plone++patternslib/components/font-awesome/css/font-awesome.css</element>
+            <element>++plone++patternslib/components/font-awesome/less/font-awesome.less</element>
         </value>
     </records>
 
@@ -592,5 +592,14 @@
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/zoom/zoom.js</value>
     </records>
+
+    <!-- ############# -->
+    <!-- lessvariables -->
+    <!-- ############# -->
+    <record name="plone.lessvariables" purge="False">
+        <value purge="False">
+            <element key="fa-font-path">\"{site_url}/++resource++patternslib/components/font-awesome/fonts\"</element>
+        </value>
+    </record>
 
 </registry>

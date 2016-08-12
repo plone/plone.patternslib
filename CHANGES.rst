@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Fix Leaflet icon integration.
+  [thet]
+
 - Register resources with their uncompressed files, whereever they are available.
   This helps debugging and the resource registry itself can handle compression on it's own.
   [thet]
