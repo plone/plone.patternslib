@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Fix font-awesome web font path.
+  [thet]
+
 - Fix Leaflet icon integration.
   [thet]
 
