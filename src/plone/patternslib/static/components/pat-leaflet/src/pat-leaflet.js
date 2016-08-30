@@ -128,16 +128,21 @@
                 marker_cluster = new L.MarkerClusterGroup();
                 marker_layer = L.geoJson(geojson, {
                     pointToLayer: function(feature, latlng) {
+                        var marker_color = this.green_marker;
+                        if (!main_marker || feature.properties.main) {
+                            marker_color = this.red_marker;
+                        }
                         var marker = L.marker(latlng, {
-                            icon: this.green_marker,
+                            icon: marker_color,
                             draggable: feature.properties.editable
                         });
                         if (!main_marker || feature.properties.main) {
                             // Set main marker. This is the one, which is used
                             // for setting the search result marker.
+                            marker.icon = this.blue_marker;
                             main_marker = marker;
                         }
-                        marker.on('dragend', function (e) {
+                        marker.on('dragend move', function (e) {
                             // UPDATE INPUTS ON MARKER MOVE
                             var latlng = e.target.getLatLng();
                             var $latinput = $(feature.properties.latinput);
@@ -154,7 +159,9 @@
                             $(feature.properties.latinput).on('change', function (e) {
                                 var latlng = marker.getLatLng();
                                 marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng});
-                                // TODO: fit bounds
+                                // fit bounds
+                                bounds = marker_cluster.getBounds();
+                                map.fitBounds(bounds);
                             });
                         }
                         if (feature.properties.lnginput) {
@@ -162,7 +169,9 @@
                             $(feature.properties.lnginput).on('change', function (e) {
                                 var latlng = marker.getLatLng();
                                 marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()});
-                                // TODO: fit bounds
+                                // fit bounds
+                                bounds = marker_cluster.getBounds();
+                                map.fitBounds(bounds);
                             });
                         }
                         return marker;
@@ -203,11 +212,13 @@
                 geosearch.addTo(map);
 
                 map.on('geosearch_showlocation', function(e) {
-                    if (main_marker) {
+                    if (main_marker && main_marker.feature.properties.editable) {
                         var latlng = {lat: e.Location.Y, lng: e.Location.X};
+                        // update, otherwise screen is blank.
                         marker_cluster.removeLayer(main_marker);
                         main_marker.setLatLng(latlng).update();
                         marker_cluster.addLayer(main_marker);
+                        // fit to window
                         map.fitBounds([latlng]);
                     } else {
                         e.Marker.setIcon(this.red_marker);
@@ -231,6 +242,16 @@
                 map.addControl(addmarker);
             }
 
+            map.on('locationfound', function (e) {
+                if (main_marker && main_marker.feature.properties.editable) {
+                    // update, otherwise screen is blank.
+                    marker_cluster.removeLayer(main_marker);
+                    main_marker.setLatLng({lat: e.latlng.lat, lng: e.latlng.lng});
+                    marker_cluster.addLayer(main_marker);
+                }
+                map.fitBounds([e.latlng]);
+            });
+
             // Minimap
             if (options.minimap) {
                 var minimap = new L.Control.MiniMap(L.tileLayer.provider('OpenStreetMap.Mapnik'), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
@@ -241,7 +262,7 @@
 
         bind_popup: function(feature, marker) {
             var popup = feature.properties.popup;
-            if (feature.properties.editable) {
+            if (feature.properties.editable && !feature.properties.no_delete) {
                 // for editable markers add "delete marker" link to popup
                 popup = popup || '';
                 var $popup = $('<div>' + popup + '</div><br/>');
@@ -249,6 +270,7 @@
                 $link.on('click', function (e) {
                     e.preventDefault();
                     this.map.removeLayer(marker);
+                    marker = undefined;
                 }.bind(this));
                 marker.bindPopup(
                     $('<div/>').append($popup).append($link)[0]

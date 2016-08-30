@@ -11,15 +11,16 @@
     "Leaflet.fullscreen": "https://github.com/Leaflet/Leaflet.fullscreen.git#v0.0.4",
     "leaflet-providers": "1.1.7",
     "L.GeoSearch": "https://github.com/smeijer/L.GeoSearch.git#master",
-    "Leaflet.awesome-markers": "2.0.2",
-    "leaflet.locatecontrol": "0.45.1",
+    "Leaflet.awesome-markers": "~2.0.2",
+    "leaflet.locatecontrol": "~0.52.0",
     "Leaflet-MiniMap": "https://github.com/Norkart/Leaflet-MiniMap.git#master",
     "Leaflet.Sleep": "https://github.com/CliffCloud/Leaflet.Sleep.git#master",
     "Leaflet.SimpleMarkers": "https://github.com/jdomingu/Leaflet.SimpleMarkers.git#master",
     "font-awesome": ""
   },
   "resolutions": {
-    "jquery": "2.2.0"
+    "jquery": "2.2.0",
+    "font-awesome": "4.6.3"
   },
   "keywords": [
     "patternslib",

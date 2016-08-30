@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  var banner = '/*! Version: <%= pkg.version %>\nDate: <%= grunt.template.today("yyyy-mm-dd") %> */\n';
+  var banner = '/*! Version: <%= pkg.version %>\nCopyright (c) 2016 Dominik Moritz */\n';
 
   // Project configuration.
   grunt.initConfig({
@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         banner: banner,
-        preserveComments: 'some',
+        preserveComments: false,
         sourceMap: true
       },
       build: {
@@ -19,24 +19,20 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          banner: banner,
           style: 'compressed'
         },
         files: {
           'dist/L.Control.Locate.min.css': 'src/L.Control.Locate.scss',
-          'dist/L.Control.Locate.ie.min.css': 'src/L.Control.Locate.ie.scss',
           'dist/L.Control.Locate.mapbox.min.css': 'src/L.Control.Locate.mapbox.scss'
         }
       },
       uncompressed: {
         options: {
-          banner: banner,
           style: 'expanded',
           sourcemap: 'none'
         },
         files: {
           'dist/L.Control.Locate.css': 'src/L.Control.Locate.scss',
-          'dist/L.Control.Locate.ie.css': 'src/L.Control.Locate.ie.scss',
           'dist/L.Control.Locate.mapbox.css': 'src/L.Control.Locate.mapbox.scss'
         }
       }
@@ -44,10 +40,17 @@ module.exports = function(grunt) {
     bump: {
       options: {
         files: ['package.json', 'bower.json'],
-        commitFiles: ['package.json', 'bower.json'],
+        commitFiles: [
+          'package.json',
+          'bower.json',
+          'dist/L.Control.Locate.css',
+          'dist/L.Control.Locate.mapbox.css',
+          'dist/L.Control.Locate.min.js',
+          'dist/L.Control.Locate.min.js.map'
+        ],
         push: false
       }
-    },
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
