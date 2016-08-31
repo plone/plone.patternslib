@@ -158,7 +158,9 @@
                             // UPDATE MARKER ON LATITUDE CHANGE
                             $(feature.properties.latinput).on('change', function (e) {
                                 var latlng = marker.getLatLng();
-                                marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng});
+                                marker_cluster.removeLayer(marker);
+                                marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng}).update();
+                                marker_cluster.addLayer(marker);
                                 // fit bounds
                                 bounds = marker_cluster.getBounds();
                                 map.fitBounds(bounds);
@@ -168,7 +170,9 @@
                             // UPDATE MARKER ON LONGITUDE CHANGE
                             $(feature.properties.lnginput).on('change', function (e) {
                                 var latlng = marker.getLatLng();
-                                marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()});
+                                marker_cluster.removeLayer(marker);
+                                marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()}).update();
+                                marker_cluster.addLayer(marker);
                                 // fit bounds
                                 bounds = marker_cluster.getBounds();
                                 map.fitBounds(bounds);
