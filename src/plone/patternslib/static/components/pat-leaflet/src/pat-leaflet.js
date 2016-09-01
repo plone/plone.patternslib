@@ -60,6 +60,7 @@
     parser.addArgument('addmarker', false);
 
     // map layers
+    parser.addArgument('default_map_layer', 'OpenStreetMap.Mapnik')
     parser.addArgument('map_layers', [
         {'title': 'Map', 'id': 'OpenStreetMap.Mapnik'},
         {'title': 'Satellite', 'id': 'Esri.WorldImagery'},
@@ -113,14 +114,12 @@
                 for (var cnt = 0; cnt < options.map_layers.length; cnt++) {
                     // build layers object with tileLayer instances
                     baseLayers[options.map_layers[cnt].title] = L.tileLayer.provider(options.map_layers[cnt].id);
-                    if (cnt === 0) {
-                        baseLayers[options.map_layers[cnt].title].addTo(map); // default map
-                    }
                 }
                 if (options.map_layers.length > 1) {
                     L.control.layers(baseLayers).addTo(map);
                 }
             }
+            L.tileLayer.provider(options.default_map_layer).addTo(map);  // default map
 
             // ADD MARKERS
             geojson = this.$el.data().geojson;
@@ -258,7 +257,7 @@
 
             // Minimap
             if (options.minimap) {
-                var minimap = new L.Control.MiniMap(L.tileLayer.provider('OpenStreetMap.Mapnik'), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
+                var minimap = new L.Control.MiniMap(L.tileLayer.provider(options.default_map_layer), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
             }
 
             log.debug('pattern initialized');

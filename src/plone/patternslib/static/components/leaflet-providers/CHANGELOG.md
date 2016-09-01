@@ -1,14 +1,25 @@
 
 # Leaflet-providers changelog
 
-## master version
+## 1.1.14 (2016-07-15)
+- Remove MapQuest, fixes #219
+- Accidently skipped v1.1.12 and v1.1.13
+
+## 1.1.11 (2016-06-04)
+ - Added protocol relativity to OSM FR, OSM HOT and Hydda providers (#214, #215).
+
+## 1.1.9 (2016-03-23)
+ - Re-added HERE layers #209, discussion in #206.
+
+## 1.1.8 (2016-03-22)
+ - Removed HERE layers #206
 
 ## 1.1.7 (2015-12-16)
  - Removed Acetate tile layers #198
 
 ## 1.1.6 (2015-11-03)
  - Removed most of the NLS layers per NLS request #193, fixes #178
- - Adde new variants to the HERE provider #183 by [@andreaswc](https://github.com/andreaswc)
+ - Added new variants to the HERE provider #183 by [@andreaswc](https://github.com/andreaswc)
  - Added some tests to make sure all the placeholders in the url template are replaced #188
 
 ## 1.1.5 (2015-10-01)
