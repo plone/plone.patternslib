@@ -14,3 +14,4 @@ spec
 specs
 gulpfile.js
 Gruntfile.js
+!dist
