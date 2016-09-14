@@ -4,6 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
+- Git-un-exclude ``dist`` directory within the ``static`` folder.
+  [thet]
+
 - Fix font-awesome web font path.
   [thet]
 
