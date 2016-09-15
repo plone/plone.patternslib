@@ -45,19 +45,19 @@
 
     parser.addArgument('latitude', '0.0');
     parser.addArgument('longitude', '0.0');
-    parser.addArgument('zoom', '1');
+    parser.addArgument('zoom', '14');
 
     // default controls
     parser.addArgument('fullscreencontrol', true);
-    parser.addArgument('locatecontrol', true);
     parser.addArgument('zoomcontrol', true);
 
     // disabled controls
+    parser.addArgument('addmarker', false);
     parser.addArgument('autolocate', false);
-    parser.addArgument('minimap', false);
     parser.addArgument('geosearch', false);
     parser.addArgument('geosearch_provider', 'openstreetmap');
-    parser.addArgument('addmarker', false);
+    parser.addArgument('locatecontrol', false);
+    parser.addArgument('minimap', false);
 
     // map layers
     parser.addArgument('default_map_layer', 'OpenStreetMap.Mapnik')
@@ -186,7 +186,7 @@
 
                 // autozoom
                 bounds = marker_cluster.getBounds();
-                map.fitBounds(bounds);
+                map.fitBounds(bounds, {maxZoom: options.zoom});
             } else {
                 map.setView(
                     [options.latitude, options.longitude],
