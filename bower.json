@@ -2,7 +2,7 @@
   "name": "plone.patternslib",
   "description": "Patternslib integration into Plone",
   "dependencies": {
-    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-gallerytriggerselector",
+    "patternslib": "https://github.com/Patternslib/Patterns.git#master",
     "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master",
     "font-awesome": "~4.6.3"
   },
