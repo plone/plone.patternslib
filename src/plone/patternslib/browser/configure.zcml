@@ -32,4 +32,11 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        name="pat-clone"
+        for="*"
+        template="./demo/clone.pt"
+        permission="zope2.View"
+        />
+
 </configure>
