@@ -4,26 +4,48 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master">
+<metal:styles fill-slot="style_slot">
+  <link rel="stylesheet" type="text/css" href="++resource++patternslib.demo/localstyles.css" />
+</metal:styles>
+
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-
         <h1>Depends</h1>
-        <article>
-            <a href="++plone++patternslib/components/patternslib/src/pat//depends/documentation.md"
-                class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
-        </article>
+        <p><a href="http://patternslib.com/depends/#documentation">Documentation</a></p>
+        <form action="#">
+            <fieldset class="pat-button-bar">
+              <button type="reset" class="pat-button">Reset</button>
+            </fieldset>
+            <fieldset class="horizontal">
+              <fieldset class="group pat-checklist radio">
+                <legend>Flavour</legend>
 
-        <h2>Demo</h2>
-        <div id="demo" class="pattern-demo">
-            <a href="++plone++patternslib/components/patternslib/src/pat//depends/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
-        </div>
+                <label><input type="radio" name="flavour" value="hawaii"/> Hawaii</label>
+                <label><input type="radio" name="flavour" value="bacon"/> Bacon Supreme</label>
+                <label><input type="radio" name="flavour" value="sea"/> Fruits de mer</label>
+              </fieldset>
 
-        <article>
-            <a href="++plone++patternslib/components/patternslib/src/pat//depends/documentation.md#documentation"
-                class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
-        </article>
+              <fieldset class="group pat-checklist">
+                <legend>Add extra toppings</legend>
+                <label>
+                  <input type="checkbox" name="custom"/> Add extra toppings
+                </label>
+              </fieldset>
+
+              <fieldset class="pat-depends group pat-checklist" data-pat-depends="condition: custom; transition: slide">
+                <legend>Extra toppings</legend>
+                <label class="pat-depends" data-pat-depends="flavour!=hawaii"><input type="checkbox" name="pineapple"/> Pineapple</label>
+                <label><input type="checkbox" name="gorgonzola"/> Gorgonzola</label>
+                <label><input type="checkbox" name="peanuts"/> Peanuts</label>
+                <label><input type="checkbox" name="redonion"/> Red onions</label>
+              </fieldset>
+            </fieldset>
+          </form>
+          <strong class="pat-depends" data-pat-depends="condition: flavour=bacon; transition: fade">This pizza is bad for your health!</strong>
+          <p class="pat-depends" data-pat-depends="condition: flavour=bacon and gorgonzola">Bad, but <em>extremely</em> tasty!</p>
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
     </tal:main-macro>
 </metal:main>

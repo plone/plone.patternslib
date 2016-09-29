@@ -4,6 +4,12 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.xmpp.extauth">
 
+
+  <browser:resourceDirectory
+      name="patternslib.demo"
+      directory="static"
+      />
+
     <browser:page
         name="pat-depends"
         for="*"
@@ -36,6 +42,13 @@
         name="pat-clone"
         for="*"
         template="./demo/clone.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="inject-sources.html"
+        for="*"
+        template="./demo/inject-sources.html"
         permission="zope2.View"
         />
 

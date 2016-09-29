@@ -4,26 +4,128 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master">
+<metal:styles fill-slot="style_slot">
+  <link rel="stylesheet" type="text/css" href="++resource++patternslib.demo/localstyles.css" />
+</metal:styles>
+
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-			<h1>Injection</h1>
-            <article>
-                <a href="++plone++patternslib/components/patternslib/src/pat/inject/documentation.md"
-                    class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
-            </article>
+      <div tal:replace="structure provider:plone.abovecontenttitle" />
+      <h1>Inject</h1>
+      <p><a href="http://patternslib.com/inject/#documentation">Documentation</a></p>
+      <article class="pat-rich">
+        <p>
+          In this example, a <a href="inject-sources.html" target="new">Single HTML source</a> is used for various injections.
+        </p>
+        <ul>
+          <li>
+            <a href="inject-sources.html#pos-1" class="pat-inject">Place "Rilke" in column 1</a>
+          </li>
+          <li>
+            <a href="inject-sources.html#pos-2" class="pat-inject">Place "Wilde" in column 2</a>
+          </li>
+          <li>
+            <a href="inject-sources.html#pos-3" class="pat-inject">Place "Cocteau" in column 3</a>
+          </li>
+          <li>
+            <a href="inject-sources.html" data-pat-inject="#pos-3 #pos-1 &amp;&amp;#pos-1 #pos-2 &amp;&amp;#pos-2 #pos-3" class="pat-inject">Place "Cocteau" in column 1, "Rilke" in column 2 and "Wilde" in column 3</a>
+          </li>
+          <li>
+            <a href="inject-sources.html#pos-3" data-pat-inject="source: #pos-3; target: .item article" class="pat-inject">Place "Cocteau" in all columns</a>
+          </li>
+          <li>
+            <a href="inject-sources.html#pos-2" data-pat-inject="source: #pos-2; target: #pos-4; trigger: autoload; delay: 2000" class="pat-inject">Autoloads "Wilde" in column 4 after a 2 second delay</a>
+          </li>
+        </ul>
+      </article>
+      <div id="poems" class="row pat-equaliser">
+        <div class="item poem three columns">
+          <article class="pat-rich" id="pos-1">
+            <p>
+              <strong class="placeholder">?</strong>
+            </p>
+          </article>
+        </div>
+        <div class="item poem three columns">
+          <article class="pat-rich" id="pos-2">
+            <p>
+              <strong class="placeholder">?</strong>
+            </p>
+          </article>
+        </div>
+        <div class="item poem three columns">
+          <article class="pat-rich" id="pos-3">
+            <p>
+              <strong class="placeholder">?</strong>
+            </p>
+          </article>
+        </div>
+        <div class="item poem three columns">
+          <article class="pat-rich" id="pos-4">
+            <p>
+              <strong class="placeholder">?</strong>
+            </p>
+          </article>
+        </div>
+      </div>
+      <style type="text/css">
+#poems {
+  font-family: georgia;
+}
+#poems .poem {
+}
+#poems article figure {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 4em;
+}
+#poems img,
+#poems .placeholder {
+  box-shadow: 0px 0px 0px 4px white,
+        0px 0px 0px 7px #000;
+  width: 6rem;
+  height: 9rem;
+  background-color: white;
+  border-radius: 50%;
+  display: block;
+  margin: 0.2em auto 0;
+}
+#poems .placeholder {
+  line-height: 9rem;
+  font-size: 4em;
+  text-align: center;
+}
+#poems figcaption {
+  text-align: center;
+}
+#poems article {
+  background-color: #efefef;
+  box-shadow: inset 0 0 4em rgba(0,0,0,0.3);
+  padding: 6em 2em 6em;
+  font-size: 0.6em;
+  line-height: 180%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 
-            <h2>Demo</h2>
-            <div id="demo" class="pattern-demo">
-                <a href="++plone++patternslib/components/patternslib/src/pat/inject/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
-            </div>
+  border: double white 12px;
+}
+#poems article * {
+  text-align: center;
+  margin-bottom: 1em;
+}
+#poems article h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
 
-            <article>
-                <a href="++plone++patternslib/components/patternslib/src/pat/inject/documentation.md#documentation"
-                    class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
-            </article>
-        <div tal:replace="structure provider:plone.belowcontentbody" />
+    </style>
+
+
     </tal:main-macro>
 </metal:main>
 </body>

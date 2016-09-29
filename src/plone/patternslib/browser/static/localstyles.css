@@ -1,0 +1,552 @@
+/* Styles copied from the Patternlib website */
+
+/* form */
+form {
+  /*hide the outline behind the border*/ }
+  form section.help .panel-content {
+    padding-bottom: 2em; }
+  form p.instruction .pat-message {
+    margin: 1em 0 0; }
+  form .pat-message,
+  form .message {
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.8em;
+    margin-bottom: 1em;
+    border: rgba(0, 0, 0, 0.05) solid 0.2rem;
+    background-color: #efefef;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    clear: both;
+    margin-top: 0.5em;
+    font-style: normal; }
+    form .pat-message.success,
+    form .message.success {
+      background-color: green;
+      color: black; }
+    form .pat-message.notice,
+    form .message.notice {
+      background-color: #FFFFD6; }
+    form .pat-message.warning,
+    form .message.warning {
+      background-color: orange;
+      color: white; }
+  form h2 {
+    margin-bottom: 1em; }
+  form input,
+  form textarea,
+  form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: "Source Sans Pro", sans-serif;
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.2em 0.5em;
+    margin: -0.2em 0;
+    background-color: rgba(0, 0, 0, 0.09);
+    border: none;
+    color: inherit;
+    font-size: 100%;
+    border-radius: 0;
+    max-width: 100%; }
+    form input:disabled,
+    form textarea:disabled,
+    form select:disabled {
+      border: transparent;
+      opacity: 1;
+      padding: 0;
+      background-color: transparent; }
+  form input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: none; }
+  form input[type=search]::-webkit-search-cancel-button:hover {
+    color: #0198E1; }
+  form input[type=search]::-webkit-search-cancel-button::after {
+    content: '\e803';
+    font-family: fontello;
+    line-height: 1;
+    margin-top: -.5em; }
+  form input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    padding: 0.2em 0;
+    background: transparent;
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    /*required for proper track sizing in FF*/ }
+  form input[type=range]:focus {
+    outline: none;
+    border: 1px solid white;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  form input[type=range]::-webkit-slider-runnable-track {
+    height: 0.5em;
+    background: #efefef;
+    border: none;
+    border-radius: 1em; }
+  form input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    background: #0198E1;
+    margin-top: -0.45em; }
+  form input[type=range]::-moz-range-track {
+    height: 0.5em;
+    background: #efefef;
+    border: none;
+    border-radius: 1em; }
+  form input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    background: #0198E1; }
+  form input[type=range]:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px; }
+  form input[type=range]::-ms-track {
+    height: 0.5em;
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: #efefef;
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 0.5em 0;
+    /*remove default tick marks*/
+    color: transparent; }
+  form input[type=range]::-ms-thumb {
+    border: none;
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    background: #0198E1; }
+  form input[type=range]:focus::-ms-fill-lower {
+    background: #888; }
+  form input[type=range]:focus::-ms-fill-upper {
+    background: #ccc; }
+  form .slider-labels {
+    width: 100%;
+    overflow: hidden;
+    font-size: 0.8em; }
+    form .slider-labels .label {
+      float: left;
+      width: 100%;
+      text-align: center; }
+      form .slider-labels .label.disabled {
+        opacity: 0.5; }
+      form .slider-labels .label:first-child {
+        text-align: left; }
+      form .slider-labels .label:last-child {
+        text-align: right; }
+    form .slider-labels.two .label {
+      width: 50%; }
+    form .slider-labels.three .label {
+      width: 33.3333332%; }
+    form .slider-labels.four .label {
+      width: 33.333333332%; }
+    form .slider-labels.four .label:first-child,
+    form .slider-labels.four .label:last-child {
+      width: 16.666666667%; }
+  form .currency-field {
+    position: relative; }
+    form .currency-field:after {
+      content: " ";
+      display: block;
+      height: 1px;
+      width: 1px; }
+    form .currency-field abbr {
+      position: absolute;
+      left: 0.5em; }
+    form .currency-field input,
+    form .currency-field output {
+      padding-left: 1.5em; }
+  form select {
+    /*Next 2 lines is a bizarre patch to make misbehaving FF hide the original dropdown button*/
+    text-indent: 0.01px;
+    text-overflow: '';
+    border-right: 0.35em solid transparent;
+    padding-right: 1em;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMnB4IiBoZWlnaHQ9IjEwcHgiIHZpZXdCb3g9IjAgLTEuNDk2IDEyIDEwIiBvdmVyZmxvdz0idmlzaWJsZSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIC0xLjQ5NiAxMiAxMCINCgkgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8ZGVmcz4NCjwvZGVmcz4NCjxwb2x5Z29uIHBvaW50cz0iMCwwIDQuMjA1LDcuMDA5IDguNDEsMCAiLz4NCjwvc3ZnPg0K); }
+  form fieldset {
+    border-style: none;
+    margin: 0 0 1em;
+    min-width: inherit; }
+    form fieldset:after {
+      display: table;
+      clear: both;
+      content: ' '; }
+    form fieldset.section {
+      margin: 0 0 2em; }
+    @media only screen and (min-width: 768px) {
+      form fieldset.horizontal {
+        width: 100%; }
+        form fieldset.horizontal > br {
+          display: none; }
+        form fieldset.horizontal .legend {
+          width: auto;
+          margin: 0;
+          padding: 0;
+          font-weight: bold;
+          letter-spacing: 0;
+          text-transform: none;
+          float: left; }
+        form fieldset.horizontal > label {
+          position: relative;
+          display: block;
+          padding-right: 65%;
+          margin-bottom: 1em;
+          width: 35%;
+          left: 0; }
+          form fieldset.horizontal > label:after {
+            content: " ";
+            height: 0;
+            display: block;
+            clear: both; }
+          form fieldset.horizontal > label > input,
+          form fieldset.horizontal > label > textarea,
+          form fieldset.horizontal > label > select,
+          form fieldset.horizontal > label > .composed,
+          form fieldset.horizontal > label > .pat-message,
+          form fieldset.horizontal > label > .message {
+            position: relative;
+            vertical-align: top;
+            max-width: 170%;
+            left: 100%;
+            margin-right: -200%;
+            margin-left: 0;
+            float: left; }
+          form fieldset.horizontal > label > .message {
+            width: 170%; }
+          form fieldset.horizontal > label.checkbox:before, form fieldset.horizontal > label[data-option]:after {
+            position: relative;
+            vertical-align: top;
+            max-width: 170%;
+            left: 100%;
+            margin-right: -200%;
+            margin-left: 0;
+            float: left; }
+        form fieldset.horizontal label .iconified {
+          float: none;
+          position: static;
+          line-height: 10px;
+          margin-top: 0;
+          vertical-align: baseline;
+          filter: none; }
+        form fieldset.horizontal label sup.required {
+          float: none;
+          position: static;
+          margin-top: 0;
+          vertical-align: baseline;
+          filter: none;
+          margin: 0; }
+        form fieldset.horizontal label textarea {
+          width: 170%; }
+        form fieldset.horizontal fieldset.group,
+        form fieldset.horizontal div.group,
+        form fieldset.horizontal .help,
+        form fieldset.horizontal .instruction {
+          width: 65%;
+          clear: left;
+          border-style: none;
+          margin: 0 0 1em 0;
+          padding-left: 35%;
+          position: relative;
+          padding-bottom: 0;
+          padding-top: 0; }
+          form fieldset.horizontal fieldset.group legend,
+          form fieldset.horizontal div.group legend,
+          form fieldset.horizontal .help legend,
+          form fieldset.horizontal .instruction legend {
+            position: absolute;
+            left: 0;
+            font-weight: normal;
+            font-style: normal;
+            top: 0; }
+          form fieldset.horizontal fieldset.group .legend,
+          form fieldset.horizontal div.group .legend,
+          form fieldset.horizontal .help .legend,
+          form fieldset.horizontal .instruction .legend {
+            width: 48%;
+            display: inline;
+            text-align: left;
+            padding: 0;
+            position: relative;
+            display: block;
+            font-weight: normal;
+            font-style: normal;
+            margin: 0 0 0 -54%;
+            text-transform: none;
+            letter-spacing: 0; }
+          form fieldset.horizontal fieldset.group label,
+          form fieldset.horizontal div.group label,
+          form fieldset.horizontal .help label,
+          form fieldset.horizontal .instruction label {
+            font-weight: normal;
+            font-style: normal;
+            position: relative;
+            border-style: none;
+            width: auto;
+            margin: 0; } }
+    @media only screen and (max-width: 767px) {
+      form fieldset.horizontal > br {
+        display: none; }
+      form fieldset.horizontal label {
+        position: relative; }
+      form fieldset.horizontal input,
+      form fieldset.horizontal textarea,
+      form fieldset.horizontal select {
+        display: block;
+        margin-top: 0.2em;
+        width: 100%; }
+      form fieldset.horizontal .legend,
+      form fieldset.horizontal > label,
+      form fieldset.horizontal .group > label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 1em; }
+      form fieldset.horizontal .legend {
+        margin-bottom: 0em; }
+      form fieldset.horizontal .currency-field {
+        display: block; }
+        form fieldset.horizontal .currency-field abbr {
+          font-weight: normal;
+          top: 0.2em; } }
+    form fieldset.vertical > br {
+      display: none; }
+    form fieldset.vertical label {
+      position: relative; }
+    form fieldset.vertical input,
+    form fieldset.vertical textarea,
+    form fieldset.vertical select {
+      display: block;
+      margin-top: 0.2em;
+      width: 100%; }
+    form fieldset.vertical .legend,
+    form fieldset.vertical > label,
+    form fieldset.vertical .group > label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 1em; }
+    form fieldset.vertical .legend {
+      margin-bottom: 0em; }
+    form fieldset.vertical .currency-field {
+      display: block; }
+      form fieldset.vertical .currency-field abbr {
+        font-weight: normal;
+        top: 0.2em; }
+
+/* masonry */
+.pat-masonry {
+  position: relative; }
+  .pat-masonry .item {
+    opacity: 0;
+    -moz-transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s; }
+  .pat-masonry.masonry-ready .item {
+    opacity: 1; }
+
+        .item {
+            margin-bottom: 1em;
+        }
+        .item a {
+            border: 1px solid silver;
+            padding: 0.5em;
+            float: left;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .item a p {
+            text-align: center;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .item a img {
+            margin-bottom: 0.5em;
+            width: 100%;
+        }
+/* END masonry */
+
+
+/* END form */
+
+/* For pat-equaliser */
+/*
+This code is based on Zurb Foundation's grid framework.
+
+@license Zurb Foundation @http://foundation.zurb.com@
+
+Copyright (c) 2012 Mark Hayes
+*/
+.row, .columns {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* @group The Grid */
+.row {
+  margin: 0 -15px; }
+
+.row .row {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0 -15px; }
+
+.row.collapse .column, .row.collapse .columns {
+  padding: 0; }
+
+.row .row {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0 -15px; }
+
+.row .row.collapse {
+  margin: 0; }
+
+.column, .columns {
+  float: left;
+  min-height: 1px;
+  padding: 0 15px;
+  position: relative; }
+
+.column.centered, .columns.centered {
+  float: none;
+  margin: 0 auto; }
+
+[class*="column"] + [class*="column"]:last-child {
+  float: right; }
+
+[class*="column"] + [class*="column"].end {
+  float: left; }
+
+.one, .row .one {
+  width: 8.33333%; }
+
+.two, .row .two {
+  width: 16.66667%; }
+
+.three, .row .three {
+  width: 25%; }
+
+.four, .row .four {
+  width: 33.33333%; }
+
+.five, .row .five {
+  width: 41.66667%; }
+
+.six, .row .six {
+  width: 50%; }
+
+.seven, .row .seven {
+  width: 58.33333%; }
+
+.eight, .row .eight {
+  width: 66.66667%; }
+
+.nine, .row .nine {
+  width: 75%; }
+
+.ten, .row .ten {
+  width: 83.33333%; }
+
+.eleven, .row .eleven {
+  width: 91.66667%; }
+
+.twelve, .row .twelve {
+  width: 100%; }
+
+.row .offset-by-one {
+  margin-left: 8.33333%; }
+
+.row .offset-by-two {
+  margin-left: 16.66667%; }
+
+.row .offset-by-three {
+  margin-left: 25%; }
+
+.row .offset-by-four {
+  margin-left: 33.33333%; }
+
+.row .offset-by-five {
+  margin-left: 41.66667%; }
+
+.row .offset-by-six {
+  margin-left: 50%; }
+
+.row .offset-by-seven {
+  margin-left: 58.33333%; }
+
+.row .offset-by-eight {
+  margin-left: 66.66667%; }
+
+.row .offset-by-nine {
+  margin-left: 75%; }
+
+.row .offset-by-ten {
+  margin-left: 83.33333%; }
+
+.push-two {
+  left: 16.66667%; }
+
+.pull-two {
+  right: 16.66667%; }
+
+.push-three {
+  left: 25%; }
+
+.pull-three {
+  right: 25%; }
+
+.push-four {
+  left: 33.33333%; }
+
+.pull-four {
+  right: 33.33333%; }
+
+.push-five {
+  left: 41.66667%; }
+
+.pull-five {
+  right: 41.66667%; }
+
+.push-six {
+  left: 50%; }
+
+.pull-six {
+  right: 50%; }
+
+.push-seven {
+  left: 58.33333%; }
+
+.pull-seven {
+  right: 58.33333%; }
+
+.push-eight {
+  left: 66.66667%; }
+
+.pull-eight {
+  right: 66.66667%; }
+
+.push-nine {
+  left: 75%; }
+
+.pull-nine {
+  right: 75%; }
+
+.push-ten {
+  left: 83.33333%; }
+
+.pull-ten {
+  right: 83.33333%; }
+
