@@ -28,7 +28,7 @@ setup(
     ],
     keywords='Python Plone',
     author='Syslab.com',
-    author_email='pilz@syslab.com',
+    author_email='info@syslab.com',
     url='https://pypi.python.org/pypi/plone.patternslib',
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),

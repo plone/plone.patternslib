@@ -7,3 +7,18 @@
 *.egg-info/
 ./build/
 ./dist/
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+stamp-bower
+stamp-npm
+src/bower_components
+node_modules
+
