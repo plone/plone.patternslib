@@ -17,3 +17,7 @@ gulpfile.js
 Gruntfile.js
 !dist
 !lib
+stamp-bower
+stamp-npm
+src/bower_components
+node_modules

@@ -14,7 +14,7 @@
 
   <browser:resource
      name="patterns.js"
-     file="static/patterns.js"
+     file="static/src/patterns.js"
      />
 
   <plone:static

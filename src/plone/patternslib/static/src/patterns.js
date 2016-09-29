@@ -42,13 +42,13 @@ define('patterns', [
     "pat-switch",
     "pat-zoom"
 ], function(registry) {
-    if (!registry.initialized) {
-        registry.init();
-    }
+    window.patterns = registry;
+    registry.init();
+    return registry;
 });
 
-(function(root) {
-    require(['patterns'], function (patterns) {
-        //patterns is now loaded.
-    });
-})(window);
+// (function(root) {
+//     require(['patterns'], function (patterns) {
+//         //patterns is now loaded.
+//     });
+// })(window);

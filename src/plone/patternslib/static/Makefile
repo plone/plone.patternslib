@@ -3,7 +3,6 @@ GRUNT           ?= node_modules/.bin/grunt
 BUNDLENAME       = patterns
 PATTERNS         = src/bower_components/patternslib
 SOURCES          = $(wildcard $(PATTERNS)/src/*.js) $(wildcard $(PATTERNS)/src/pat/*.js) $(wildcard $(PATTERNS)/src/lib/*.js)
-BUNDLES          = bundles/patterns.js bundles/patterns.min.js
 
 default: all
 
@@ -23,6 +22,6 @@ clean:
 bundle: stamp-bower $(SOURCES) build.js
 	node_modules/.bin/r.js -o build.js optimize=none
 	$(GRUNT) uglify
-	mv bundle.js src/plone/patternslib/static/$(BUNDLENAME)-compiled.js
-	mv bundle.min.js src/plone/patternslib/static/$(BUNDLENAME)-compiled.min.js
+	mv bundle.js $(BUNDLENAME)-compiled.js
+	mv bundle.min.js $(BUNDLENAME)-compiled.min.js
 
