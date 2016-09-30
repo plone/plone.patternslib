@@ -40,7 +40,8 @@ define('patterns', [
     "pat-selectbox",
     "pat-stacks",
     "pat-switch",
-    "pat-zoom"
+    "pat-zoom",
+    "pat-leaflet"
 ], function(registry) {
     window.patterns = registry;
     registry.init();

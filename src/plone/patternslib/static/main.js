@@ -129,7 +129,25 @@ require.config({
         "pat-tooltip":                 "bower_components/patternslib/src/pat/tooltip/tooltip",
         "pat-validation":              "bower_components/patternslib/src/pat/validation/validation",
         "pat-zoom":                    "bower_components/patternslib/src/pat/zoom/zoom",
-        "patterns":                    "patterns"
+        "patterns":                    "patterns",
+
+
+        // pat-leaflet
+        "pat-leaflet":             "bower_components/pat-leaflet/src/pat-leaflet",
+        "leaflet":                 "bower_components/leaflet/dist/leaflet-src",
+        "leaflet-fullscreen":      "bower_components/Leaflet.fullscreen/dist/Leaflet.fullscreen",
+        "leaflet-providers":       "bower_components/leaflet-providers/leaflet-providers",
+        "leaflet-geosearch":       "bower_components/L.GeoSearch/src/js/l.control.geosearch",
+        "leaflet-geosearch-bing":  "bower_components/L.GeoSearch/src/js/l.geosearch.provider.bing",
+        "leaflet-geosearch-esri":  "bower_components/L.GeoSearch/src/js/l.geosearch.provider.esri",
+        "leaflet-geosearch-google": "bower_components/L.GeoSearch/src/js/l.geosearch.provider.google",
+        "leaflet-geosearch-openstreetmap": "bower_components/L.GeoSearch/src/js/l.geosearch.provider.openstreetmap",
+        "leaflet-markercluster":   "bower_components/leaflet.markercluster/dist/leaflet.markercluster-src",
+        "leaflet-awesomemarkers":  "bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers",
+        "leaflet-locatecontrol":   "bower_components/leaflet.locatecontrol/src/L.Control.Locate",
+        "leaflet-minimap":         "bower_components/Leaflet-MiniMap/dist/Control.MiniMap.min",
+        "leaflet-sleep":           "bower_components/Leaflet.Sleep/Leaflet.Sleep",
+        "leaflet-simplemarkers":   "bower_components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers",
     },
 
     shim: {
@@ -148,7 +166,19 @@ require.config({
         "showdown-github":              { deps: ["showdown"] },
         "showdown-prettify":            { deps: ["showdown", "google-code-prettify"] },
         "showdown-table":               { deps: ["showdown"] },
-        "modernizr-csspositionsticky":  { deps: ["modernizr"] }
+        "modernizr-csspositionsticky":  { deps: ["modernizr"] },
+        "leaflet-fullscreen": { deps: ["leaflet"] },
+        "leaflet-geosearch": { deps: ["leaflet"] },
+        "leaflet-geosearch-bing": { deps: ["leaflet-geosearch"] },
+        "leaflet-geosearch-esri": { deps: ["leaflet-geosearch"] },
+        "leaflet-geosearch-google": { deps: ["leaflet-geosearch"] },
+        "leaflet-geosearch-openstreetmap": { deps: ["leaflet-geosearch"] },
+        "leaflet-markercluster": { deps: ["leaflet"] },
+        "leaflet-awesomemarkers": { deps: ["leaflet"] },
+        "leaflet-locatecontrol": { deps: ["leaflet"] },
+        "leaflet-minimap": { deps: ["leaflet"] },
+        "leaflet-sleep": { deps: ["leaflet"] },
+        "leaflet-simplemarkers": { deps: ["leaflet"] },
     },
 });
 
