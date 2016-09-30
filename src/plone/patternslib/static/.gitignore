@@ -2,6 +2,7 @@
 *.jpeg
 *.psd
 .*
+components
 demo
 demos
 example
