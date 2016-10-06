@@ -593,6 +593,11 @@
     </records>
 
 
+    <records prefix="plone.resources/patterns"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++resource++patterns.js</value>
+    </records>
+
     <!-- Registration of the patternslib patterns into the plone bundle -->
     <records prefix="plone.bundles/patterns"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
