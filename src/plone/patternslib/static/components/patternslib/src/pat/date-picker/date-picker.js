@@ -6,7 +6,7 @@ define([
     "pat-base",
     "pikaday",
     "moment",
-    "moment-timezone-data",
+    "moment-timezone",
     "modernizr"
 ], function(_, Parser, registry, Base, Pikaday, moment, momenttimezone) {
     "use strict";

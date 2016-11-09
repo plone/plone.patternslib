@@ -2,6 +2,8 @@
 
 ## 2.1.0 - (unreleased)
 
+- pat-gallery: UI improvements - do not close on scroll or pinch.
+- pat-gallery: UI improvements - remove scrollbars when gallery is opened. 
 - pat-gallery: add option ``item-selector`` for gallery items, which are added to the gallery.
   Defaults to ``a``.
   Fixes situations, when gallery items and normal links are mixed within the same container and normal links would open within the gallery lightbox.

@@ -2,11 +2,12 @@
   "name": "plone.patternslib",
   "description": "Patternslib integration into Plone",
   "dependencies": {
-    "patternslib": "https://github.com/Patternslib/Patterns.git#master",
+    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-gallery-ui",
     "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master",
     "font-awesome": "~4.6.3"
   },
   "resolutions": {
+    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-gallery-ui",
     "imagesloaded": "~4.1.0",
     "masonry": "~4.1.0",
     "get-size": "^2.0.2",
