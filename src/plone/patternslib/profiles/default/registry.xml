@@ -8,6 +8,14 @@
     <!-- ######################################### -->
 
 
+    <!-- already in Plone -->
+    <!--
+    <records prefix="plone.resources/text"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/requirejs-text/text.js</value>
+    </records>
+    -->
+
     <!-- re-define CMFPlones patternslib dependencies. Ours are more recent. -->
     <records prefix="plone.resources/pat-base"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -42,26 +50,14 @@
         <value key="js">++plone++patternslib/components/logging/src/logging.js</value>
     </records>
 
-    <!-- commented, reasons: does not exist [jensens]
-        <records prefix="plone.resources/jquery.anythingslider"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <records prefix="plone.resources/jquery.anythingslider"
+              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/AnythingSlider/js/jquery.anythingslider.js</value>
-    </records> -->
+    </records>
 
-    <!--records prefix="plone.resources/doc-ready"
+    <records prefix="plone.resources/ev-emitter"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/doc-ready/doc-ready.js</value>
-    </records-->
-
-    <!-- commented, reasons: does not exist [jensens]
-    <records prefix="plone.resources/eventEmitter"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/eventEmitter/EventEmitter.js</value>
-    </records> -->
-
-    <records prefix="plone.resources/eventie"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/eventie/eventie.js</value>
+        <value key="js">++plone++patternslib/components/ev-emitter/ev-emitter.js</value>
     </records>
 
     <!-- not yet functional -->
@@ -73,11 +69,6 @@
     <records prefix="plone.resources/get-size"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/get-size/get-size.js</value>
-    </records>
-
-    <records prefix="plone.resources/get-style-property"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/get-style-property/get-style-property.js</value>
     </records>
 
     <records prefix="plone.resources/imagesloaded"
@@ -93,16 +84,19 @@
     <records prefix="plone.resources/jcrop"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.js</value>
+        <value key="deps">jquery</value>
     </records>
 
     <records prefix="plone.resources/jquery.placeholder"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.js</value>
+        <value key="deps">jquery</value>
     </records>
 
-    <records prefix="plone.resources/jquery-textchange"
+    <records prefix="plone.resources/jquery.textchange"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/jquery-textchange/jquery.textchange.js</value>
+        <value key="deps">jquery</value>
     </records>
 
     <records prefix="plone.resources/masonry"
@@ -110,9 +104,9 @@
         <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.js</value>
     </records>
 
-    <records prefix="plone.resources/matches-selector"
+    <records prefix="plone.resources/desandro-matches-selector"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/matches-selector/matches-selector.js</value>
+        <value key="js">++plone++patternslib/components/desandro-matches-selector/matches-selector.js</value>
     </records>
 
     <records prefix="plone.resources/modernizr"
@@ -123,6 +117,7 @@
     <records prefix="plone.resources/modernizr-csspositionsticky"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
+        <value key="deps">modernizr-csspositionsticky</value>
     </records>
 
     <records prefix="plone.resources/moment-timezone"
@@ -130,16 +125,15 @@
         <value key="js">++plone++patternslib/components/moment-timezone/moment-timezone.js</value>
     </records>
 
+    <records prefix="plone.resources/moment-timezone-data"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/src/pat/calendar/moment-timezone-with-data-2010-2020.js</value>
+    </records>
+
     <records prefix="plone.resources/outlayer"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/outlayer/outlayer.js</value>
     </records>
-
-    <!-- commented, reasons: does not exist [jensens]
-    <records prefix="plone.resources/item"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/outlayer/item.js</value>
-    </records>  -->
 
     <records prefix="plone.resources/photoswipe"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -162,11 +156,6 @@
         <value key="js">++plone++patternslib/components/prefixfree/prefixfree.min.js</value>
     </records>
 
-    <records prefix="plone.resources/tpl"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/requirejs-tpl-jcbrand/tpl.js</value>
-    </records>
-
     <records prefix="plone.resources/showdown"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/showdown/compressed/showdown.js</value>
@@ -175,11 +164,13 @@
     <records prefix="plone.resources/showdown-github"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/showdown/compressed/extensions/github.min.js</value>
+        <value key="deps">showdown</value>
     </records>
 
     <records prefix="plone.resources/showdown-table"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/showdown/compressed/extensions/table.min.js</value>
+        <value key="deps">showdown</value>
     </records>
 
     <records prefix="plone.resources/slides"
@@ -190,6 +181,12 @@
     <records prefix="plone.resources/spectrum"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/spectrum/spectrum.js</value>
+        <value key="deps">jquery</value>
+    </records>
+
+    <records prefix="plone.resources/Stickyfill"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/Stickyfill/stickyfill.js</value>
     </records>
 
     <records prefix="plone.resources/validate"
@@ -314,11 +311,6 @@
         </value>
     </records>
 
-    <!-- ######################### -->
-    <!-- patternslib core patterns -->
-    <!-- ######################### -->
-
-
 
     <!-- #################### -->
     <!-- patternslib patterns -->
@@ -332,7 +324,6 @@
         </value>
         <value key="deps">leaflet</value>
     </records>
-
 
     <records prefix="plone.resources/pat-depends_parse"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -560,6 +551,11 @@
         <value key="js">++plone++patternslib/components/patternslib/src/pat/stacks/stacks.js</value>
     </records>
 
+    <records prefix="plone.resources/pat-sticky"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/pat/sticky/sticky.js</value>
+    </records>
+
     <records prefix="plone.resources/pat-subform"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/subform/subform.js</value>
@@ -608,7 +604,23 @@
           <value key="depends">plone</value>
           <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
           <value key="last_compilation">2015-11-23 22:55:00</value>
-</records>
+    </records>
 
+    <!-- upgrade -->
+    <records remove="True"
+            prefix="plone.resources/eventie"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
+    <records remove="True"
+            prefix="plone.resources/get-style-property"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
+    <records remove="True"
+            prefix="plone.resources/matches-selector"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
+    <records remove="True"
+            prefix="plone.resources/tpl"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
+    <records remove="True"
+            prefix="plone.resources/jquery.textchange"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
 
 </registry>
