@@ -117,7 +117,7 @@
     <records prefix="plone.resources/modernizr-csspositionsticky"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
-        <value key="deps">modernizr-csspositionsticky</value>
+        <value key="deps">modernizr</value>
     </records>
 
     <records prefix="plone.resources/moment-timezone"
@@ -127,7 +127,7 @@
 
     <records prefix="plone.resources/moment-timezone-data"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/src/pat/calendar/moment-timezone-with-data-2010-2020.js</value>
+        <value key="js">++plone++patternslib/components/patternslib/src/pat/calendar/moment-timezone-with-data-2010-2020.js</value>
     </records>
 
     <records prefix="plone.resources/outlayer"
@@ -184,9 +184,9 @@
         <value key="deps">jquery</value>
     </records>
 
-    <records prefix="plone.resources/Stickyfill"
+    <records prefix="plone.resources/stickyfill"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Stickyfill/stickyfill.js</value>
+        <value key="js">++plone++patternslib/components/Stickyfill/dist/stickyfill.js</value>
     </records>
 
     <records prefix="plone.resources/validate"
@@ -588,22 +588,98 @@
         <value key="js">++plone++patternslib/components/patternslib/src/pat/zoom/zoom.js</value>
     </records>
 
+    <!-- Registration of the patternslib patterns into the plone bundle -->
+    <records prefix="plone.resources/bundle-leaflet"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/bundle-leaflet.js</value>
+        <value key="css">
+            <element>++plone++patternslib/bundle-leaflet.less</element>
+        </value>
+    </records>
+    <records prefix="plone.bundles/bundle-leaflet"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources">
+            <element>bundle-leaflet</element>
+        </value>
+        <value key="enabled">True</value>
+        <value key="depends">plone</value>
+        <value key="csscompilation">++plone++patternslib/bundle-leaflet-compiled.min.js</value>
+        <value key="jscompilation">++plone++patternslib/bundle-leaflet-compiled.css</value>
+        <value key="last_compilation">2015-11-23 22:55:00</value>
+        <value key="stub_js_modules">
+          <element>backbone</element>
+          <element>bootstrap-dropdown</element>
+          <element>bootstrap-tooltip</element>
+          <element>jquery.event.drag</element>
+          <element>jquery.event.drop</element>
+          <element>jquery.form</element>
+          <element>jquery</element>
+          <element>mockup-i18n</element>
+          <element>mockup-patterns-autotoc</element>
+          <element>mockup-patterns-backdrop</element>
+          <element>mockup-patterns-base</element>
+          <element>mockup-patterns-modal</element>
+          <element>mockup-patterns-moment</element>
+          <element>mockup-patterns-pickadate</element>
+          <element>mockup-patterns-select2</element>
+          <element>mockup-router</element>
+          <element>mockup-utils</element>
+          <element>pat-base</element>
+          <element>pat-compat</element>
+          <element>pat-logger</element>
+          <element>pat-mockup-parser</element>
+          <element>pat-registry</element>
+          <element>pat-utils</element>
+          <element>select2</element>
+          <element>translate</element>
+          <element>underscore</element>
+          <element>moment</element>
+        </value>
+    </records>
 
+    <!-- Registration of the patternslib patterns into the plone bundle -->
     <records prefix="plone.resources/patterns"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++resource++patterns.js</value>
     </records>
-
-    <!-- Registration of the patternslib patterns into the plone bundle -->
     <records prefix="plone.bundles/patterns"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
         <value key="resources" purge="false">
             <element>patterns</element>
         </value>
-          <value key="enabled">True</value>
-          <value key="depends">plone</value>
-          <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
-          <value key="last_compilation">2015-11-23 22:55:00</value>
+        <value key="enabled">True</value>
+        <value key="depends">plone</value>
+        <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
+        <value key="last_compilation">2015-11-23 22:55:00</value>
+        <value key="stub_js_modules">
+          <element>backbone</element>
+          <element>bootstrap-dropdown</element>
+          <element>bootstrap-tooltip</element>
+          <element>jquery.event.drag</element>
+          <element>jquery.event.drop</element>
+          <element>jquery.form</element>
+          <element>jquery</element>
+          <element>mockup-i18n</element>
+          <element>mockup-patterns-autotoc</element>
+          <element>mockup-patterns-backdrop</element>
+          <element>mockup-patterns-base</element>
+          <element>mockup-patterns-modal</element>
+          <element>mockup-patterns-moment</element>
+          <element>mockup-patterns-pickadate</element>
+          <element>mockup-patterns-select2</element>
+          <element>mockup-router</element>
+          <element>mockup-utils</element>
+          <element>pat-base</element>
+          <element>pat-compat</element>
+          <element>pat-logger</element>
+          <element>pat-mockup-parser</element>
+          <element>pat-registry</element>
+          <element>pat-utils</element>
+          <element>select2</element>
+          <element>translate</element>
+          <element>underscore</element>
+          <element>moment</element>
+        </value>
     </records>
 
     <!-- upgrade -->
