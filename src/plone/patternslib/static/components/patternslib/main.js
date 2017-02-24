@@ -45,6 +45,7 @@ require.config({
         "showdown-prettify":                "bower_components/showdown/src/extensions/prettify",
         "showdown-table":                   "bower_components/showdown/src/extensions/table",
         "spectrum":                         "bower_components/spectrum/spectrum",
+        "stickyfill":                       "bower_components/Stickyfill/src/stickyfill",
         "text":                             "bower_components/requirejs-text/text",
         "tinymce":                          "bower_components/jquery.tinymce/jscripts/tiny_mce/jquery.tinymce",
         "underscore":                       "bower_components/underscore/underscore",
@@ -53,7 +54,7 @@ require.config({
         // Calendar pattern
         "moment": "bower_components/moment/moment",
         "moment-timezone": "bower_components/moment-timezone/moment-timezone",
-        "pat-calendar-moment-timezone-data": "pat/calendar/moment-timezone-data",
+        "moment-timezone-data": "pat/calendar/moment-timezone-with-data-2010-2020",
 
         // Core
         "pat-compat":               "core/compat",
@@ -121,6 +122,7 @@ require.config({
         "pat-slideshow-builder":       "pat/slideshow-builder/slideshow-builder",
         "pat-sortable":                "pat/sortable/sortable",
         "pat-stacks":                  "pat/stacks/stacks",
+        "pat-sticky":                  "pat/sticky/sticky",
         "pat-subform":                 "pat/subform/subform",
         "pat-switch":                  "pat/switch/switch",
         "pat-scroll":                  "pat/scroll/scroll",

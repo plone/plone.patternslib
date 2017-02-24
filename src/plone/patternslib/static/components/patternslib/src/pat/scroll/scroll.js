@@ -61,12 +61,12 @@ define([
         clearIfHidden: function(ev) {
             var active_target = '#' + window.location.hash.substr(1),
                 $active_target = $(active_target),
-                target = this.$el[0].href.split('/').pop();
+                target = '#' + this.$el[0].href.split('#').pop();
             if ($active_target.length > 0) {
                 if (active_target != target) {
                     // if the element does not match the one listed in the url #,
                     // clear the current class from it.
-                    var $target = $(this.$el[0].href.split('/').pop());
+                    var $target = $('#' + this.$el[0].href.split('#').pop());
                     $target.removeClass("current");
                     this.$el.removeClass("current");
                 }
@@ -131,7 +131,14 @@ define([
                 // starting from the *target*
                 // The intent is to move target into view within scrollable
                 // if the scrollable has no scrollbar, do not scroll body
-                var target = $(this.$el.attr('href'));
+
+                href = this.$el.attr('href');
+                fragment = href.indexOf('#') !== -1 && href.split('#').pop() || undefined;
+                var target = $('#'+fragment);
+                if (target.length === 0) {
+                    return;
+                }
+
                 scrollable = $(target.parents().filter(function() {
                     return ( $(this).css('overflow') === 'auto' ||
                              $(this).css('overflow') === 'scroll' );

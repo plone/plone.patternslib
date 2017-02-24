@@ -119,23 +119,16 @@ define([
         },
 
         resize: function() {
-            var modal_height = this.$el.outerHeight(true);
-            var modal_padding = modal_height - this.$el.outerHeight();
-            var max_height = $(window).innerHeight() - modal_padding;
-            var $tallest_child = this.getTallestChild();
-            var tallest_child_height = $tallest_child.outerHeight(true);
+            // reset the height before setting a new one
+            this.$el.removeClass("max-height").css("height", "");
 
-            if (tallest_child_height !== modal_height) {
-                modal_height = tallest_child_height + modal_padding;
-            }
-            if (max_height < modal_height) {
-                this.$el.addClass("max-height").css("height", max_height);
+            var panel_content_elem = this.$el.find(".panel-content");
+            var header_elem = this.$el.find('.header');
+
+            var modal_height = panel_content_elem.outerHeight(true) + header_elem.outerHeight(true);
+            if (this.$el.height() < modal_height) {
+                this.$el.addClass("max-height").css({"height": modal_height+'px'});
                 this.setPosition();
-            } else if (modal_height !== this.$el.height()) {
-                this.$el.removeClass("max-height").css("height", modal_height);
-                this.setPosition();
-            } else {
-                return;
             }
             // XXX: This is a hack. When you have a modal inside a
             // modal.max-height, the CSS of the outermost modal affects the
