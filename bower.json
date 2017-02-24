@@ -2,17 +2,17 @@
   "name": "plone.patternslib",
   "description": "Patternslib integration into Plone",
   "dependencies": {
-    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-gallery-ui",
-    "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#master",
-    "font-awesome": "~4.6.3"
+    "patternslib": "https://github.com/Patternslib/Patterns.git#master",
+    "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#1.0.0",
+    "font-awesome": "~4.7.0"
   },
   "resolutions": {
-    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-gallery-ui",
-    "imagesloaded": "~4.1.0",
-    "masonry": "~4.1.0",
+    "patternslib": "https://github.com/Patternslib/Patterns.git#master",
+    "imagesloaded": "~4.1.1",
+    "masonry": "~4.1.1",
     "get-size": "^2.0.2",
     "outlayer": "^2.1.0",
     "jquery": "1.11.3",
-    "font-awesome": "~4.6.3"
+    "font-awesome": "~4.7.0"
   }
 }
