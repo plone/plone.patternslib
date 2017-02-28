@@ -33,7 +33,7 @@
       />
   <genericsetup:registerProfile
       name="uninstall"
-      title="plone.patternslib"
+      title="Plone Patternslib uninstall"
       directory="profiles/uninstall"
       description="Uninstalls the plone.patternslib add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"

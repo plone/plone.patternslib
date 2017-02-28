@@ -22,7 +22,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
     }
 
     // attach your plugin to the global 'L' variable
-    if(typeof window !== 'undefined' && window.L){
+    if (typeof window !== 'undefined' && window.L){
         window.L.Control.Locate = factory(L);
     }
 } (function (L) {
@@ -49,6 +49,8 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             setView: 'untilPan',
             /** Keep the current map zoom level when setting the view and only pan. */
             keepCurrentZoomLevel: false,
+            /** Smooth pan and zoom to the location of the marker. Only works in Leaflet 1.0+. */
+            flyTo: false,
             /**
              * The user location can be inside and outside the current view when the user clicks on the
              * control that is already active. Both cases can be configures separately.
@@ -62,6 +64,17 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 /** What should happen if the user clicks on the control while the location is outside the current view. */
                 outOfView: 'setView',
             },
+            /**
+             * If set, save the map bounds just before centering to the user's
+             * location. When control is disabled, set the view back to the
+             * bounds that were saved.
+             */
+            returnToPrevBounds: false,
+            /**
+             * Keep a cache of the location after the user deactivates the control. If set to false, the user has to wait
+             * until the locate API returns a new location before they see where they are again.
+             */
+            cacheLocation: true,
             /** If set, a circle that shows the location accuracy is drawn. */
             drawCircle: true,
             /** If set, the marker at the users' location is drawn. */
@@ -76,7 +89,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 weight: 2,
                 opacity: 0.5
             },
-            /** Inner marker style properties. */
+            /** Inner marker style properties. Only works if your marker class supports `setStyle`. */
             markerStyle: {
                 color: '#136AEC',
                 fillColor: '#2A93EE',
@@ -158,9 +171,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._layer = this.options.layer || new L.LayerGroup();
             this._layer.addTo(map);
             this._event = undefined;
+            this._prevBounds = null;
 
             this._link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', container);
-            this._link.href = '#';
             this._link.title = this.options.strings.title;
             this._icon = L.DomUtil.create(this.options.iconElementTag, this.options.icon, this._link);
 
@@ -196,9 +209,16 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                         break;
                     case 'stop':
                         this.stop();
+                        if (this.options.returnToPrevBounds) {
+                            var f = this.options.flyTo ? this._map.flyToBounds : this._map.fitBounds;
+                            f.bind(this._map)(this._prevBounds);
+                        }
                         break;
                 }
             } else {
+                if (this.options.returnToPrevBounds) {
+                  this._prevBounds = this._map.getBounds();
+                }
                 this.start();
             }
 
@@ -269,6 +289,10 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._map.stopLocate();
             this._active = false;
 
+            if (!this.options.cacheLocation) {
+                this._event = undefined;
+            }
+
             // unbind event listeners
             this._map.off('locationfound', this._onLocationFound, this);
             this._map.off('locationerror', this._onLocationError, this);
@@ -279,19 +303,22 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          * Zoom (unless we should keep the zoom level) and an to the current view.
          */
         setView: function() {
+            this._drawMarker();
             if (this._isOutsideMapBounds()) {
+                this._event = undefined;  // clear the current location so we can get back into the bounds
                 this.options.onLocationOutsideMapBounds(this);
             } else {
                 if (this.options.keepCurrentZoomLevel) {
-                    this._map.panTo([this._event.latitude, this._event.longitude]);
+                    var f = this.options.flyTo ? this._map.flyTo : this._map.panTo;
+                    f.bind(this._map)([this._event.latitude, this._event.longitude]);
                 } else {
-                    this._map.fitBounds(this._event.bounds, {
+                    var f = this.options.flyTo ? this._map.flyToBounds : this._map.fitBounds;
+                    f.bind(this._map)(this._event.bounds, {
                         padding: this.options.circlePadding,
                         maxZoom: this.options.locateOptions.maxZoom
                     });
                 }
             }
-            this._drawMarker();
         },
 
         /**
@@ -330,11 +357,14 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             // small inner marker
             if (this.options.drawMarker) {
                 var mStyle = this._isFollowing() ? this.options.followMarkerStyle : this.options.markerStyle;
-
                 if (!this._marker) {
                     this._marker = new this.options.markerClass(latlng, mStyle).addTo(this._layer);
                 } else {
-                    this._marker.setLatLng(latlng).setStyle(mStyle);
+                    this._marker.setLatLng(latlng);
+                    // If the markerClass can be updated with setStyle, update it.
+                    if (this._marker.setStyle) {
+                        this._marker.setStyle(mStyle);
+                    }
                 }
             }
 
