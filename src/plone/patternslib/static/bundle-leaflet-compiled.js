@@ -14843,20 +14843,21 @@ L.Control.SimpleMarkers = L.Control.extend({
 /* Patterns bundle configuration.
  */
 require([
-    "pat-registry",
-    "pat-leaflet"
+    'jquery',
+    'pat-registry',
+    'pat-leaflet'
 ], function($, registry) {
-  'use strict';
+    'use strict';
 
-  // initialize only if we are in top frame
-  if (window.parent === window) {
-    $(document).ready(function() {
-      $('body').addClass('bundle-leaflet');
-      if (!registry.initialized) {
-        registry.init();
-      }
-    });
-  }
+    // initialize only if we are in top frame
+    if (window.parent === window) {
+        $(document).ready(function() {
+            $('body').addClass('bundle-leaflet');
+            if (!registry.initialized) {
+                registry.init();
+            }
+        });
+    }
 
 });
 
