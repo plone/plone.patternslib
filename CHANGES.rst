@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0 (unreleased)
+1.0 (2017-02-28)
 ----------------
 
 - Git-un-exclude ``dist`` directory within the ``static`` folder.
