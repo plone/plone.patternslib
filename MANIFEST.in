@@ -1,4 +1,7 @@
 graft src/plone
 graft docs
+include *.json
 include *.rst
+include .bowerrc
+include LICENSE
 global-exclude *.pyc
