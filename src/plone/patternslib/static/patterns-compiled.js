@@ -10576,12 +10576,19 @@ return Outlayer;
 
         init: function masonryInit($el, opts) {
             this.options = parser.parse(this.$el, opts);
-            this.initMasonry();
             var imgLoad = imagesLoaded(this.$el);
             imgLoad.on("progress", function() {
+                if (! this.msnry) {
+                    this.initMasonry();
+                }
                 this.quicklayout();
             }.bind(this));
-            imgLoad.on("always", this.layout.bind(this));
+            imgLoad.on("always", function () {
+                if (! this.msnry) {
+                    this.initMasonry();
+                }
+                this.layout();
+            }.bind(this));
             // Update if something gets injected inside the pat-masonry
             // element.
             this.$el
