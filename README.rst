@@ -6,21 +6,17 @@
 plone.patternslib
 ==============================================================================
 
-An experimental add-on to make `patternslib <http://patternslib.com/>`_ patterns available within Plone 5.
+An add-on to make `patternslib <http://patternslib.com/>`_ patterns available within Plone 5.
+It has some limitations (see below).
 
 Features
 --------
 
-Plone 5's Mockup patterns have been relying on the Patternslib core
-(scanner, registry, base class etc.) for quite some time already.
+Plone 5's Mockup patterns have been relying on the Patternslib core (scanner, registry, base class etc.) for quite some time already.
 
-Because of this it's possible to use Patternslib patterns (as opposed to
-the Mockup patterns0 in Plone 5.
+Because of this it's possible to use Patternslib patterns (as opposed to the Mockup patterns in Plone 5).
 
 This package makes a selection of those patterns available in Plone 5.
-
-This is currently in an experimental state - so use at your own risk
-- but everyone is invited to give it a try and report back issues. 
 
 Known Issues
 ------------
@@ -32,18 +28,18 @@ For now we chose to explicitly exclude them here.
 
 The Patternslib patterns that are currently **disabled** (for various reasons) are:
 
-* **pat-colour-picker**
-* **pat-date-picker**
-* **pat-gallery**
-* **pat-image-crop**
-* **pat-legend**: It conflicts with pat-autotoc
-* **pat-notification**
-* **pat-sortable**: Naming conflict with *pat-sortable* in Mockup.
-* **pat-subform**
-* **pat-tabs**: New, unreleased Patternslib pattern. Not aware of any conflicts.
-* **pat-toggle**: Naming conflict with *pat-toggle* in Mockup.
-* **pat-tooltip**: Naming conflict with *pat-tooltip* in Mockup.
-* **pat-validation**
+* ``pat-colour-picker``
+* ``pat-date-picker``
+* ``pat-gallery``
+* ``pat-image-crop``
+* ``pat-legend``: It conflicts with pat-autotoc
+* ``pat-notification``
+* ``pat-sortable``: Naming conflict with *pat-sortable* in Mockup.
+* ``pat-subform``
+* ``pat-tabs``: New, unreleased Patternslib pattern. Not aware of any conflicts.
+* ``pat-toggle``: Naming conflict with *pat-toggle* in Mockup.
+* ``pat-tooltip``: Naming conflict with *pat-tooltip* in Mockup.
+* ``pat-validation``
 
 Examples
 --------
@@ -51,30 +47,23 @@ Examples
 There are example browser views for four patterns in the browser directory.
 If all went well, you can test the following patterns by calling their browser view examples on your plone site:
 
-- @@pat-depends
-- @@pat-inject
-- @@pat-masonry
-- @@pat-switch
-
-Documentation
--------------
-
-Full documentation for end users can currently not be found in the "docs" folder, but might be in the future
+- ``@@pat-depends``
+- ``@@pat-inject``
+- ``@@pat-masonry``
+- ``@@pat-switch``
 
 
 Development
 -----------
 
-This package is built similarly to how the mockup sources are pulled into the Plone egg. There is a Makefile which clones patternslib. 
-Similarly to how it is done in Plone5, Patternslib is cloned and built, but only the necessary parts of it are checked in to plone.patternslib. 
+This package is built similarly to how the mockup sources are pulled into the Plone egg. There is a Makefile which clones patternslib.
+Similarly to how it is done in Plone5, Patternslib is cloned and built, but only the necessary parts of it are checked in to plone.patternslib.
 
-Make sure that when you update Patternslib that the newer version or files are
-compatible with the version of `pat-utils` that are in Mockup/Plone 5.0.x. We are able to
-override the version of `pat-parser`, but not `pat-utils`, because it's
-included in the `plone-compiled.js` bundle ("baked into the cake" so to speak).
-This means that we have to rely on the version of `pat-utils` in Mockup/Plone
-5.0.x. If no new methods have been added to `pat-utils` in later versions of
-Patternslib, then it shouldn't be an issue.
+Make sure that when you update Patternslib that the newer version or files are compatible with the version of `pat-utils` that are in Mockup/Plone 5.0.x.
+We are able to override the version of `pat-parser`, but not `pat-utils`,
+because it's included in the `plone-compiled.js` bundle ("baked into the cake" so to speak).
+This means that we have to rely on the version of `pat-utils` in Mockup/Plone 5.x.
+If no new methods have been added to `pat-utils` in later versions of Patternslib, then it shouldn't be an issue.
 
 Installation
 ------------
@@ -88,17 +77,16 @@ Install plone.patternslib by adding it to your buildout::
     eggs =
         plone.patternslib
 
+and then running ``bin/buildout``.
 
-and then running ``bin/buildout``
-
-Install the plone.patternslib package into your site. It will register a patternslib resource bundle in addition to the existing plone mockup bundles.
+Install the plone.patternslib package into your site.
+It will register a patternslib resource bundle in addition to the existing plone mockup bundles.
 
 Contribute
 ----------
 
 - Issue Tracker: https://github.com/plone/plone.patternslib/issues
 - Source Code: https://github.com/plone/plone.patternslib
-- Documentation: https://docs.plone.org/plone.patternslib  (not yet)
 
 
 Support
