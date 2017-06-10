@@ -4,6 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Update dependencies.
+  [thet]
+
 - Update to latest Patterns.
   [thet]
 
