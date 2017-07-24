@@ -4,6 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Register ``pat-date-picker``.
+  [thet]
+
 - Update dependencies.
   [thet]
 

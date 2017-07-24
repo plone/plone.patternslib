@@ -15,6 +15,7 @@ require([
     'pat-checklist',
     'pat-clone',
     'pat-collapsible',
+    'pat-date-picker',
     'pat-depends',
     'pat-equaliser',
     'pat-expandable',
