@@ -7,7 +7,7 @@ Changelog
 - Register ``pat-date-picker``.
   [thet]
 
-- Update dependencies.
+- Update dependencies, deped on Patterns 2.1.x.
   [thet]
 
 - Update to latest Patterns.
