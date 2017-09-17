@@ -4,6 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Register ``pat-datetime-picker``.
+  [thet]
+
 - Register ``pat-date-picker``.
   [thet]
 

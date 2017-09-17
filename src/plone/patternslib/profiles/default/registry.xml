@@ -446,6 +446,18 @@
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/date-picker/date-picker.js</value>
         <value key="url">++plone++patternslib/components/patternslib/src/pat/date-picker</value>
+        <value key="css">
+          <element>++plone++patternslib/components/patternslib/src/pat/date-picker/date-picker.css</element>
+        </value>
+    </records>
+
+    <records prefix="plone.resources/pat-datetime-picker"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.js</value>
+        <value key="url">++plone++patternslib/components/patternslib/src/pat/datetime-picker</value>
+        <value key="css">
+          <element>++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.css</element>
+        </value>
     </records>
 
     <records prefix="plone.resources/pat-depends"

@@ -2,7 +2,7 @@
   "name": "plone.patternslib",
   "description": "Patternslib integration into Plone",
   "dependencies": {
-    "patternslib": "https://github.com/Patternslib/Patterns.git#2.1.x",
+    "patternslib": "https://github.com/Patternslib/Patterns.git#thet-datepicker",
     "pat-leaflet": "https://github.com/Patternslib/pat-leaflet.git#1.0.0",
     "font-awesome": "~4.7.0"
   },
