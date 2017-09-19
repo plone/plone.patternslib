@@ -7,7 +7,7 @@
     "font-awesome": "~4.7.0"
   },
   "resolutions": {
-    "patternslib": "2.1.x",
+    "patternslib": "thet-datepicker",
     "imagesloaded": "~4.1.1",
     "masonry": "~4.1.1",
     "get-size": "^2.0.2",
