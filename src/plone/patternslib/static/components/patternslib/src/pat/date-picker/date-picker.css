@@ -179,15 +179,4 @@
   box-shadow: none;
   border-radius: 3px; }
 
-.datetime-picker-wrapper .date, .datetime-picker-wrapper .time {
-  position: relative;
-  display: inline-block;
-  margin-right: 0.5em; }
-.datetime-picker-wrapper .date {
-  width: auto; }
-.datetime-picker-wrapper .time {
-  width: 10em; }
-.datetime-picker-wrapper button.now {
-  margin-right: 0.2em; }
-
-/*# sourceMappingURL=datetime-picker.css.map */
+/*# sourceMappingURL=date-picker.css.map */
