@@ -12,15 +12,14 @@
             "pat-parser",
             "pat-base",
             "pat-utils",
-            "masonry",
-            "imagesloaded"
+            "masonry"
             ], function() {
                 return factory.apply(this, arguments);
         });
     } else {
-        factory(root.$, root.patterns, root.patterns.Parser, root.Base, root.Masonry, root.imagesLoaded);
+        factory(root.$, root.patterns, root.patterns.Parser, root.Base, root.Masonry);
     }
-}(this, function($, logger, registry, Parser, Base, utils, Masonry, imagesLoaded) {
+}(this, function($, logger, registry, Parser, Base, utils, Masonry) {
     "use strict";
     var log = logger.getLogger("pat.masonry");
     var parser = new Parser("masonry");
@@ -42,29 +41,21 @@
 
         init: function masonryInit($el, opts) {
             this.options = parser.parse(this.$el, opts);
-            var imgLoad = imagesLoaded(this.$el);
-            imgLoad.on("progress", function() {
-                if (! this.msnry) {
-                    this.initMasonry();
-                }
-                this.quicklayout();
-            }.bind(this));
-            imgLoad.on("always", function () {
-                if (! this.msnry) {
-                    this.initMasonry();
-                }
-                this.layout();
-            }.bind(this));
+
+            // Initialize
+            this.initMasonry();
+
             // Update if something gets injected inside the pat-masonry
-            // element.
             this.$el
                 .on("patterns-injected.pat-masonry",
                     utils.debounce(this.update.bind(this), 100))
                 .on("pat-update",
                     utils.debounce(this.quicklayout.bind(this), 200));
 
+            // Re-Layout, if images are loaded within pat-masonry
             $('img', this.$el)
                 .on("load", utils.debounce(this.quicklayout.bind(this), 200));
+
         },
 
         initMasonry: function () {
