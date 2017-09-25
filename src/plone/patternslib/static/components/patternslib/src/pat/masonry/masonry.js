@@ -63,6 +63,8 @@
                 .on("pat-update",
                     utils.debounce(this.quicklayout.bind(this), 200));
 
+            $('img', this.$el)
+                .on("load", utils.debounce(this.quicklayout.bind(this), 200));
         },
 
         initMasonry: function () {
