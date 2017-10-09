@@ -9,7 +9,7 @@
   "resolutions": {
     "patternslib": "thet-datepicker",
     "imagesloaded": "~4.1.1",
-    "masonry": "~4.1.1",
+    "masonry": "~4.2.0",
     "get-size": "^2.0.2",
     "outlayer": "^2.1.0",
     "jquery": "1.11.3",
