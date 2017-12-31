@@ -23,17 +23,31 @@
     "use strict";
     var log = logger.getLogger("pat.masonry");
     var parser = new Parser("masonry");
+
+    // parser.addArgument("stagger", "");
     parser.addArgument("column-width");
     parser.addArgument("container-style", '{ "position": "relative" }');
     parser.addArgument("gutter");
-    parser.addArgument("hidden-style", "{ opacity: 0, transform: 'scale(0.001)' }");
     parser.addArgument("is-fit-width", false);
+    parser.addArgument("is-horizontal-order", false);  // preserve horizontal order.
     parser.addArgument("is-origin-left", true);
     parser.addArgument("is-origin-top", true);
+    parser.addArgument("is-percent-position", false);  // set item positions in percent values. items will not transition on resize.
+    parser.addArgument("is-resize", true);  // adjust sizes and position on resize.
     parser.addArgument("item-selector", ".item");
     parser.addArgument("stamp", "");
     parser.addArgument("transition-duration", "0.4s");
-    parser.addArgument("visible-style", "{ opacity: 1, transform: 'scale(1)' }");
+
+    // is-* are masonry v3 options, here we add v4 style names.
+    // we keep the is-* as there is special support with options parsing.
+    parser.addAlias("fit-width", "is-fit-width");
+    parser.addAlias("origin-left", "is-origin-left");
+    parser.addAlias("origin-top", "is-origin-top");
+    parser.addAlias("horizontal-order", "is-horizontal-order");
+    parser.addAlias("percent-position", "is-percent-position");
+    parser.addAlias("resize", "is-resize");
+
+
 
     return Base.extend({
         name: "masonry",
@@ -52,10 +66,13 @@
                 .on("pat-update",
                     utils.debounce(this.quicklayout.bind(this), 200));
 
+            // Re-Layout after document is ready and loaded
+            $(document).ready(utils.debounce(this.quicklayout.bind(this), 100));
+            $(document).load(utils.debounce(this.quicklayout.bind(this), 100));
+
             // Re-Layout, if images are loaded within pat-masonry
             $('img', this.$el)
                 .on("load", utils.debounce(this.quicklayout.bind(this), 200));
-
         },
 
         initMasonry: function () {
@@ -72,16 +89,17 @@
             this.msnry = new Masonry(this.$el[0], {
                 columnWidth:         this.getTypeCastedValue(this.options.columnWidth),
                 containerStyle:      containerStyle,
+                fitWidth:            this.options.is["fit-width"],
                 gutter:              this.getTypeCastedValue(this.options.gutter),
-                hiddenStyle:         this.options.hiddenStyle,
-                isFitWidth:          this.options.is["fit-width"],
-                isInitLayout:        false,
-                isOriginLeft:        this.options.is["origin-left"],
-                isOriginTOp:         this.options.is["origin-top"],
+                horizontalOrder:     this.options.is["horizontal-order"],
+                initLayout:          false,
                 itemSelector:        this.options.itemSelector,
+                originLeft:          this.options.is["origin-left"],
+                originTop:           this.options.is["origin-top"],
+                percentPosition:     this.options.is["percent-position"],
+                resize:              this.options.is["resize"],
                 stamp:               this.options.stamp,
                 transitionDuration:  this.options.transitionDuration,
-                visibleStyle:        this.options.visibleStyle
             });
         },
 

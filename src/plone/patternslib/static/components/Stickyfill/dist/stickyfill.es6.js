@@ -1,3 +1,9 @@
+/*!
+  * Stickyfill – `position: sticky` polyfill
+  * v. 2.0.3 | https://github.com/wilddeer/stickyfill
+  * MIT License
+  */
+
 'use strict';
 
 /*
@@ -498,3 +504,4 @@ if (typeof module != 'undefined' && module.exports) {
 else {
     window.Stickyfill = Stickyfill;
 }
+
