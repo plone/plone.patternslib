@@ -4,6 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Allow optional arguments in pat-leaflet for tile providers that require registration (Fixes https://github.com/plone/plone.patternslib/issues/24)
+  [pbauer]
+
 - Register ``pat-date-picker``.
   [thet]
 

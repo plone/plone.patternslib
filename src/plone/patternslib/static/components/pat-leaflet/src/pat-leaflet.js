@@ -60,12 +60,14 @@
     parser.addArgument('minimap', false);
 
     // map layers
-    parser.addArgument('default_map_layer', 'OpenStreetMap.Mapnik')
+    parser.addArgument('default_map_layer', [
+        {'id': 'OpenStreetMap.Mapnik', 'options': {}}
+    ]);
     parser.addArgument('map_layers', [
-        {'title': 'Map', 'id': 'OpenStreetMap.Mapnik'},
-        {'title': 'Satellite', 'id': 'Esri.WorldImagery'},
-        {'title': 'Topographic', 'id': 'OpenTopoMap'},
-        {'title': 'Toner', 'id': 'Stamen.Toner'}
+        {'title': 'Map', 'id': 'OpenStreetMap.Mapnik', 'options': {}},
+        {'title': 'Satellite', 'id': 'Esri.WorldImagery', 'options': {}},
+        {'title': 'Topographic', 'id': 'OpenTopoMap', 'options': {}},
+        {'title': 'Toner', 'id': 'Stamen.Toner', 'options': {}}
     ]);
 
     parser.addArgument('image_path', 'src/bower_components/Leaflet.awesome-markers/dist/images');
@@ -113,13 +115,18 @@
                 baseLayers = {};
                 for (var cnt = 0; cnt < options.map_layers.length; cnt++) {
                     // build layers object with tileLayer instances
-                    baseLayers[options.map_layers[cnt].title] = L.tileLayer.provider(options.map_layers[cnt].id);
+                    var layer = options.map_layers[cnt];
+                    baseLayers[layer.title] = L.tileLayer.provider(layer.id, layer.options);
                 }
                 if (options.map_layers.length > 1) {
                     L.control.layers(baseLayers).addTo(map);
                 }
             }
-            L.tileLayer.provider(options.default_map_layer).addTo(map);  // default map
+
+            if (typeof(options.default_map_layer) == 'string' ) {
+                options.default_map_layer = {'id': options.default_map_layer, 'options': {}}
+            }
+            L.tileLayer.provider(options.default_map_layer.id, options.default_map_layer.options).addTo(map);
 
             // ADD MARKERS
             geojson = this.$el.data().geojson;
@@ -257,7 +264,7 @@
 
             // Minimap
             if (options.minimap) {
-                var minimap = new L.Control.MiniMap(L.tileLayer.provider(options.default_map_layer), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
+                var minimap = new L.Control.MiniMap(L.tileLayer.provider(options.default_map_layer.id, options.default_map_layer.options), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
             }
 
             log.debug('pattern initialized');
