@@ -65,6 +65,15 @@ because it's included in the `plone-compiled.js` bundle ("baked into the cake" s
 This means that we have to rely on the version of `pat-utils` in Mockup/Plone 5.x.
 If no new methods have been added to `pat-utils` in later versions of Patternslib, then it shouldn't be an issue.
 
+If you make some changes to the pattern or the bundle, you need to re-compile the bundle.
+
+You can use `plone-compile-resources <https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html#compiling-bundles>`_ script on a Plone site where this plugin is installed:
+
+    ./bin/plone-compile-resources --site-id=Plone -b bundle-leaflet
+
+    ./bin/plone-compile-resources --site-id=Plone -b patterns
+
+
 Installation
 ------------
 
