@@ -46,6 +46,15 @@
       handler="plone.patternslib.upgrades.upgrade_1000_1001"
       profile="plone.patternslib:default"
       />
+  <genericsetup:upgradeStep
+      title="Remove registry init in patterns"
+      description=""
+      source="1002"
+      destination="1003"
+      handler="plone.patternslib.upgrades.upgrade_1002_1003"
+      profile="plone.patternslib:default"
+      />
+      
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="plone.patternslib-hiddenprofiles"

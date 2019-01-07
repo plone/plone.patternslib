@@ -14842,24 +14842,16 @@ L.Control.SimpleMarkers = L.Control.extend({
 
 /* Patterns bundle configuration.
  */
-require([
-    'jquery',
-    'pat-registry',
-    'pat-leaflet'
-], function($, registry) {
-    'use strict';
+require(["jquery", "pat-registry", "pat-leaflet"], function($, registry) {
+  "use strict";
 
-    // initialize only if we are in top frame
-    if (window.parent === window) {
-        $(document).ready(function() {
-            $('body').addClass('bundle-leaflet');
-            if (!registry.initialized) {
-                registry.init();
-            }
-        });
-    }
-
+  // initialize only if we are in top frame
+  if (window.parent === window) {
+    $(document).ready(function() {
+      $("body").addClass("bundle-leaflet");
+    });
+  }
 });
 
-define("/home/_thet/data/dev/plone/minimalplone5/src/plone.patternslib/src/plone/patternslib/static/bundle-leaflet.js", function(){});
+define("/Users/cekk/work/rer/regione-er-5/src/plone.patternslib/src/plone/patternslib/static/bundle-leaflet.js", function(){});
 
