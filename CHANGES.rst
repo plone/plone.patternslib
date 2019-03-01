@@ -16,6 +16,9 @@ Changelog
 - Remove registry initialization in bundles.
   [cekk]
 
+- Declare support for python 3.
+  [vincero]
+
 
 1.0 (2017-02-28)
 ----------------
