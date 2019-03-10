@@ -4,6 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Upgrad pat-leaflet.
+  [thet]
+
 - Register ``pat-date-picker``.
   [thet]
 
