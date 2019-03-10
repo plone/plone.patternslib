@@ -4,23 +4,22 @@
   "devDependencies": {},
   "dependencies": {
     "jquery": "2.2.4",
-    "patternslib": "master",
+    "patternslib": "2.1.3",
     "leaflet": "0.7.7",
     "leaflet.markercluster": "0.5",
-    "Leaflet.fullscreen": "https://github.com/Leaflet/Leaflet.fullscreen.git#1.0.2",
-    "leaflet-providers": "1.1.15",
-    "L.GeoSearch": "https://github.com/smeijer/L.GeoSearch.git#d69c0119b9a50b0533a291328e397a80c4ac8f46",
+    "Leaflet.fullscreen": "https://github.com/Leaflet/Leaflet.fullscreen.git#v1.0.2",
+    "leaflet-providers": "1.1.17",
+    "L.GeoSearch": "https://github.com/smeijer/L.GeoSearch.git#v1.1.0",
     "Leaflet.awesome-markers": "2.0.2",
-    "leaflet.locatecontrol": "0.60.0",
-    "Leaflet-MiniMap": "https://github.com/Norkart/Leaflet-MiniMap.git#3.4.0",
-    "Leaflet.Sleep": "https://github.com/CliffCloud/Leaflet.Sleep.git#master",
+    "leaflet.locatecontrol": "0.66.2",
+    "Leaflet-MiniMap": "https://github.com/Norkart/Leaflet-MiniMap.git#v3.6.1",
+    "Leaflet.Sleep": "https://github.com/CliffCloud/Leaflet.Sleep.git#v0.5.1",
     "Leaflet.SimpleMarkers": "https://github.com/jdomingu/Leaflet.SimpleMarkers.git#master",
-    "font-awesome": ""
+    "font-awesome": "~5.7.2"
   },
   "resolutions": {
     "jquery": "2.2.4",
-    "leaflet": "0.7.7",
-    "font-awesome": "~4.7.0"
+    "leaflet": "0.7.7"
   },
   "keywords": [
     "patternslib",
