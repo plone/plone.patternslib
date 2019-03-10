@@ -4,7 +4,10 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Upgrad pat-leaflet.
+- Upgrade pat-leaflet.
+  [thet]
+
+- Remove 2nd CSS resource from Leaflet Markercluster as Plone doesn't compile it properly.
   [thet]
 
 - Register ``pat-date-picker``.

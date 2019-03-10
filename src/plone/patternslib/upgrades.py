@@ -13,6 +13,6 @@ def upgrade_1000_1001(context):
         pass
 
 
-def upgrade_1002_1003(context):
+def import_profile(context):
     setup_tool = api.portal.get_tool('portal_setup')
     setup_tool.runImportStepFromProfile(default_profile, 'plone.app.registry')

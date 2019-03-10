@@ -265,7 +265,7 @@
         <value key="js">++plone++patternslib/components/leaflet.markercluster/dist/leaflet.markercluster-src.js</value>
         <value key="css">
             <element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.Default.css</element>
-            <element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.css</element>
+            <!--element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.css</element--><!-- TODO: Needs resource registry bugfix: only the last CSS entry is currently compiled. -->
         </value>
         <value key="deps">leaflet</value>
     </records>
