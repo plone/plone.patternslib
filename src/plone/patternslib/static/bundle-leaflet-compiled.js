@@ -9863,7 +9863,7 @@ L.control.fullscreen = function (options) {
 					}
 				},
 				DE: {
-					url: 'http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png',
+					url: '//{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png',
 					options: {
 						maxZoom: 18
 					}
@@ -9897,30 +9897,29 @@ L.control.fullscreen = function (options) {
 			}
 		},
 		Thunderforest: {
-			url: '//{s}.tile.thunderforest.com/{variant}/{z}/{x}/{y}.png',
+			url: '//{s}.tile.thunderforest.com/{variant}/{z}/{x}/{y}.png?apikey={apikey}',
 			options: {
 				attribution:
 					'&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, {attribution.OpenStreetMap}',
-				variant: 'cycle'
+				variant: 'cycle',
+				apikey: '<insert your api key here>',
+				maxZoom: 22
 			},
 			variants: {
 				OpenCycleMap: 'cycle',
 				Transport: {
 					options: {
-						variant: 'transport',
-						maxZoom: 19
+						variant: 'transport'
 					}
 				},
 				TransportDark: {
 					options: {
-						variant: 'transport-dark',
-						maxZoom: 19
+						variant: 'transport-dark'
 					}
 				},
 				SpinalMap: {
 					options: {
-						variant: 'spinal-map',
-						maxZoom: 11
+						variant: 'spinal-map'
 					}
 				},
 				Landscape: 'landscape',
@@ -9954,6 +9953,7 @@ L.control.fullscreen = function (options) {
 		Hydda: {
 			url: '//{s}.tile.openstreetmap.se/hydda/{variant}/{z}/{x}/{y}.png',
 			options: {
+				maxZoom: 18,
 				variant: 'full',
 				attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data {attribution.OpenStreetMap}'
 			},
@@ -9969,7 +9969,9 @@ L.control.fullscreen = function (options) {
 				attribution:
 					'Imagery from <a href="http://mapbox.com/about/maps/">MapBox</a> &mdash; ' +
 					'Map data {attribution.OpenStreetMap}',
-				subdomains: 'abcd'
+				subdomains: 'abcd',
+				id: 'streets',
+				accessToken: '<insert your access token here>',
 			}
 		},
 		Stamen: {
@@ -10281,7 +10283,7 @@ L.control.fullscreen = function (options) {
 			}
 		},
 		BasemapAT: {
-			url: '//maps{s}.wien.gv.at/basemap/{variant}/normal/google3857/{z}/{y}/{x}.{format}',
+			url: 'https://maps{s}.wien.gv.at/basemap/{variant}/normal/google3857/{z}/{y}/{x}.{format}',
 			options: {
 				maxZoom: 19,
 				attribution: 'Datenquelle: <a href="www.basemap.at">basemap.at</a>',
@@ -10291,7 +10293,12 @@ L.control.fullscreen = function (options) {
 				variant: 'geolandbasemap'
 			},
 			variants: {
-				basemap: 'geolandbasemap',
+				basemap: {
+					options: {
+						maxZoom: 20, // currently only in Vienna
+						variant: 'geolandbasemap'
+					}
+				},
 				grau: 'bmapgrau',
 				overlay: 'bmapoverlay',
 				highdpi: {
@@ -10302,6 +10309,7 @@ L.control.fullscreen = function (options) {
 				},
 				orthofoto: {
 					options: {
+						maxZoom: 20, // currently only in Vienna
 						variant: 'bmaporthofoto30cm',
 						format: 'jpeg'
 					}
@@ -10380,6 +10388,30 @@ L.control.fullscreen = function (options) {
 				minZoom: 1,
 				maxZoom: 18,
 				subdomains: '0123',
+			}
+		},
+		JusticeMap: {
+			// Justice Map (http://www.justicemap.org/)
+			// Visualize race and income data for your community, county and country.
+			// Includes tools for data journalists, bloggers and community activists.
+			url: 'http://www.justicemap.org/tile/{size}/{variant}/{z}/{x}/{y}.png',
+			options: {
+				attribution: '<a href="http://www.justicemap.org/terms.php">Justice Map</a>',
+				// one of 'county', 'tract', 'block'
+				size: 'county',
+				// Bounds for USA, including Alaska and Hawaii
+				bounds: [[14, -180], [72, -56]]
+			},
+			variants: {
+				income: 'income',
+				americanIndian: 'indian',
+				asian: 'asian',
+				black: 'black',
+				hispanic: 'hispanic',
+				multi: 'multi',
+				nonWhite: 'nonwhite',
+				white: 'white',
+				plurality: 'plural'
 			}
 		}
 	};
@@ -13615,6 +13647,122 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         window.L.Control.Locate = factory(L);
     }
 } (function (L) {
+    var LDomUtilApplyClassesMethod = function(method, element, classNames) {
+        classNames = classNames.split(' ');
+        classNames.forEach(function(className) {
+            L.DomUtil[method].call(this, element, className);
+        });
+    };
+
+    var addClasses = function(el, names) { LDomUtilApplyClassesMethod('addClass', el, names); };
+    var removeClasses = function(el, names) { LDomUtilApplyClassesMethod('removeClass', el, names); };
+
+    /**
+     * Compatible with L.Circle but a true marker instead of a path
+     */
+    var LocationMarker = L.Marker.extend({
+        initialize: function (latlng, options) {
+            L.Util.setOptions(this, options);
+            this._latlng = latlng;
+            this.createIcon();
+        },
+
+        /**
+         * Create a styled circle location marker
+         */
+        createIcon: function() {
+            var opt = this.options;
+
+            var style = '';
+
+            if (opt.color !== undefined) {
+                style += 'stroke:'+opt.color+';';
+            }
+            if (opt.weight !== undefined) {
+                style += 'stroke-width:'+opt.weight+';';
+            }
+            if (opt.fillColor !== undefined) {
+                style += 'fill:'+opt.fillColor+';';
+            }
+            if (opt.fillOpacity !== undefined) {
+                style += 'fill-opacity:'+opt.fillOpacity+';';
+            }
+            if (opt.opacity !== undefined) {
+                style += 'opacity:'+opt.opacity+';';
+            }
+
+            var icon = this._getIconSVG(opt, style);
+
+            this._locationIcon = L.divIcon({
+                className: icon.className,
+                html: icon.svg,
+                iconSize: [icon.w,icon.h],
+            });
+
+            this.setIcon(this._locationIcon);
+        },
+
+        /**
+         * Return the raw svg for the shape
+         *
+         * Split so can be easily overridden
+         */
+        _getIconSVG: function(options, style) {
+            var r = options.radius;
+            var w = options.weight;
+            var s = r + w;
+            var s2 = s * 2;
+            var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+s2+'" height="'+s2+'" version="1.1" viewBox="-'+s+' -'+s+' '+s2+' '+s2+'">' +
+            '<circle r="'+r+'" style="'+style+'" />' +
+            '</svg>';
+            return {
+                className: 'leaflet-control-locate-location',
+                svg: svg,
+                w: s2,
+                h: s2
+            };
+        },
+
+        setStyle: function(style) {
+            L.Util.setOptions(this, style);
+            this.createIcon();
+        }
+    });
+
+    var CompassMarker = LocationMarker.extend({
+        initialize: function (latlng, heading, options) {
+            L.Util.setOptions(this, options);
+            this._latlng = latlng;
+            this._heading = heading;
+            this.createIcon();
+        },
+
+        setHeading: function(heading) {
+            this._heading = heading;
+        },
+
+        /**
+         * Create a styled arrow compass marker
+         */
+        _getIconSVG: function(options, style) {
+            var r = options.radius;
+            var w = (options.width + options.weight);
+            var h = (r+options.depth + options.weight)*2;
+            var path = 'M0,0 l'+(options.width/2)+','+options.depth+' l-'+(w)+',0 z';
+            var svgstyle = 'transform: rotate('+this._heading+'deg)';
+            var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="'+(w)+'" height="'+h+'" version="1.1" viewBox="-'+(w/2)+' 0 '+w+' '+h+'" style="'+svgstyle+'">'+
+            '<path d="'+path+'" style="'+style+'" />'+
+            '</svg>';
+            return {
+                className: 'leafet-control-locate-heading',
+                svg: svg,
+                w: w,
+                h: h
+            };
+        },
+    });
+
+
     var LocateControl = L.Control.extend({
         options: {
             /** Position of the control */
@@ -13630,14 +13778,30 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              *  - false: never updates the map view when location changes.
              *  - 'once': set the view when the location is first determined
              *  - 'always': always updates the map view when location changes.
-             *              The map view follows the users location.
-             *  - 'untilPan': (default) like 'always', except stops updating the
+             *              The map view follows the user's location.
+             *  - 'untilPan': like 'always', except stops updating the
              *                view if the user has manually panned the map.
-             *                The map view follows the users location until she pans.
+             *                The map view follows the user's location until she pans.
+             *  - 'untilPanOrZoom': (default) like 'always', except stops updating the
+             *                view if the user has manually panned the map.
+             *                The map view follows the user's location until she pans.
              */
-            setView: 'untilPan',
+            setView: 'untilPanOrZoom',
             /** Keep the current map zoom level when setting the view and only pan. */
             keepCurrentZoomLevel: false,
+            /**
+             * This callback can be used to override the viewport tracking
+             * This function should return a LatLngBounds object.
+             *
+             * For example to extend the viewport to ensure that a particular LatLng is visible:
+             *
+             * getLocationBounds: function(locationEvent) {
+             *    return locationEvent.bounds.extend([-33.873085, 151.219273]);
+             * },
+             */
+            getLocationBounds: function (locationEvent) {
+                return locationEvent.bounds;
+            },
             /** Smooth pan and zoom to the location of the marker. Only works in Leaflet 1.0+. */
             flyTo: false,
             /**
@@ -13652,6 +13816,11 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 inView: 'stop',
                 /** What should happen if the user clicks on the control while the location is outside the current view. */
                 outOfView: 'setView',
+                /**
+                 * What should happen if the user clicks on the control while the location is within the current view
+                 * and we could be following but are not. Defaults to a special value which inherits from 'inView';
+                 */
+                inViewNotFollowing: 'inView',
             },
             /**
              * If set, save the map bounds just before centering to the user's
@@ -13668,24 +13837,40 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             drawCircle: true,
             /** If set, the marker at the users' location is drawn. */
             drawMarker: true,
+            /** If set and supported then show the compass heading */
+            showCompass: true,
             /** The class to be used to create the marker. For example L.CircleMarker or L.Marker */
-            markerClass: L.CircleMarker,
-            /** Accuracy circle style properties. */
+            markerClass: LocationMarker,
+            /** The class us be used to create the compass bearing arrow */
+            compassClass: CompassMarker,
+            /** Accuracy circle style properties. NOTE these styles should match the css animations styles */
             circleStyle: {
-                color: '#136AEC',
-                fillColor: '#136AEC',
+                className:   'leaflet-control-locate-circle',
+                color:       '#136AEC',
+                fillColor:   '#136AEC',
                 fillOpacity: 0.15,
-                weight: 2,
-                opacity: 0.5
+                weight:      0
             },
             /** Inner marker style properties. Only works if your marker class supports `setStyle`. */
             markerStyle: {
-                color: '#136AEC',
-                fillColor: '#2A93EE',
-                fillOpacity: 0.7,
-                weight: 2,
-                opacity: 0.9,
-                radius: 5
+                className:   'leaflet-control-locate-marker',
+                color:       '#fff',
+                fillColor:   '#2A93EE',
+                fillOpacity: 1,
+                weight:      3,
+                opacity:     1,
+                radius:      9
+            },
+            /** Compass */
+            compassStyle: {
+                fillColor:   '#2A93EE',
+                fillOpacity: 1,
+                weight:      0,
+                color:       '#fff',
+                opacity:     1,
+                radius:      9, // How far is the arrow is from the center of of the marker
+                width:       9, // Width of the arrow
+                depth:       6  // Length of the arrow
             },
             /**
              * Changes to accuracy circle and inner marker while following.
@@ -13696,6 +13881,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 // color: '#FFA500',
                 // fillColor: '#FFB000'
             },
+            followCompassStyle: {},
             /** The CSS class for the icon. For example fa-location-arrow or fa-map-marker */
             icon: 'fa fa-map-marker',
             iconLoading: 'fa fa-spinner fa-spin',
@@ -13705,12 +13891,23 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             circlePadding: [0, 0],
             /** Use metric units. */
             metric: true,
+            /**
+             * This callback can be used in case you would like to override button creation behavior.
+             * This is useful for DOM manipulation frameworks such as angular etc.
+             * This function should return an object with HtmlElement for the button (link property) and the icon (icon property).
+             */
+            createButtonCallback: function (container, options) {
+                var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', container);
+                link.title = options.strings.title;
+                var icon = L.DomUtil.create(options.iconElementTag, options.icon, link);
+                return { link: link, icon: icon };
+            },
             /** This event is called in case of any location error that is not a time out error. */
             onLocationError: function(err, control) {
                 alert(err.message);
             },
             /**
-             * This even is called when the user's location is outside the bounds set on the map.
+             * This event is called when the user's location is outside the bounds set on the map.
              * The event is called repeatedly when the location changes.
              */
             onLocationOutsideMapBounds: function(control) {
@@ -13748,6 +13945,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             // extend the follow marker style and circle from the normal style
             this.options.followMarkerStyle = L.extend({}, this.options.markerStyle, this.options.followMarkerStyle);
             this.options.followCircleStyle = L.extend({}, this.options.circleStyle, this.options.followCircleStyle);
+            this.options.followCompassStyle = L.extend({}, this.options.compassStyle, this.options.followCompassStyle);
         },
 
         /**
@@ -13760,11 +13958,12 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._layer = this.options.layer || new L.LayerGroup();
             this._layer.addTo(map);
             this._event = undefined;
+            this._compassHeading = null;
             this._prevBounds = null;
 
-            this._link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', container);
-            this._link.title = this.options.strings.title;
-            this._icon = L.DomUtil.create(this.options.iconElementTag, this.options.icon, this._link);
+            var linkAndIcon = this.options.createButtonCallback(container, this.options);
+            this._link = linkAndIcon.link;
+            this._icon = linkAndIcon.icon;
 
             L.DomEvent
                 .on(this._link, 'click', L.DomEvent.stopPropagation)
@@ -13784,14 +13983,25 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onClick: function() {
             this._justClicked = true;
+            var wasFollowing =  this._isFollowing();
             this._userPanned = false;
+            this._userZoomed = false;
 
             if (this._active && !this._event) {
                 // click while requesting
                 this.stop();
             } else if (this._active && this._event !== undefined) {
-                var behavior = this._map.getBounds().contains(this._event.latlng) ?
-                    this.options.clickBehavior.inView : this.options.clickBehavior.outOfView;
+                var behaviors = this.options.clickBehavior;
+                var behavior = behaviors.outOfView;
+                if (this._map.getBounds().contains(this._event.latlng)) {
+                    behavior = wasFollowing ? behaviors.inView : behaviors.inViewNotFollowing;
+                }
+
+                // Allow inheriting from another behavior
+                if (behaviors[behavior]) {
+                    behavior = behaviors[behavior];
+                }
+
                 switch (behavior) {
                     case 'setView':
                         this.setView();
@@ -13849,6 +14059,15 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         },
 
         /**
+         * Keep the control active but stop following the location
+         */
+        stopFollowing: function() {
+            this._userPanned = true;
+            this._updateContainerStyle();
+            this._drawMarker();
+        },
+
+        /**
          * This method launches the location engine.
          * It is called before the marker is updated,
          * event if it does not mean that the event will be ready.
@@ -13866,6 +14085,15 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 this._map.on('locationfound', this._onLocationFound, this);
                 this._map.on('locationerror', this._onLocationError, this);
                 this._map.on('dragstart', this._onDrag, this);
+                this._map.on('zoomstart', this._onZoom, this);
+                this._map.on('zoomend', this._onZoomEnd, this);
+                if (this.options.showCompass) {
+                    if ('ondeviceorientationabsolute' in window) {
+                        L.DomEvent.on(window, 'deviceorientationabsolute', this._onDeviceOrientation, this);
+                    } else if ('ondeviceorientation' in window) {
+                        L.DomEvent.on(window, 'deviceorientation', this._onDeviceOrientation, this);
+                    }
+                }
             }
         },
 
@@ -13886,6 +14114,16 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._map.off('locationfound', this._onLocationFound, this);
             this._map.off('locationerror', this._onLocationError, this);
             this._map.off('dragstart', this._onDrag, this);
+            this._map.off('zoomstart', this._onZoom, this);
+            this._map.off('zoomend', this._onZoomEnd, this);
+            if (this.options.showCompass) {
+                this._compassHeading = null;
+                if ('ondeviceorientationabsolute' in window) {
+                    L.DomEvent.off(window, 'deviceorientationabsolute', this._onDeviceOrientation, this);
+                } else if ('ondeviceorientation' in window) {
+                    L.DomEvent.off(window, 'deviceorientation', this._onDeviceOrientation, this);
+                }
+            }
         },
 
         /**
@@ -13902,11 +14140,48 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                     f.bind(this._map)([this._event.latitude, this._event.longitude]);
                 } else {
                     var f = this.options.flyTo ? this._map.flyToBounds : this._map.fitBounds;
-                    f.bind(this._map)(this._event.bounds, {
+                    // Ignore zoom events while setting the viewport as these would stop following
+                    this._ignoreEvent = true;
+                    f.bind(this._map)(this.options.getLocationBounds(this._event), {
                         padding: this.options.circlePadding,
                         maxZoom: this.options.locateOptions.maxZoom
                     });
+                    L.Util.requestAnimFrame(function(){
+                        // Wait until after the next animFrame because the flyTo can be async
+                        this._ignoreEvent = false;
+                    }, this);
+
                 }
+            }
+        },
+
+        /**
+         *
+         */
+        _drawCompass: function() {
+            if (!this._event) {
+                return;
+            }
+
+            var latlng = this._event.latlng;
+
+            if (this.options.showCompass && latlng && this._compassHeading !== null) {
+                var cStyle = this._isFollowing() ? this.options.followCompassStyle : this.options.compassStyle;
+                if (!this._compass) {
+                    this._compass = new this.options.compassClass(latlng, this._compassHeading, cStyle).addTo(this._layer);
+                } else {
+                    this._compass.setLatLng(latlng);
+                    this._compass.setHeading(this._compassHeading);
+                    // If the compassClass can be updated with setStyle, update it.
+                    if (this._compass.setStyle) {
+                        this._compass.setStyle(cStyle);
+                    }
+                }
+                // 
+            }
+            if (this._compass && (!this.options.showCompass || this._compassHeading === null)) {
+                this._compass.removeFrom(this._layer);
+                this._compass = null;
             }
         },
 
@@ -13957,9 +14232,16 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 }
             }
 
+            this._drawCompass();
+
             var t = this.options.strings.popup;
             if (this.options.showPopup && t && this._marker) {
                 this._marker
+                    .bindPopup(L.Util.template(t, {distance: distance, unit: unit}))
+                    ._popup.setLatLng(latlng);
+            }
+            if (this.options.showPopup && t && this._compass) {
+                this._compass
                     .bindPopup(L.Util.template(t, {distance: distance, unit: unit}))
                     ._popup.setLatLng(latlng);
             }
@@ -13981,6 +14263,44 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         _unload: function() {
             this.stop();
             this._map.off('unload', this._unload, this);
+        },
+
+        /**
+         * Sets the compass heading
+         */
+        _setCompassHeading: function(angle) {
+            if (!isNaN(parseFloat(angle)) && isFinite(angle)) {
+                angle = Math.round(angle);
+
+                this._compassHeading = angle;
+                L.Util.requestAnimFrame(this._drawCompass, this);
+            } else {
+                this._compassHeading = null;
+            }
+        },
+
+        /**
+         * If the compass fails calibration just fail safely and remove the compass
+         */
+        _onCompassNeedsCalibration: function() {
+            this._setCompassHeading();
+        },
+
+        /**
+         * Process and normalise compass events
+         */
+        _onDeviceOrientation: function(e) {
+            if (!this._active) {
+                return;
+            }
+
+            if (e.webkitCompassHeading) {
+                // iOS
+                this._setCompassHeading(e.webkitCompassHeading);
+            } else if (e.absolute && e.alpha) {
+                // Android
+                this._setCompassHeading(360 - e.alpha)
+            }
         },
 
         /**
@@ -14029,6 +14349,11 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                         this.setView();
                     }
                     break;
+                case 'untilPanOrZoom':
+                    if (!this._userPanned && !this._userZoomed) {
+                        this.setView();
+                    }
+                    break;
                 case 'always':
                     this.setView();
                     break;
@@ -14041,14 +14366,44 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         },
 
         /**
-         * When the user drags. Need a separate even so we can bind and unbind even listeners.
+         * When the user drags. Need a separate event so we can bind and unbind event listeners.
          */
         _onDrag: function() {
             // only react to drags once we have a location
-            if (this._event) {
+            if (this._event && !this._ignoreEvent) {
                 this._userPanned = true;
                 this._updateContainerStyle();
                 this._drawMarker();
+            }
+        },
+
+        /**
+         * When the user zooms. Need a separate event so we can bind and unbind event listeners.
+         */
+        _onZoom: function() {
+            // only react to drags once we have a location
+            if (this._event && !this._ignoreEvent) {
+                this._userZoomed = true;
+                this._updateContainerStyle();
+                this._drawMarker();
+            }
+        },
+
+        /**
+         * After a zoom ends update the compass and handle sideways zooms
+         */
+        _onZoomEnd: function() {
+            if (this._event) {
+                this._drawCompass();
+            }
+
+            if (this._event && !this._ignoreEvent) {
+                // If we have zoomed in and out and ended up sideways treat it as a pan
+                if (this._marker && !this._map.getBounds().pad(-.3).contains(this._marker.getLatLng())) {
+                    this._userPanned = true;
+                    this._updateContainerStyle();
+                    this._drawMarker();
+                }
             }
         },
 
@@ -14064,6 +14419,8 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 return true;
             } else if (this.options.setView === 'untilPan') {
                 return !this._userPanned;
+            } else if (this.options.setView === 'untilPanOrZoom') {
+                return !this._userPanned && !this._userZoomed;
             }
         },
 
@@ -14103,23 +14460,23 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _setClasses: function(state) {
             if (state == 'requesting') {
-                L.DomUtil.removeClasses(this._container, "active following");
-                L.DomUtil.addClasses(this._container, "requesting");
+                removeClasses(this._container, "active following");
+                addClasses(this._container, "requesting");
 
-                L.DomUtil.removeClasses(this._icon, this.options.icon);
-                L.DomUtil.addClasses(this._icon, this.options.iconLoading);
+                removeClasses(this._icon, this.options.icon);
+                addClasses(this._icon, this.options.iconLoading);
             } else if (state == 'active') {
-                L.DomUtil.removeClasses(this._container, "requesting following");
-                L.DomUtil.addClasses(this._container, "active");
+                removeClasses(this._container, "requesting following");
+                addClasses(this._container, "active");
 
-                L.DomUtil.removeClasses(this._icon, this.options.iconLoading);
-                L.DomUtil.addClasses(this._icon, this.options.icon);
+                removeClasses(this._icon, this.options.iconLoading);
+                addClasses(this._icon, this.options.icon);
             } else if (state == 'following') {
-                L.DomUtil.removeClasses(this._container, "requesting");
-                L.DomUtil.addClasses(this._container, "active following");
+                removeClasses(this._container, "requesting");
+                addClasses(this._container, "active following");
 
-                L.DomUtil.removeClasses(this._icon, this.options.iconLoading);
-                L.DomUtil.addClasses(this._icon, this.options.icon);
+                removeClasses(this._icon, this.options.iconLoading);
+                addClasses(this._icon, this.options.icon);
             }
         },
 
@@ -14131,8 +14488,8 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             L.DomUtil.removeClass(this._container, "active");
             L.DomUtil.removeClass(this._container, "following");
 
-            L.DomUtil.removeClasses(this._icon, this.options.iconLoading);
-            L.DomUtil.addClasses(this._icon, this.options.icon);
+            removeClasses(this._icon, this.options.iconLoading);
+            addClasses(this._icon, this.options.icon);
         },
 
         /**
@@ -14148,6 +14505,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
 
             // true if the user has panned the map after clicking the control
             this._userPanned = false;
+
+            // true if the user has zoomed the map after clicking the control
+            this._userZoomed = false;
         }
     });
 
@@ -14155,24 +14515,10 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         return new L.Control.Locate(options);
     };
 
-    (function(){
-      // leaflet.js raises bug when trying to addClass / removeClass multiple classes at once
-      // Let's create a wrapper on it which fixes it.
-      var LDomUtilApplyClassesMethod = function(method, element, classNames) {
-        classNames = classNames.split(' ');
-        classNames.forEach(function(className) {
-            L.DomUtil[method].call(this, element, className);
-        });
-      };
-
-      L.DomUtil.addClasses = function(el, names) { LDomUtilApplyClassesMethod('addClass', el, names); };
-      L.DomUtil.removeClasses = function(el, names) { LDomUtilApplyClassesMethod('removeClass', el, names); };
-    })();
-
     return LocateControl;
 }, window));
 
-(function(factory,window){if(typeof define==="function"&&define.amd){define('leaflet-minimap',["leaflet"],factory)}else if(typeof exports==="object"){module.exports=factory(require("leaflet"))}if(typeof window!=="undefined"&&window.L){window.L.Control.MiniMap=factory(L);window.L.control.minimap=function(layer,options){return new window.L.Control.MiniMap(layer,options)}}})(function(L){var MiniMap=L.Control.extend({options:{position:"bottomright",toggleDisplay:false,zoomLevelOffset:-5,zoomLevelFixed:false,centerFixed:false,zoomAnimation:false,autoToggleDisplay:false,minimized:false,width:150,height:150,collapsedWidth:19,collapsedHeight:19,aimingRectOptions:{color:"#ff7800",weight:1,clickable:false},shadowRectOptions:{color:"#000000",weight:1,clickable:false,opacity:0,fillOpacity:0},strings:{hideText:"Hide MiniMap",showText:"Show MiniMap"},mapOptions:{}},initialize:function(layer,options){L.Util.setOptions(this,options);this.options.aimingRectOptions.clickable=false;this.options.shadowRectOptions.clickable=false;this._layer=layer},onAdd:function(map){this._mainMap=map;this._container=L.DomUtil.create("div","leaflet-control-minimap");this._container.style.width=this.options.width+"px";this._container.style.height=this.options.height+"px";L.DomEvent.disableClickPropagation(this._container);L.DomEvent.on(this._container,"mousewheel",L.DomEvent.stopPropagation);var mapOptions={attributionControl:false,dragging:!this.options.centerFixed,zoomControl:false,zoomAnimation:this.options.zoomAnimation,autoToggleDisplay:this.options.autoToggleDisplay,touchZoom:this.options.centerFixed?"center":!this._isZoomLevelFixed(),scrollWheelZoom:this.options.centerFixed?"center":!this._isZoomLevelFixed(),doubleClickZoom:this.options.centerFixed?"center":!this._isZoomLevelFixed(),boxZoom:!this._isZoomLevelFixed(),crs:map.options.crs};mapOptions=L.Util.extend(this.options.mapOptions,mapOptions);this._miniMap=new L.Map(this._container,mapOptions);this._miniMap.addLayer(this._layer);this._mainMapMoving=false;this._miniMapMoving=false;this._userToggledDisplay=false;this._minimized=false;if(this.options.toggleDisplay){this._addToggleButton()}this._miniMap.whenReady(L.Util.bind(function(){this._aimingRect=L.rectangle(this._mainMap.getBounds(),this.options.aimingRectOptions).addTo(this._miniMap);this._shadowRect=L.rectangle(this._mainMap.getBounds(),this.options.shadowRectOptions).addTo(this._miniMap);this._mainMap.on("moveend",this._onMainMapMoved,this);this._mainMap.on("move",this._onMainMapMoving,this);this._miniMap.on("movestart",this._onMiniMapMoveStarted,this);this._miniMap.on("move",this._onMiniMapMoving,this);this._miniMap.on("moveend",this._onMiniMapMoved,this)},this));return this._container},addTo:function(map){L.Control.prototype.addTo.call(this,map);var center=this.options.centerFixed||this._mainMap.getCenter();this._miniMap.setView(center,this._decideZoom(true));this._setDisplay(this.options.minimized);return this},onRemove:function(map){this._mainMap.off("moveend",this._onMainMapMoved,this);this._mainMap.off("move",this._onMainMapMoving,this);this._miniMap.off("moveend",this._onMiniMapMoved,this);this._miniMap.removeLayer(this._layer)},changeLayer:function(layer){this._miniMap.removeLayer(this._layer);this._layer=layer;this._miniMap.addLayer(this._layer)},_addToggleButton:function(){this._toggleDisplayButton=this.options.toggleDisplay?this._createButton("",this._toggleButtonInitialTitleText(),"leaflet-control-minimap-toggle-display leaflet-control-minimap-toggle-display-"+this.options.position,this._container,this._toggleDisplayButtonClicked,this):undefined;this._toggleDisplayButton.style.width=this.options.collapsedWidth+"px";this._toggleDisplayButton.style.height=this.options.collapsedHeight+"px"},_toggleButtonInitialTitleText:function(){if(this.options.minimized){return this.options.strings.showText}else{return this.options.strings.hideText}},_createButton:function(html,title,className,container,fn,context){var link=L.DomUtil.create("a",className,container);link.innerHTML=html;link.href="#";link.title=title;var stop=L.DomEvent.stopPropagation;L.DomEvent.on(link,"click",stop).on(link,"mousedown",stop).on(link,"dblclick",stop).on(link,"click",L.DomEvent.preventDefault).on(link,"click",fn,context);return link},_toggleDisplayButtonClicked:function(){this._userToggledDisplay=true;if(!this._minimized){this._minimize()}else{this._restore()}},_setDisplay:function(minimize){if(minimize!==this._minimized){if(!this._minimized){this._minimize()}else{this._restore()}}},_minimize:function(){if(this.options.toggleDisplay){this._container.style.width=this.options.collapsedWidth+"px";this._container.style.height=this.options.collapsedHeight+"px";this._toggleDisplayButton.className+=" minimized-"+this.options.position;this._toggleDisplayButton.title=this.options.strings.showText}else{this._container.style.display="none"}this._minimized=true},_restore:function(){if(this.options.toggleDisplay){this._container.style.width=this.options.width+"px";this._container.style.height=this.options.height+"px";this._toggleDisplayButton.className=this._toggleDisplayButton.className.replace("minimized-"+this.options.position,"");this._toggleDisplayButton.title=this.options.strings.hideText}else{this._container.style.display="block"}this._minimized=false},_onMainMapMoved:function(e){if(!this._miniMapMoving){var center=this.options.centerFixed||this._mainMap.getCenter();this._mainMapMoving=true;this._miniMap.setView(center,this._decideZoom(true));this._setDisplay(this._decideMinimized())}else{this._miniMapMoving=false}this._aimingRect.setBounds(this._mainMap.getBounds())},_onMainMapMoving:function(e){this._aimingRect.setBounds(this._mainMap.getBounds())},_onMiniMapMoveStarted:function(e){if(!this.options.centerFixed){var lastAimingRect=this._aimingRect.getBounds();var sw=this._miniMap.latLngToContainerPoint(lastAimingRect.getSouthWest());var ne=this._miniMap.latLngToContainerPoint(lastAimingRect.getNorthEast());this._lastAimingRectPosition={sw:sw,ne:ne}}},_onMiniMapMoving:function(e){if(!this.options.centerFixed){if(!this._mainMapMoving&&this._lastAimingRectPosition){this._shadowRect.setBounds(new L.LatLngBounds(this._miniMap.containerPointToLatLng(this._lastAimingRectPosition.sw),this._miniMap.containerPointToLatLng(this._lastAimingRectPosition.ne)));this._shadowRect.setStyle({opacity:1,fillOpacity:.3})}}},_onMiniMapMoved:function(e){if(!this._mainMapMoving){this._miniMapMoving=true;this._mainMap.setView(this._miniMap.getCenter(),this._decideZoom(false));this._shadowRect.setStyle({opacity:0,fillOpacity:0})}else{this._mainMapMoving=false}},_isZoomLevelFixed:function(){var zoomLevelFixed=this.options.zoomLevelFixed;return this._isDefined(zoomLevelFixed)&&this._isInteger(zoomLevelFixed)},_decideZoom:function(fromMaintoMini){if(!this._isZoomLevelFixed()){if(fromMaintoMini){return this._mainMap.getZoom()+this.options.zoomLevelOffset}else{var currentDiff=this._miniMap.getZoom()-this._mainMap.getZoom();var proposedZoom=this._miniMap.getZoom()-this.options.zoomLevelOffset;var toRet;if(currentDiff>this.options.zoomLevelOffset&&this._mainMap.getZoom()<this._miniMap.getMinZoom()-this.options.zoomLevelOffset){if(this._miniMap.getZoom()>this._lastMiniMapZoom){toRet=this._mainMap.getZoom()+1;this._miniMap.setZoom(this._miniMap.getZoom()-1)}else{toRet=this._mainMap.getZoom()}}else{toRet=proposedZoom}this._lastMiniMapZoom=this._miniMap.getZoom();return toRet}}else{if(fromMaintoMini){return this.options.zoomLevelFixed}else{return this._mainMap.getZoom()}}},_decideMinimized:function(){if(this._userToggledDisplay){return this._minimized}if(this.options.autoToggleDisplay){if(this._mainMap.getBounds().contains(this._miniMap.getBounds())){return true}return false}return this._minimized},_isInteger:function(value){return typeof value==="number"},_isDefined:function(value){return typeof value!=="undefined"}});L.Map.mergeOptions({miniMapControl:false});L.Map.addInitHook(function(){if(this.options.miniMapControl){this.miniMapControl=(new MiniMap).addTo(this)}});return MiniMap},window);
+(function(factory,window){if(typeof define==="function"&&define.amd){define('leaflet-minimap',["leaflet"],factory)}else if(typeof exports==="object"){module.exports=factory(require("leaflet"))}if(typeof window!=="undefined"&&window.L){window.L.Control.MiniMap=factory(L);window.L.control.minimap=function(layer,options){return new window.L.Control.MiniMap(layer,options)}}})(function(L){var MiniMap=L.Control.extend({includes:L.Evented?L.Evented.prototype:L.Mixin.Events,options:{position:"bottomright",toggleDisplay:false,zoomLevelOffset:-5,zoomLevelFixed:false,centerFixed:false,zoomAnimation:false,autoToggleDisplay:false,minimized:false,width:150,height:150,collapsedWidth:19,collapsedHeight:19,aimingRectOptions:{color:"#ff7800",weight:1,clickable:false},shadowRectOptions:{color:"#000000",weight:1,clickable:false,opacity:0,fillOpacity:0},strings:{hideText:"Hide MiniMap",showText:"Show MiniMap"},mapOptions:{}},initialize:function(layer,options){L.Util.setOptions(this,options);this.options.aimingRectOptions.clickable=false;this.options.shadowRectOptions.clickable=false;this._layer=layer},onAdd:function(map){this._mainMap=map;this._container=L.DomUtil.create("div","leaflet-control-minimap");this._container.style.width=this.options.width+"px";this._container.style.height=this.options.height+"px";L.DomEvent.disableClickPropagation(this._container);L.DomEvent.on(this._container,"mousewheel",L.DomEvent.stopPropagation);var mapOptions={attributionControl:false,dragging:!this.options.centerFixed,zoomControl:false,zoomAnimation:this.options.zoomAnimation,autoToggleDisplay:this.options.autoToggleDisplay,touchZoom:this.options.centerFixed?"center":!this._isZoomLevelFixed(),scrollWheelZoom:this.options.centerFixed?"center":!this._isZoomLevelFixed(),doubleClickZoom:this.options.centerFixed?"center":!this._isZoomLevelFixed(),boxZoom:!this._isZoomLevelFixed(),crs:map.options.crs};mapOptions=L.Util.extend(this.options.mapOptions,mapOptions);this._miniMap=new L.Map(this._container,mapOptions);this._miniMap.addLayer(this._layer);this._mainMapMoving=false;this._miniMapMoving=false;this._userToggledDisplay=false;this._minimized=false;if(this.options.toggleDisplay){this._addToggleButton()}this._miniMap.whenReady(L.Util.bind(function(){this._aimingRect=L.rectangle(this._mainMap.getBounds(),this.options.aimingRectOptions).addTo(this._miniMap);this._shadowRect=L.rectangle(this._mainMap.getBounds(),this.options.shadowRectOptions).addTo(this._miniMap);this._mainMap.on("moveend",this._onMainMapMoved,this);this._mainMap.on("move",this._onMainMapMoving,this);this._miniMap.on("movestart",this._onMiniMapMoveStarted,this);this._miniMap.on("move",this._onMiniMapMoving,this);this._miniMap.on("moveend",this._onMiniMapMoved,this)},this));return this._container},addTo:function(map){L.Control.prototype.addTo.call(this,map);var center=this.options.centerFixed||this._mainMap.getCenter();this._miniMap.setView(center,this._decideZoom(true));this._setDisplay(this.options.minimized);return this},onRemove:function(map){this._mainMap.off("moveend",this._onMainMapMoved,this);this._mainMap.off("move",this._onMainMapMoving,this);this._miniMap.off("moveend",this._onMiniMapMoved,this);this._miniMap.removeLayer(this._layer)},changeLayer:function(layer){this._miniMap.removeLayer(this._layer);this._layer=layer;this._miniMap.addLayer(this._layer)},_addToggleButton:function(){this._toggleDisplayButton=this.options.toggleDisplay?this._createButton("",this._toggleButtonInitialTitleText(),"leaflet-control-minimap-toggle-display leaflet-control-minimap-toggle-display-"+this.options.position,this._container,this._toggleDisplayButtonClicked,this):undefined;this._toggleDisplayButton.style.width=this.options.collapsedWidth+"px";this._toggleDisplayButton.style.height=this.options.collapsedHeight+"px"},_toggleButtonInitialTitleText:function(){if(this.options.minimized){return this.options.strings.showText}else{return this.options.strings.hideText}},_createButton:function(html,title,className,container,fn,context){var link=L.DomUtil.create("a",className,container);link.innerHTML=html;link.href="#";link.title=title;var stop=L.DomEvent.stopPropagation;L.DomEvent.on(link,"click",stop).on(link,"mousedown",stop).on(link,"dblclick",stop).on(link,"click",L.DomEvent.preventDefault).on(link,"click",fn,context);return link},_toggleDisplayButtonClicked:function(){this._userToggledDisplay=true;if(!this._minimized){this._minimize()}else{this._restore()}},_setDisplay:function(minimize){if(minimize!==this._minimized){if(!this._minimized){this._minimize()}else{this._restore()}}},_minimize:function(){if(this.options.toggleDisplay){this._container.style.width=this.options.collapsedWidth+"px";this._container.style.height=this.options.collapsedHeight+"px";this._toggleDisplayButton.className+=" minimized-"+this.options.position;this._toggleDisplayButton.title=this.options.strings.showText}else{this._container.style.display="none"}this._minimized=true;this._onToggle()},_restore:function(){if(this.options.toggleDisplay){this._container.style.width=this.options.width+"px";this._container.style.height=this.options.height+"px";this._toggleDisplayButton.className=this._toggleDisplayButton.className.replace("minimized-"+this.options.position,"");this._toggleDisplayButton.title=this.options.strings.hideText}else{this._container.style.display="block"}this._minimized=false;this._onToggle()},_onMainMapMoved:function(e){if(!this._miniMapMoving){var center=this.options.centerFixed||this._mainMap.getCenter();this._mainMapMoving=true;this._miniMap.setView(center,this._decideZoom(true));this._setDisplay(this._decideMinimized())}else{this._miniMapMoving=false}this._aimingRect.setBounds(this._mainMap.getBounds())},_onMainMapMoving:function(e){this._aimingRect.setBounds(this._mainMap.getBounds())},_onMiniMapMoveStarted:function(e){if(!this.options.centerFixed){var lastAimingRect=this._aimingRect.getBounds();var sw=this._miniMap.latLngToContainerPoint(lastAimingRect.getSouthWest());var ne=this._miniMap.latLngToContainerPoint(lastAimingRect.getNorthEast());this._lastAimingRectPosition={sw:sw,ne:ne}}},_onMiniMapMoving:function(e){if(!this.options.centerFixed){if(!this._mainMapMoving&&this._lastAimingRectPosition){this._shadowRect.setBounds(new L.LatLngBounds(this._miniMap.containerPointToLatLng(this._lastAimingRectPosition.sw),this._miniMap.containerPointToLatLng(this._lastAimingRectPosition.ne)));this._shadowRect.setStyle({opacity:1,fillOpacity:.3})}}},_onMiniMapMoved:function(e){if(!this._mainMapMoving){this._miniMapMoving=true;this._mainMap.setView(this._miniMap.getCenter(),this._decideZoom(false));this._shadowRect.setStyle({opacity:0,fillOpacity:0})}else{this._mainMapMoving=false}},_isZoomLevelFixed:function(){var zoomLevelFixed=this.options.zoomLevelFixed;return this._isDefined(zoomLevelFixed)&&this._isInteger(zoomLevelFixed)},_decideZoom:function(fromMaintoMini){if(!this._isZoomLevelFixed()){if(fromMaintoMini){return this._mainMap.getZoom()+this.options.zoomLevelOffset}else{var currentDiff=this._miniMap.getZoom()-this._mainMap.getZoom();var proposedZoom=this._miniMap.getZoom()-this.options.zoomLevelOffset;var toRet;if(currentDiff>this.options.zoomLevelOffset&&this._mainMap.getZoom()<this._miniMap.getMinZoom()-this.options.zoomLevelOffset){if(this._miniMap.getZoom()>this._lastMiniMapZoom){toRet=this._mainMap.getZoom()+1;this._miniMap.setZoom(this._miniMap.getZoom()-1)}else{toRet=this._mainMap.getZoom()}}else{toRet=proposedZoom}this._lastMiniMapZoom=this._miniMap.getZoom();return toRet}}else{if(fromMaintoMini){return this.options.zoomLevelFixed}else{return this._mainMap.getZoom()}}},_decideMinimized:function(){if(this._userToggledDisplay){return this._minimized}if(this.options.autoToggleDisplay){if(this._mainMap.getBounds().contains(this._miniMap.getBounds())){return true}return false}return this._minimized},_isInteger:function(value){return typeof value==="number"},_isDefined:function(value){return typeof value!=="undefined"},_onToggle:function(){L.Util.requestAnimFrame(function(){L.DomEvent.on(this._container,"transitionend",this._fireToggleEvents,this);if(!L.Browser.any3d){L.Util.requestAnimFrame(this._fireToggleEvents,this)}},this)},_fireToggleEvents:function(){L.DomEvent.off(this._container,"transitionend",this._fireToggleEvents,this);var data={minimized:this._minimized};this.fire(this._minimized?"minimize":"restore",data);this.fire("toggle",data)}});L.Map.mergeOptions({miniMapControl:false});L.Map.addInitHook(function(){if(this.options.miniMapControl){this.miniMapControl=(new MiniMap).addTo(this)}});return MiniMap},window);
 (function(root) {
 define("leaflet-sleep", ["leaflet"], function() {
   return (function() {
@@ -14280,11 +14626,6 @@ L.Map.Sleep = L.Handler.extend({
   removeHooks: function () {
     if (!this._map.scrollWheelZoom.enabled()){
       this._map.scrollWheelZoom.enable();
-    }
-    if (this._map.tap && !this._map.tap.enabled()) {
-      this._map.touchZoom.enable();
-      this._map.dragging.enable();
-      this._map.tap.enable();
     }
     L.DomUtil.setOpacity( this._map._container, 1);
     L.DomUtil.setOpacity( this.sleepNote, 0);
@@ -14598,12 +14939,12 @@ L.Control.SimpleMarkers = L.Control.extend({
     parser.addArgument('minimap', false);
 
     // map layers
-    parser.addArgument('default_map_layer', 'OpenStreetMap.Mapnik')
+    parser.addArgument('default_map_layer', {'id': 'OpenStreetMap.Mapnik', 'options': {}});
     parser.addArgument('map_layers', [
-        {'title': 'Map', 'id': 'OpenStreetMap.Mapnik'},
-        {'title': 'Satellite', 'id': 'Esri.WorldImagery'},
-        {'title': 'Topographic', 'id': 'OpenTopoMap'},
-        {'title': 'Toner', 'id': 'Stamen.Toner'}
+        {'title': 'Map', 'id': 'OpenStreetMap.Mapnik', 'options': {}},
+        {'title': 'Satellite', 'id': 'Esri.WorldImagery', 'options': {}},
+        {'title': 'Topographic', 'id': 'OpenTopoMap', 'options': {}},
+        {'title': 'Toner', 'id': 'Stamen.Toner', 'options': {}}
     ]);
 
     parser.addArgument('image_path', 'src/bower_components/Leaflet.awesome-markers/dist/images');
@@ -14649,15 +14990,28 @@ L.Control.SimpleMarkers = L.Control.extend({
             // Must be an array
             if ($.isArray(options.map_layers)) {
                 baseLayers = {};
+
+                // Convert map_layers elements from string to objects, if necesarry
+                options.map_layers = options.map_layers.map(function (it) {
+                    if (typeof(it) == 'string' ) {
+                        it = {id: it, options: {}};
+                    }
+                    return it;
+                });
                 for (var cnt = 0; cnt < options.map_layers.length; cnt++) {
                     // build layers object with tileLayer instances
-                    baseLayers[options.map_layers[cnt].title] = L.tileLayer.provider(options.map_layers[cnt].id);
+                    var layer = options.map_layers[cnt];
+                    baseLayers[layer.title] = L.tileLayer.provider(layer.id, layer.options);
                 }
                 if (options.map_layers.length > 1) {
                     L.control.layers(baseLayers).addTo(map);
                 }
             }
-            L.tileLayer.provider(options.default_map_layer).addTo(map);  // default map
+
+            if (typeof(options.default_map_layer) == 'string' ) {
+                options.default_map_layer = {id: options.default_map_layer, options: {}}
+            }
+            L.tileLayer.provider(options.default_map_layer.id, options.default_map_layer.options).addTo(map);
 
             // ADD MARKERS
             geojson = this.$el.data().geojson;
@@ -14795,7 +15149,7 @@ L.Control.SimpleMarkers = L.Control.extend({
 
             // Minimap
             if (options.minimap) {
-                var minimap = new L.Control.MiniMap(L.tileLayer.provider(options.default_map_layer), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
+                var minimap = new L.Control.MiniMap(L.tileLayer.provider(options.default_map_layer.id, options.default_map_layer.options), {toggleDisplay: true, mapOptions: {sleep: false}}).addTo(map);
             }
 
             log.debug('pattern initialized');
@@ -14853,5 +15207,5 @@ require(["jquery", "pat-registry", "pat-leaflet"], function($, registry) {
   }
 });
 
-define("/Users/cekk/work/rer/regione-er-5/src/plone.patternslib/src/plone/patternslib/static/bundle-leaflet.js", function(){});
+define("/home/_thet/data/dev/plone/buildout.coredev-51/src/plone.patternslib/src/plone/patternslib/static/bundle-leaflet.js", function(){});
 
