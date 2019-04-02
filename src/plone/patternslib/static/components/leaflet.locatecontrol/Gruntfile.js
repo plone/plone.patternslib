@@ -28,8 +28,7 @@ module.exports = function(grunt) {
       },
       uncompressed: {
         options: {
-          style: 'expanded',
-          sourcemap: 'none'
+          style: 'expanded'
         },
         files: {
           'dist/L.Control.Locate.css': 'src/L.Control.Locate.scss',
@@ -44,11 +43,24 @@ module.exports = function(grunt) {
           'package.json',
           'bower.json',
           'dist/L.Control.Locate.css',
+          'dist/L.Control.Locate.min.css',
+          'dist/L.Control.Locate.min.css.map',
           'dist/L.Control.Locate.mapbox.css',
+          'dist/L.Control.Locate.mapbox.min.css',
+          'dist/L.Control.Locate.mapbox.min.css.map',
           'dist/L.Control.Locate.min.js',
           'dist/L.Control.Locate.min.js.map'
         ],
         push: false
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 9000,
+          protocol: 'https',
+          keepalive: true
+        }
       }
     }
   });
@@ -56,7 +68,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-serve');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'sass']);

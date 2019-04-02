@@ -51,10 +51,18 @@
       description=""
       source="1002"
       destination="1003"
-      handler="plone.patternslib.upgrades.upgrade_1002_1003"
+      handler="plone.patternslib.upgrades.import_profile"
       profile="plone.patternslib:default"
       />
-      
+  <genericsetup:upgradeStep
+      title="Remove 2nd markercluster CSS"
+      description=""
+      source="1003"
+      destination="1004"
+      handler="plone.patternslib.upgrades.import_profile"
+      profile="plone.patternslib:default"
+      />
+
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="plone.patternslib-hiddenprofiles"
