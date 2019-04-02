@@ -97,6 +97,11 @@
                 sleepOpacity: 1
             });
 
+            // hand over some map events to the element
+            map.on('moveend zoomend', function (e) {
+                this.$el.trigger('leaflet.' + e.type, {original_event: e});
+            }.bind(this));
+
             L.Icon.Default.imagePath = options.image_path;
 
             // Locatecontrol
