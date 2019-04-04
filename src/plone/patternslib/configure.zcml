@@ -62,6 +62,14 @@
       handler="plone.patternslib.upgrades.import_profile"
       profile="plone.patternslib:default"
       />
+  <genericsetup:upgradeStep
+      title="Update Bundles"
+      description=""
+      source="1004"
+      destination="1005"
+      handler="plone.patternslib.upgrades.import_profile"
+      profile="plone.patternslib:default"
+      />
 
   <utility
       factory=".setuphandlers.HiddenProfiles"

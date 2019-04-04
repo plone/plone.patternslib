@@ -4,7 +4,7 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Upgrade pat-leaflet.
+- Upgrade pat-leaflet to 1.3.0.
   [thet]
 
 - Remove 2nd CSS resource from Leaflet Markercluster as Plone doesn't compile it properly.
