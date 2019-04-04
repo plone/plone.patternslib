@@ -47,6 +47,8 @@
     parser.addArgument('longitude', '0.0');
     parser.addArgument('zoom', '14');
 
+    parser.addArgument('maxClusterRadius', '80');
+
     // default controls
     parser.addArgument('fullscreencontrol', true);
     parser.addArgument('zoomcontrol', true);
@@ -142,12 +144,14 @@
             // ADD MARKERS
             geojson = this.$el.data().geojson;
             if (geojson) {
-                marker_cluster = new L.MarkerClusterGroup();
+                marker_cluster = new L.MarkerClusterGroup({'maxClusterRadius': options.maxClusterRadius});
                 marker_layer = L.geoJson(geojson, {
                     pointToLayer: function(feature, latlng) {
-                        var marker_color = this.green_marker;
-                        if (!main_marker || feature.properties.main) {
-                            marker_color = this.red_marker;
+                        var marker_color = this.create_marker('green');
+                        if (feature.properties.color) {
+                          marker_color = this.create_marker(feature.properties.color);
+                        } else if (!main_marker || feature.properties.main) {
+                            marker_color = this.create_marker('red');
                         }
                         var marker = L.marker(latlng, {
                             icon: marker_color,
@@ -156,7 +160,7 @@
                         if (!main_marker || feature.properties.main) {
                             // Set main marker. This is the one, which is used
                             // for setting the search result marker.
-                            marker.icon = this.blue_marker;
+                            marker.icon = this.create_marker('blue');
                             main_marker = marker;
                         }
                         marker.on('dragend move', function (e) {
@@ -242,7 +246,7 @@
                         // fit to window
                         map.fitBounds([latlng]);
                     } else {
-                        e.Marker.setIcon(this.red_marker);
+                        e.Marker.setIcon(this.create_marker('red'));
                         this.bind_popup({properties: {editable: true, popup: 'New Marker'}}, e.Marker).bind(this);
                     }
                 }.bind(this));
@@ -256,7 +260,7 @@
                 var addmarker = new L.Control.SimpleMarkers({
                     delete_control: false,
                     allow_popup: false,
-                    marker_icon: this.red_marker,
+                    marker_icon: this.create_marker('red'),
                     marker_draggable: true,
                     add_marker_callback: add_marker_callback.bind(this)
                 });
@@ -301,21 +305,14 @@
             }
         },
 
-        red_marker: L.AwesomeMarkers.icon({
-            markerColor: 'red',
+        create_marker: function (color) {
+          color = color || 'red';
+          return L.AwesomeMarkers.icon({
+            markerColor: color,
             prefix: 'fa',
             icon: 'circle'
-        }),
-        green_marker: L.AwesomeMarkers.icon({
-            markerColor: 'green',
-            prefix: 'fa',
-            icon: 'circle'
-        }),
-        blue_marker: L.AwesomeMarkers.icon({
-            markerColor: 'blue',
-            prefix: 'fa',
-            icon: 'circle'
-        }),
+          });
+        }
 
     });
 }));
