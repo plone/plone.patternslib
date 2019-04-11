@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.1.0 (2019-04-11)
 ------------------
 
 - Upgrade pat-leaflet to 1.3.0.
