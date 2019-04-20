@@ -4,7 +4,8 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Upgrade to pat-leaflet 1.4.0.
+  [thet]
 
 
 1.1.0 (2019-04-11)

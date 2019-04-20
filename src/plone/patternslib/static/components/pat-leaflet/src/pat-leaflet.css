@@ -14,3 +14,27 @@
     height: auto;
     line-height: inherit;
 }
+
+.leaflet-popup {
+    padding: 3rem 3rem 0 3rem;
+}
+.leaflet-popup a.leaflet-popup-close-button.leaflet-popup-close-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0;
+    font-size: 3rem;
+    color: black;
+    text-shadow:
+        -0.2rem   0      0 white,
+         0.2rem   0      0 white,
+         0       -0.2rem 0 white,
+         0        0.2rem 0 white,
+        -0.2rem   0.2rem 0 white,
+         0.2rem  -0.2rem 0 white,
+        -0.2rem  -0.2rem 0 white,
+         0.2rem   0.2rem 0 white;
+}
+.leaflet-popup a.leaflet-popup-close-button.leaflet-popup-close-button:hover {
+    color: red;
+}

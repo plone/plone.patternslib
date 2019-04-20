@@ -1,5 +1,22 @@
 # Changelog
 
+## **1.4.0**
+
+* Fix a problem with ``map_layers`` option when it's a list of ids and no title was generated for the baseLayers object.
+  [thet]
+
+* Add some nicer, opinionated styles for the popup close button.
+  [thet]
+
+* Add option to add some padding to ``fitBounds`` with a default of ``20``.
+  This brings search result on corners more in the map.
+  [thet]
+
+* Add ``extraClasses`` property to marker icons creation.
+  This allows for extra classes like a marker uuid to work with.
+  [thet]
+
+
 ## **1.3.0**
 
 * Add ``maxClusterRadius`` option for the marker cluster plugin. Default is 80 (pixels).
