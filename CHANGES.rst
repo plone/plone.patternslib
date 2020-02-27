@@ -4,6 +4,12 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
+- Do not autoinclude ZCML (this was not needed here).
+  [jensens]
+
+- Fix dependecy chain, depend on ``Products.CMFPlone`` in ``setup.py``.
+  [jensens]
+
 - Upgrade to pat-leaflet 1.4.0.
   [thet]
 
