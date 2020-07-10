@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='plone.patternslib',
-    version='1.1.1',
+    version='1.1.2.dev0',
     description="An add-on to make patternslib patterns available within Plone 5.",  # noqa
     long_description=long_description,
     classifiers=[
