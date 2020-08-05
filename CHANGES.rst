@@ -4,6 +4,9 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
+- Register ``pat-datetime-picker`` in the resource registry.
+  [thet]
+
 - Restructure upgrades to follow bobtemplates.plone recommendations.
   [thet]
 

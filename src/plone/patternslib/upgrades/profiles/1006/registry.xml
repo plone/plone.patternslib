@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+
+  <records
+      prefix="plone.resources/pat-datetime-picker"
+      interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.css</element>
+    </value>
+  </records>
+
+</registry>

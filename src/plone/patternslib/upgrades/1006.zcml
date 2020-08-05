@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:registerProfile name="1006"
+    title="Register pat-datetime-picker"
+    description='Configuration for version 1006'
+    directory="profiles/1006"
+    for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+  <genericsetup:upgradeSteps source="1005"
+    destination="1006"
+    profile="plone.staticresources:default">
+
+    <genericsetup:upgradeDepends
+      title="Register pat-datetime-picker"
+      import_profile="plone.staticresources.upgrades:1006" />
+
+  </genericsetup:upgradeSteps>
+
+</configure>
