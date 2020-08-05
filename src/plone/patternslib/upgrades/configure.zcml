@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+  <include file="1001.zcml" />
+  <include file="1003.zcml" />
+  <include file="1004.zcml" />
+  <include file="1005.zcml" />
+</configure>

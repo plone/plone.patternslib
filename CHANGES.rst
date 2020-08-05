@@ -4,7 +4,8 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Restructure upgrades to follow bobtemplates.plone recommendations.
+  [thet]
 
 
 1.1.1 (2020-07-10)

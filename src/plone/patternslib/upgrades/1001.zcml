@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeStep
+      title="Remove browser layer"
+      description="Remove unneeded browser layer.."
+      source="1000"
+      destination="1001"
+      handler="plone.patternslib.upgrades.upgrade_1000_1001"
+      profile="plone.patternslib:default"
+      />
+
+</configure>
