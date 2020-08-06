@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeStep
+      title="Remove 2nd markercluster CSS"
+      description=""
+      source="1003"
+      destination="1004"
+      handler="plone.patternslib.upgrades.import_profile"
+      profile="plone.patternslib:default"
+      />
+
+</configure>

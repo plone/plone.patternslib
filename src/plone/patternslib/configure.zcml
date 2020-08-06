@@ -8,6 +8,7 @@
     i18n_domain="plone.patternslib">
 
   <include package=".browser" />
+  <include package=".upgrades" />
 
   <include package="plone.resource" file="meta.zcml"/>
 
@@ -36,38 +37,6 @@
       directory="profiles/uninstall"
       description="Uninstalls the plone.patternslib add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-  <genericsetup:upgradeStep
-      title="Remove browser layer"
-      description="Remove unneeded browser layer.."
-      source="1000"
-      destination="1001"
-      handler="plone.patternslib.upgrades.upgrade_1000_1001"
-      profile="plone.patternslib:default"
-      />
-  <genericsetup:upgradeStep
-      title="Remove registry init in patterns"
-      description=""
-      source="1002"
-      destination="1003"
-      handler="plone.patternslib.upgrades.import_profile"
-      profile="plone.patternslib:default"
-      />
-  <genericsetup:upgradeStep
-      title="Remove 2nd markercluster CSS"
-      description=""
-      source="1003"
-      destination="1004"
-      handler="plone.patternslib.upgrades.import_profile"
-      profile="plone.patternslib:default"
-      />
-  <genericsetup:upgradeStep
-      title="Update Bundles"
-      description=""
-      source="1004"
-      destination="1005"
-      handler="plone.patternslib.upgrades.import_profile"
-      profile="plone.patternslib:default"
       />
 
   <utility
