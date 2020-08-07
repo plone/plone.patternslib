@@ -18,6 +18,7 @@ setup(
     description="An add-on to make patternslib patterns available within Plone 5.",  # noqa
     long_description=long_description,
     classifiers=[
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Framework :: Plone :: Addon",
