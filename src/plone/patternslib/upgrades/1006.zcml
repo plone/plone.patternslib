@@ -11,11 +11,11 @@
 
   <genericsetup:upgradeSteps source="1005"
     destination="1006"
-    profile="plone.staticresources:default">
+    profile="plone.patternslib:default">
 
     <genericsetup:upgradeDepends
       title="Register pat-datetime-picker"
-      import_profile="plone.staticresources.upgrades:1006" />
+      import_profile="plone.patternslib.upgrades:1006" />
 
   </genericsetup:upgradeSteps>
 

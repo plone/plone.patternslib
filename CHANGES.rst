@@ -4,7 +4,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Bugfix: Register upgrade step for the correct profile
+  [frapell]
 
 
 1.2.0 (2020-08-07)
