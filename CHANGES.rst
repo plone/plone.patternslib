@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.1 (unreleased)
+1.2.1 (2020-11-23)
 ------------------
 
 - Bugfix: Register upgrade step for the correct profile
