@@ -82,7 +82,7 @@
         init: function initUndefined () {
             var options = this.options = parser.parse(this.$el);
 
-            var fitBoundsOptions = {
+            var fitBoundsOptions = this.fitBoundsOptions = {
                 maxZoom: options.zoom,
                 padding: [
                     parseInt(options.boundsPadding),
@@ -91,12 +91,10 @@
             }
 
             var baseLayers,
-                bounds,
                 geojson,
-                geosearch,
-                main_marker,
-                marker_cluster,
-                marker_layer;
+                geosearch;
+
+            var main_marker = this.main_marker = null;
 
             // MAP INIT
             var map = this.map = new L.Map(this.$el[0], {
@@ -107,6 +105,10 @@
                 sleepNote: false,
                 hoverToWake: false,
                 sleepOpacity: 1
+            });
+
+            var marker_cluster = this.marker_cluster = new L.MarkerClusterGroup({
+                'maxClusterRadius': this.options.maxClusterRadius
             });
 
             // hand over some map events to the element
@@ -151,80 +153,28 @@
             }
             L.tileLayer.provider(options.default_map_layer.id, options.default_map_layer.options).addTo(map);
 
+            map.setView(
+                [options.latitude, options.longitude],
+                options.zoom
+            );
+
             // ADD MARKERS
             geojson = this.$el.data().geojson;
-            if (geojson) {
-                marker_cluster = new L.MarkerClusterGroup({'maxClusterRadius': options.maxClusterRadius});
-                marker_layer = L.geoJson(geojson, {
-                    pointToLayer: function(feature, latlng) {
-                        var extraClasses = feature.properties.extraClasses || '';
-                        var markerColor = 'green';
-                        if (feature.properties.color) {
-                            markerColor = feature.properties.color;
-                        } else if (!main_marker || feature.properties.main) {
-                            markerColor = 'red';
-                        }
-                        var marker_icon = this.create_marker(markerColor, extraClasses);
-                        var marker = L.marker(latlng, {
-                            icon: marker_icon,
-                            draggable: feature.properties.editable
-                        });
-                        if (!main_marker || feature.properties.main) {
-                            // Set main marker. This is the one, which is used
-                            // for setting the search result marker.
-                            main_marker = marker;
-                        }
-                        marker.on('dragend move', function (e) {
-                            // UPDATE INPUTS ON MARKER MOVE
-                            var latlng = e.target.getLatLng();
-                            var $latinput = $(feature.properties.latinput);
-                            var $lnginput = $(feature.properties.lnginput);
-                            if ($latinput.length) {
-                                $latinput.val(latlng.lat);
-                            }
-                            if ($lnginput.length) {
-                                $lnginput.val(latlng.lng);
-                            }
-                        });
-                        if (feature.properties.latinput) {
-                            // UPDATE MARKER ON LATITUDE CHANGE
-                            $(feature.properties.latinput).on('change', function (e) {
-                                var latlng = marker.getLatLng();
-                                marker_cluster.removeLayer(marker);
-                                marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng}).update();
-                                marker_cluster.addLayer(marker);
-                                // fit bounds
-                                bounds = marker_cluster.getBounds();
-                                map.fitBounds(bounds, fitBoundsOptions);
-                            });
-                        }
-                        if (feature.properties.lnginput) {
-                            // UPDATE MARKER ON LONGITUDE CHANGE
-                            $(feature.properties.lnginput).on('change', function (e) {
-                                var latlng = marker.getLatLng();
-                                marker_cluster.removeLayer(marker);
-                                marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()}).update();
-                                marker_cluster.addLayer(marker);
-                                // fit bounds
-                                bounds = marker_cluster.getBounds();
-                                map.fitBounds(bounds, fitBoundsOptions);
-                            });
-                        }
-                        return marker;
-                    }.bind(this),
-                    onEachFeature: this.bind_popup.bind(this),
-                });
-                marker_cluster.addLayer(marker_layer);
-                map.addLayer(marker_cluster);
 
-                // autozoom
-                bounds = marker_cluster.getBounds();
-                map.fitBounds(bounds, fitBoundsOptions);
-            } else {
-                map.setView(
-                    [options.latitude, options.longitude],
-                    options.zoom
-                );
+            if (geojson) {
+                if((typeof(geojson) === 'string') && (geojson.indexOf(".json") != -1)) {
+                    // suppose this is a JSON url which ends with ".json" ... try to load it
+                    var self = this;
+                    $.ajax({
+                        url: geojson,
+                        success: function(data) {
+                            self.init_geojson(map, data);
+                        }
+                    });
+                } else {
+                    // inject inline geoJSON data object
+                    this.init_geojson(map, geojson);
+                }
             }
 
             if (options.geosearch) {
@@ -294,6 +244,75 @@
             }
 
             log.debug('pattern initialized');
+        },
+
+        init_geojson: function(map, geojson) {
+            var self = this, bounds, marker_layer;
+            marker_layer = L.geoJson(geojson, {
+                pointToLayer: function(feature, latlng) {
+                    var extraClasses = feature.properties.extraClasses || '';
+                    var markerColor = 'green';
+                    if (feature.properties.color) {
+                        markerColor = feature.properties.color;
+                    } else if (!self.main_marker || feature.properties.main) {
+                        markerColor = 'red';
+                    }
+                    var marker_icon = self.create_marker(markerColor, extraClasses);
+                    var marker = L.marker(latlng, {
+                        icon: marker_icon,
+                        draggable: feature.properties.editable
+                    });
+                    if (!self.main_marker || feature.properties.main) {
+                        // Set main marker. This is the one, which is used
+                        // for setting the search result marker.
+                        self.main_marker = marker;
+                    }
+                    marker.on('dragend move', function (e) {
+                        // UPDATE INPUTS ON MARKER MOVE
+                        var latlng = e.target.getLatLng();
+                        var $latinput = $(feature.properties.latinput);
+                        var $lnginput = $(feature.properties.lnginput);
+                        if ($latinput.length) {
+                            $latinput.val(latlng.lat);
+                        }
+                        if ($lnginput.length) {
+                            $lnginput.val(latlng.lng);
+                        }
+                    });
+                    if (feature.properties.latinput) {
+                        // UPDATE MARKER ON LATITUDE CHANGE
+                        $(feature.properties.latinput).on('change', function (e) {
+                            var latlng = marker.getLatLng();
+                            self.marker_cluster.removeLayer(marker);
+                            marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng}).update();
+                            self.marker_cluster.addLayer(marker);
+                            // fit bounds
+                            bounds = self.marker_cluster.getBounds();
+                            map.fitBounds(bounds, self.fitBoundsOptions);
+                        });
+                    }
+                    if (feature.properties.lnginput) {
+                        // UPDATE MARKER ON LONGITUDE CHANGE
+                        $(feature.properties.lnginput).on('change', function (e) {
+                            var latlng = marker.getLatLng();
+                            self.marker_cluster.removeLayer(marker);
+                            marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()}).update();
+                            self.marker_cluster.addLayer(marker);
+                            // fit bounds
+                            bounds = self.marker_cluster.getBounds();
+                            map.fitBounds(bounds, self.fitBoundsOptions);
+                        });
+                    }
+                    return marker;
+                }.bind(self),
+                onEachFeature: self.bind_popup.bind(self),
+            });
+            self.marker_cluster.addLayer(marker_layer);
+            map.addLayer(self.marker_cluster);
+
+            // autozoom
+            bounds = self.marker_cluster.getBounds();
+            map.fitBounds(bounds, self.fitBoundsOptions);
         },
 
         bind_popup: function(feature, marker) {
