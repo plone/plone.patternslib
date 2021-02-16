@@ -167,8 +167,15 @@
                     var self = this;
                     $.ajax({
                         url: geojson,
+                        beforeSend: function() {
+                            self.$el.trigger('leaflet.geojson.load', {});
+                        },
                         success: function(data) {
                             self.init_geojson(map, data);
+                            self.$el.trigger('leaflet.geojson.loaded', {status: "success", data: data});
+                        },
+                        error: function(xhr, status, msg) {
+                            self.$el.trigger('leaflet.geojson.loaded', {status: status, data: msg});
                         }
                     });
                 } else {

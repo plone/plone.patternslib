@@ -15046,8 +15046,15 @@ L.Control.SimpleMarkers = L.Control.extend({
                     var self = this;
                     $.ajax({
                         url: geojson,
+                        beforeSend: function() {
+                            self.$el.trigger('leaflet.geojson.load', {});
+                        },
                         success: function(data) {
                             self.init_geojson(map, data);
+                            self.$el.trigger('leaflet.geojson.loaded', {status: "success", data: data});
+                        },
+                        error: function(xhr, status, msg) {
+                            self.$el.trigger('leaflet.geojson.loaded', {status: status, data: msg});
                         }
                     });
                 } else {
@@ -15241,5 +15248,5 @@ require(["jquery", "pat-registry", "pat-leaflet"], function($, registry) {
   }
 });
 
-define("/Users/peterm/workspace/sozmap/src/plone.patternslib/src/plone/patternslib/static/bundle-leaflet.js", function(){});
+define("/Volumes/WORKSPACE2/sozmap/src/plone.patternslib/src/plone/patternslib/static/bundle-leaflet.js", function(){});
 
