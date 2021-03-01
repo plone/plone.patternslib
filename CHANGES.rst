@@ -4,7 +4,8 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- ``pat-leaflet`` AJAX geoJSON feature
+  [petschki]
 
 
 1.2.1 (2020-11-23)
