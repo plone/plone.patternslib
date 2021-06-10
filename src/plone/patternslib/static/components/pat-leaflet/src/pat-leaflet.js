@@ -194,7 +194,7 @@
             }
 
             if (options.geosearch) {
-                var provider;
+                var provider, self = this;
                 if (options.geosearch_provider === 'esri') {
                     provider = new L.GeoSearch.Provider.Esri();
                 } else if (options.geosearch_provider === 'google') {
@@ -207,30 +207,31 @@
 
                 // GEOSEARCH
                 geosearch = new L.Control.GeoSearch({
-                    showMarker: typeof main_marker === 'undefined',
+                    showMarker: this.main_marker === null,
                     draggable: true,
                     provider: provider
                 });
                 geosearch.addTo(map);
 
                 map.on('geosearch_showlocation', function(e) {
-                    if (main_marker && main_marker.feature.properties.editable) {
+                    if (self.main_marker && self.main_marker.feature.properties.editable) {
                         var latlng = {lat: e.Location.Y, lng: e.Location.X};
                         // update, otherwise screen is blank.
-                        marker_cluster.removeLayer(main_marker);
-                        main_marker.setLatLng(latlng).update();
-                        marker_cluster.addLayer(main_marker);
+                        marker_cluster.removeLayer(self.main_marker);
+                        self.main_marker.setLatLng(latlng).update();
+                        marker_cluster.addLayer(self.main_marker);
                         // fit to window
                         map.fitBounds([latlng], fitBoundsOptions);
                     } else {
-                        e.Marker.setIcon(this.create_marker('red'));
-                        this.bind_popup({properties: {editable: true, popup: 'New Marker'}}, e.Marker).bind(this);
+                        e.Marker.setIcon(self.create_marker('red'));
+                        self.bind_popup({properties: {editable: true, popup: 'New Marker'}}, e.Marker).bind(self);
                     }
                 }.bind(this));
 
             }
 
             if (options.addmarker) {
+                var self = this;
                 var add_marker_callback = function(marker) {
                     this.bind_popup({properties: {editable: true}}, marker);
                 };
@@ -245,11 +246,11 @@
             }
 
             map.on('locationfound', function(e) {
-                if (main_marker && main_marker.feature.properties.editable) {
+                if (self.main_marker && self.main_marker.feature.properties.editable) {
                     // update, otherwise screen is blank.
-                    marker_cluster.removeLayer(main_marker);
-                    main_marker.setLatLng({lat: e.latlng.lat, lng: e.latlng.lng});
-                    marker_cluster.addLayer(main_marker);
+                    marker_cluster.removeLayer(self.main_marker);
+                    self.main_marker.setLatLng({lat: e.latlng.lat, lng: e.latlng.lng});
+                    marker_cluster.addLayer(self.main_marker);
                 }
                 map.fitBounds([e.latlng], fitBoundsOptions);
             });
