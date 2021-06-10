@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeStep
+      title="Update Bundles"
+      description=""
+      source="1006"
+      destination="1007"
+      handler="plone.patternslib.upgrades.import_profile"
+      profile="plone.patternslib:default"
+      />
+
+</configure>
