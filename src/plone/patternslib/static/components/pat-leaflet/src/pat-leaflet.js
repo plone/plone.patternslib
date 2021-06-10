@@ -79,7 +79,7 @@
         trigger: '.pat-leaflet',
         map: undefined,
 
-        init: function initUndefined () {
+        init: function initUndefined() {
             var options = this.options = parser.parse(this.$el);
 
             var fitBoundsOptions = this.fitBoundsOptions = {
@@ -94,7 +94,8 @@
                 geojson,
                 geosearch;
 
-            var main_marker = this.main_marker = null;
+            // initialize main_marker
+            this.main_marker = null;
 
             // MAP INIT
             var map = this.map = new L.Map(this.$el[0], {
@@ -112,7 +113,7 @@
             });
 
             // hand over some map events to the element
-            map.on('moveend zoomend', function (e) {
+            map.on('moveend zoomend', function(e) {
                 this.$el.trigger('leaflet.' + e.type, {original_event: e});
             }.bind(this));
 
@@ -132,8 +133,8 @@
                 baseLayers = {};
 
                 // Convert map_layers elements from string to objects, if necesarry
-                options.map_layers = options.map_layers.map(function (it) {
-                    if (typeof(it) == 'string' ) {
+                options.map_layers = options.map_layers.map(function(it) {
+                    if (typeof (it) == 'string') {
                         it = {id: it, title: it, options: {}};
                     }
                     return it;
@@ -148,21 +149,21 @@
                 }
             }
 
-            if (typeof(options.default_map_layer) == 'string' ) {
+            if (typeof (options.default_map_layer) == 'string') {
                 options.default_map_layer = {id: options.default_map_layer, options: {}}
             }
             L.tileLayer.provider(options.default_map_layer.id, options.default_map_layer.options).addTo(map);
 
-            map.setView(
-                [options.latitude || 0.0, options.longitude || 0.0],
-                options.zoom
-            );
+            var latlng = [options.latitude || 0.0, options.longitude || 0.0]
+
+            // INIT MAP
+            map.setView(latlng, options.zoom);
 
             // ADD MARKERS
             geojson = this.$el.data().geojson;
 
             if (geojson) {
-                if((typeof(geojson) === 'string') && (geojson.indexOf(".json") != -1)) {
+                if ((typeof (geojson) === 'string') && (geojson.indexOf(".json") != -1)) {
                     // suppose this is a JSON url which ends with ".json" ... try to load it
                     var self = this;
                     $.ajax({
@@ -182,6 +183,14 @@
                     // inject inline geoJSON data object
                     this.init_geojson(map, geojson);
                 }
+            } else {
+                // no geojson data is given. place one editable marker to current latitude/longitude
+                var marker = L.marker(latlng, {
+                    icon: this.create_marker(),
+                    draggable: true
+                });
+                this.widget_marker_events(marker)
+                map.addControl(marker);
             }
 
             if (options.geosearch) {
@@ -222,7 +231,7 @@
             }
 
             if (options.addmarker) {
-                var add_marker_callback = function (marker) {
+                var add_marker_callback = function(marker) {
                     this.bind_popup({properties: {editable: true}}, marker);
                 };
                 var addmarker = new L.Control.SimpleMarkers({
@@ -235,7 +244,7 @@
                 map.addControl(addmarker);
             }
 
-            map.on('locationfound', function (e) {
+            map.on('locationfound', function(e) {
                 if (main_marker && main_marker.feature.properties.editable) {
                     // update, otherwise screen is blank.
                     marker_cluster.removeLayer(main_marker);
@@ -272,43 +281,8 @@
                     if (!self.main_marker || feature.properties.main) {
                         // Set main marker. This is the one, which is used
                         // for setting the search result marker.
+                        self.widget_marker_events(marker)
                         self.main_marker = marker;
-                    }
-                    marker.on('dragend move', function (e) {
-                        // UPDATE INPUTS ON MARKER MOVE
-                        var latlng = e.target.getLatLng();
-                        var $latinput = $(feature.properties.latinput);
-                        var $lnginput = $(feature.properties.lnginput);
-                        if ($latinput.length) {
-                            $latinput.val(latlng.lat);
-                        }
-                        if ($lnginput.length) {
-                            $lnginput.val(latlng.lng);
-                        }
-                    });
-                    if (feature.properties.latinput) {
-                        // UPDATE MARKER ON LATITUDE CHANGE
-                        $(feature.properties.latinput).on('change', function (e) {
-                            var latlng = marker.getLatLng();
-                            self.marker_cluster.removeLayer(marker);
-                            marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng}).update();
-                            self.marker_cluster.addLayer(marker);
-                            // fit bounds
-                            bounds = self.marker_cluster.getBounds();
-                            map.fitBounds(bounds, self.fitBoundsOptions);
-                        });
-                    }
-                    if (feature.properties.lnginput) {
-                        // UPDATE MARKER ON LONGITUDE CHANGE
-                        $(feature.properties.lnginput).on('change', function (e) {
-                            var latlng = marker.getLatLng();
-                            self.marker_cluster.removeLayer(marker);
-                            marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()}).update();
-                            self.marker_cluster.addLayer(marker);
-                            // fit bounds
-                            bounds = self.marker_cluster.getBounds();
-                            map.fitBounds(bounds, self.fitBoundsOptions);
-                        });
                     }
                     return marker;
                 }.bind(self),
@@ -329,7 +303,7 @@
                 popup = popup || '';
                 var $popup = $('<div>' + popup + '</div><br/>');
                 var $link = $('<a href=\'#\' class=\'deleteMarker\'>Delete Marker</a>');
-                $link.on('click', function (e) {
+                $link.on('click', function(e) {
                     e.preventDefault();
                     this.map.removeLayer(marker);
                     marker = undefined;
@@ -342,15 +316,53 @@
             }
         },
 
-        create_marker: function (color, extraClasses) {
-          color = color || 'red';
-          extraClasses = extraClasses || '';
-          return L.AwesomeMarkers.icon({
-            markerColor: color,
-            prefix: 'fa',
-            icon: 'circle',
-            extraClasses: extraClasses
-          });
+        create_marker: function(color, extraClasses) {
+            color = color || 'red';
+            extraClasses = extraClasses || '';
+            return L.AwesomeMarkers.icon({
+                markerColor: color,
+                prefix: 'fa',
+                icon: 'circle',
+                extraClasses: extraClasses
+            });
+        },
+
+        // this is the input marker for geolocation widget
+        widget_marker_events: function(marker) {
+            var self = this, $geolocation_wrapper = self.$el.parents("div.geolocation_wrapper.edit");
+            var $latinput = $geolocation_wrapper.find("input.latitude");
+            var $lnginput = $geolocation_wrapper.find("input.longitude");
+
+            if (($latinput.lenght == 0) || ($lnginput.length == 0)) {
+                return;
+            }
+
+            // update inputs on marker move
+            marker.on('dragend move', function(e) {
+                var latlng = e.target.getLatLng();
+                $latinput.val(latlng.lat);
+                $lnginput.val(latlng.lng);
+            });
+            // update marker on latitude change
+            $latinput.on('change', function(e) {
+                var latlng = marker.getLatLng();
+                self.marker_cluster.removeLayer(marker);
+                marker.setLatLng({lat: $(e.target).val(), lng: latlng.lng}).update();
+                self.marker_cluster.addLayer(marker);
+                // fit bounds
+                bounds = self.marker_cluster.getBounds();
+                map.fitBounds(bounds, self.fitBoundsOptions);
+            });
+            // update marker on longitude change
+            $lnginput.on('change', function(e) {
+                var latlng = marker.getLatLng();
+                self.marker_cluster.removeLayer(marker);
+                marker.setLatLng({lat: latlng.lat, lng: $(e.target).val()}).update();
+                self.marker_cluster.addLayer(marker);
+                // fit bounds
+                bounds = self.marker_cluster.getBounds();
+                map.fitBounds(bounds, self.fitBoundsOptions);
+            });
         }
 
     });
