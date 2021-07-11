@@ -14,4 +14,5 @@ class HiddenProfiles(object):
             "plone.patternslib.upgrades:1004",
             "plone.patternslib.upgrades:1005",
             "plone.patternslib.upgrades:1006",
+            "plone.patternslib.upgrades:1007",
         ]
