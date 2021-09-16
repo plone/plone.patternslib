@@ -9553,7 +9553,7 @@ define('pat-parser',[
             }
             inherit = (inherit!==false);
             var stack = inherit ? [[this._defaults($el)]] : [[{}]];
-            var $possible_config_providers = inherit ? $el.parents().andSelf() : $el,
+            var $possible_config_providers = inherit ? $el.parents().addBack() : $el,
                 final_length = 1;
 
             _.each($possible_config_providers, function (provider) {
