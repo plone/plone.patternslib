@@ -12,20 +12,20 @@ define(["pat-slides"], function(pattern) {
 
         describe("init", function() {
             it("Return result from _hook", function() {
-                spyOn(pattern, "_hook").andCallFake(function() {
+                var spy_hook = spyOn(pattern, "_hook").and.callFake(function() {
                     return "jq";
                 });
                 var elements = $();
                 expect(pattern.init(elements)).toBe("jq");
-                expect(pattern._hook).toHaveBeenCalledWith(elements);
+                expect(spy_hook).toHaveBeenCalledWith(elements);
             });
         });
 
         describe("_hook", function() {
             it("Return jQuery object", function() {
                 var jq = jasmine.createSpyObj("jQuery", ["off", "on"]);
-                jq.off.andReturn(jq);
-                jq.on.andReturn(jq);
+                jq.off.and.returnValue(jq);
+                jq.on.and.returnValue(jq);
                 expect(pattern._hook(jq)).toBe(jq);
             });
         });
@@ -71,22 +71,22 @@ define(["pat-slides"], function(pattern) {
                 for (var i=1; i<=4; i++)
                     $("<div/>", {"class": "slide", id: "slide"+i}).appendTo($show);
                 var utils = require("pat-utils");
-                spyOn(utils, "debounce").andCallFake(function(func) {
+                spyOn(utils, "debounce").and.callFake(function(func) {
                     return func;
                 });
-                spyOn(pattern, "_reset");
+                var spy_reset = spyOn(pattern, "_reset");
                 pattern._hook($show);
                 pattern._remove_slides($show, ["slide1", "slide3"]);
-                expect(pattern._reset).toHaveBeenCalled();
+                expect(spy_reset).toHaveBeenCalled();
             });
 
             it("Do not trigger reset when not doing anything", function() {
                 var $show = $("<div/>", {"class": "pat-slides"});
                 for (var i=1; i<=2; i++)
                     $("<div/>", {"class": "slide", id: "slide"+i}).appendTo($show);
-                spyOn(pattern, "_reset");
+                var spy_reset = spyOn(pattern, "_reset");
                 pattern._remove_slides($show, ["slide1", "slide2"]);
-                expect(pattern._reset).not.toHaveBeenCalled();
+                expect(spy_reset).not.toHaveBeenCalled();
             });
         });
     });

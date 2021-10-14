@@ -111,12 +111,12 @@
 
     <records prefix="plone.resources/modernizr"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/modernizr/modernizr.js</value>
+        <value key="js">++plone++patternslib/components/modernizr/src/Modernizr.js</value>
     </records>
 
     <records prefix="plone.resources/modernizr-csspositionsticky"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
+        <value key="js">++plone++patternslib/components/modernizr/feature-detects/css/positionsticky.js</value>
         <value key="deps">modernizr</value>
     </records>
 

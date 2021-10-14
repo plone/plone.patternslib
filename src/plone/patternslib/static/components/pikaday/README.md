@@ -20,8 +20,30 @@ Pikaday
 Also see the [changelog](CHANGELOG.md)
 
 ## Installation
+You can install Pikaday as an NPM package:
 
-    npm install pikaday
+```shell
+npm install pikaday
+```
+
+Or link directly to the CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+```
+
+## Styles
+You will also need to include Pikaday CSS file. This step depends on how Pikaday was installed. Either import from NPM:
+
+```css
+@import './node_modules/pikaday/css/pikaday.css';
+```
+
+Or link to the CDN:
+
+```html
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+```
 
 ## Usage
 
@@ -89,7 +111,7 @@ You should return a string from it.
 
 Be careful, though. If the formatted string that you return cannot be correctly parsed by the `Date.parse` method (or by `moment` if it is available), then you must provide your own `parse` function in the config. This function will be passed the formatted string and the format:
 
-`toString(dateString, format = 'YYYY-MM-DD')`
+`parse(dateString, format = 'YYYY-MM-DD')`
 
 ```javascript
 var picker = new Pikaday({
@@ -107,8 +129,8 @@ var picker = new Pikaday({
         // dateString is the result of `toString` method
         const parts = dateString.split('/');
         const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1] - 1, 10);
-        const year = parseInt(parts[1], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const year = parseInt(parts[2], 10);
         return new Date(year, month, day);
     }
 });
@@ -122,6 +144,7 @@ Pikaday has many useful options:
 * `field` bind the datepicker to a form field
 * `trigger` use a different element to trigger opening the datepicker, see [trigger example][] (default to `field`)
 * `bound` automatically show/hide the datepicker on `field` focus (default `true` if `field` is set)
+* `ariaLabel` data-attribute on the input field with an aria assistance text (only applied when `bound` is set)
 * `position` preferred position of the datepicker relative to the form field, e.g.: `top right`, `bottom right` **Note:** automatic adjustment may occur to avoid datepicker from being displayed outside the viewport, see [positions example][] (default to 'bottom left')
 * `reposition` can be set to false to not reposition datepicker within the viewport, forcing it to take the configured `position` (default: true)
 * `container` DOM node to render calendar into, see [container example][] (default: undefined)
@@ -130,7 +153,7 @@ Pikaday has many useful options:
 * `toString(date, format)` function which will be used for custom formatting. This function will take precedence over `moment`.
 * `parse(dateString, format)` function which will be used for parsing input string and getting a date object from it. This function will take precedence over `moment`.
 * `defaultDate` the initial date to view when first opened
-* `setDefaultDate` make the `defaultDate` the initial selected value
+* `setDefaultDate` Boolean (true/false). make the `defaultDate` the initial selected value
 * `firstDay` first day of the week (0: Sunday, 1: Monday, etc)
 * `minDate` the minimum/earliest date that can be selected (this should be a native Date object - e.g. `new Date()` or `moment().toDate()`)
 * `maxDate` the maximum/latest date that can be selected (this should be a native Date object - e.g. `new Date()` or `moment().toDate()`)
@@ -154,6 +177,18 @@ Pikaday has many useful options:
 * `onOpen` callback function for when the picker becomes visible
 * `onClose` callback function for when the picker is hidden
 * `onDraw` callback function for when the picker draws a new month
+* `keyboardInput` enable keyboard input support (default `true`)
+
+### Styling
+
+If the `reposition` configuration-option is enabled (default), Pikaday will apply CSS-classes to the datepicker according to how it is positioned:
+
+* `top-aligned`
+* `left-aligned`
+* `right-aligned`
+* `bottom-aligned`
+
+Note that the DOM element at any time will typically have 2 CSS-classes (eg. `top-aligned right-aligned` etc).
 
 ## jQuery Plugin
 
@@ -177,7 +212,7 @@ $('.datepicker').eq(0).pikaday('show').pikaday('gotoYear', 2042);
 
 ## AMD support
 
-If you use a modular script loader than Pikaday is not bound to the global object and will fit nicely in your build process. You can require Pikaday just like any other module.
+If you use a modular script loader, Pikaday is not bound to the global object and will fit nicely in your build process. You can require Pikaday just like any other module.
 See the [AMD example][] for a full version.
 
 ```javascript
@@ -243,6 +278,12 @@ Returns a [Moment.js][moment] object for the selected date (Moment must be loade
 `picker.setMoment(moment('14th February 2014', 'DDo MMMM YYYY'))`
 
 Set the current selection with a [Moment.js][moment] object (see `setDate` for details).
+
+### Clear and reset date
+
+`picker.clear()`
+
+Will clear and reset the input where picker is bound to.
 
 ### Change current view
 
@@ -350,41 +391,41 @@ Also [@stas][stas] has a fork [stas/Pikaday][stas Pika], but is now quite old
 
 ## Authors
 
-* David Bushell [http://dbushell.com][Bushell] [@dbushell][Bushell Twitter]
+* David Bushell [https://dbushell.com][Bushell] [@dbushell][Bushell Twitter]
 * Ramiro Rikkert [GitHub][Rikkert] [@RamRik][Rikkert Twitter]
 
 Thanks to [@shoogledesigns][shoogledesigns] for the name.
 
 Copyright © 2014 David Bushell | BSD & MIT license
 
-  [Pikaday]:     http://dbushell.github.com/Pikaday/                              "Pikaday"
+  [Pikaday]:     https://pikaday.com/                                             "Pikaday"
   [moment]:      http://momentjs.com/                                             "moment.js"
   [browserify]:  http://browserify.org/                                           "browserify"
-  [screenshot]:  https://raw.github.com/dbushell/Pikaday/gh-pages/screenshot.png  "Screenshot"
-  [issues]:      https://github.com/dbushell/Pikaday/issues                       "Issue tracker"
+  [screenshot]:  https://raw.github.com/Pikaday/Pikaday/master/examples/screenshot.png  "Screenshot"
+  [issues]:      https://github.com/Pikaday/Pikaday/issues                        "Issue tracker"
   [gem]:         https://rubygems.org/gems/pikaday-gem                            "RoR gem"
   [mdn_date]:    https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date  "Date"
-  [Bushell]:     http://dbushell.com/                                             "dbushell.com"
+  [Bushell]:     https://dbushell.com/                                            "dbushell.com"
   [Bushell Twitter]: https://twitter.com/dbushell                                 "@dbushell"
   [Rikkert]:     https://github.com/rikkert                                       "Rikkert GitHub"
   [Rikkert Twitter]: https://twitter.com/ramrik                                   "@ramrik"
   [shoogledesigns]:  https://twitter.com/shoogledesigns/status/255209384261586944 "@shoogledesigns"
-  [issue1]:      https://github.com/dbushell/Pikaday/issues/1                     "Issue 1"
-  [issue18]:     https://github.com/dbushell/Pikaday/issues/18                    "Issue 18"
+  [issue1]:      https://github.com/Pikaday/Pikaday/issues/1                      "Issue 1"
+  [issue18]:     https://github.com/Pikaday/Pikaday/issues/18                     "Issue 18"
   [stas]:        https://github.com/stas                                          "@stas"
   [stas Pika]:   https://github.com/stas/Pikaday                                  "Pikaday"
   [owenmead]:    https://github.com/owenmead                                      "@owenmead"
   [owen Pika]:   https://github.com/owenmead/Pikaday                              "Pikaday"
   [xeeali]:      https://github.com/xeeali                                        "@xeeali"
   [xeeali Pika]: https://github.com/xeeali/Pikaday                                "Pikaday"
-  [moment.js example]: http://dbushell.github.com/Pikaday/examples/moment.html    "Pikaday w/ moment.js"
-  [jQuery example]: http://dbushell.github.com/Pikaday/examples/jquery.html       "Pikaday w/ jQuery"
-  [AMD example]: http://dbushell.github.com/Pikaday/examples/amd.html             "Pikaday w/ AMD"
-  [jQuery AMD example]: http://dbushell.github.com/Pikaday/examples/jquery-amd.html "Pikaday w/ jQuery + AMD"
-  [trigger example]: http://dbushell.github.com/Pikaday/examples/trigger.html     "Pikaday using custom trigger"
-  [positions example]: http://dbushell.github.com/Pikaday/examples/positions.html "Pikaday using different position options"
-  [container example]: http://dbushell.github.com/Pikaday/examples/container.html "Pikaday using custom calendar container"
-  [theme example]: http://dbushell.github.com/Pikaday/examples/theme.html         "Pikaday using multiple themes"
+  [moment.js example]: https://pikaday.com/examples/moment.html    "Pikaday w/ moment.js"
+  [jQuery example]: https://pikaday.com/examples/jquery.html       "Pikaday w/ jQuery"
+  [AMD example]: https://pikaday.com/examples/amd.html             "Pikaday w/ AMD"
+  [jQuery AMD example]: https://pikaday.com/examples/jquery-amd.html "Pikaday w/ jQuery + AMD"
+  [trigger example]: https://pikaday.com/examples/trigger.html     "Pikaday using custom trigger"
+  [positions example]: https://pikaday.com/examples/positions.html "Pikaday using different position options"
+  [container example]: https://pikaday.com/examples/container.html "Pikaday using custom calendar container"
+  [theme example]: https://pikaday.com/examples/theme.html         "Pikaday using multiple themes"
 
 
 

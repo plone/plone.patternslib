@@ -1,0 +1,22 @@
+@function gray($intensity, $alpha: 1) {
+  @return rgba($intensity, $intensity, $intensity, $alpha);
+}
+
+@function tint($color, $amount) {
+	@return mix(white, $color, $amount);
+}
+
+@function shade($color, $amount) {
+	@return mix(black, $color, $amount);
+}
+
+/* Test */
+body {
+	$color: red;
+	background: mix(red, white, 10%);
+	background: tint(red, 10%);
+	background: shade(red, 10%);
+	background: lighten(red, 10%);
+	background: darken(red, 10%);
+	background: gray(255, .2);
+}

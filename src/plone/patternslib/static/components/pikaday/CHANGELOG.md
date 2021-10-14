@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.8.2 - 2020-10-22
+
+- Properly parse date string, fixes #735 #755 #688
+- Cleaner packages, see #542 #580
+- Add space for XHTML, fixes #526
+- CSS fixes, see #431 #430 #809 #883 #237 #869 #869 #730
+- Add clear functionality, see #720
+- Use unique IDs, fixes #650
+- Bubble event on left arrow, fixes #710
+- Show week numbers based on ISO 8601 by default, fixes #388 #825
+
+## 1.8.0 - 2018-10-17
+
+- Remove testling because service is not running atm
+- Move to github organisation Pikaday/Pikaday
+- Add CSS-classes indicating position
+- Remove the Moment.js optional dependency
+- Add aria label text configuration
+
+## 1.7.0 - 2017-12-12
+
+- Add keyboard input option, see #610
+
 ## 1.6.1 - 2017-06-06
 
 - Fix memory leak, fixes #630
@@ -32,7 +55,7 @@
 - Fix touch device support, see #374
 - Add possibility to reset the max and min date to the date picker
 
-## 1.3.3 - 2015-02-17
+## 1.3.3 - 2015-06-26
 
 - Add theme class support, see #260
 - Fix on iOS, see #101, #121

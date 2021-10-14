@@ -17,8 +17,9 @@ define(["pat-ajax"], function(pattern) {
                 pattern.init($a);
                 spyOn($, "ajax");
                 $a.click();
-                expect($.ajax.calls[0].args[0].context[0]).toBe($a[0]);
-                expect($.ajax.calls[0].args[0].url).toBe("href.html");
+                var ajaxargs = $.ajax.calls.mostRecent().args[0];
+                expect(ajaxargs.context[0]).toBe($a[0]);
+                expect(ajaxargs.url).toBe("href.html");
             });
         });
 
@@ -27,7 +28,7 @@ define(["pat-ajax"], function(pattern) {
         // path in jquery.form that does not use $.ajax
         //
         describe("form", function() {
-            var $form, $button;
+            var $form, $button, spy_ajax;
 
             beforeEach(function() {
                 $form = $("<form action='action.html'></form>").appendTo($lab);
@@ -36,36 +37,40 @@ define(["pat-ajax"], function(pattern) {
                 ).appendTo($form);
                 $("<input name='input1' value='value1' />").appendTo($form);
                 pattern.init($form);
-                spyOn($, "ajax");
+                spy_ajax = spyOn($, "ajax");
             });
 
             it("triggers ajax request on submit", function() {
                 $form.submit();
-                expect($.ajax).toHaveBeenCalled();
+                expect(spy_ajax).toHaveBeenCalled();
             });
 
             it("honors method='post'", function() {
                 $form.attr("method", "post");
                 $form.submit();
-                expect($.ajax.calls[0].args[0].url).toEqual("action.html");
-                expect($.ajax.calls[0].args[0].data).toEqual("input1=value1");
+                var ajaxargs = $.ajax.calls.mostRecent().args[0];
+                expect(ajaxargs.url).toEqual("action.html");
+                expect(ajaxargs.method).toEqual("POST");
+                expect(ajaxargs.data.get('input1')).toContain("value1");
             });
 
             it("triggers ajax request on click submit", function() {
                 $button.click();
-                expect($.ajax).toHaveBeenCalled();
+                expect(spy_ajax).toHaveBeenCalled();
             });
 
             it("does include submit button clicked", function() {
                 $button.click();
-                expect($.ajax.calls[0].args[0].url)
-                    .toEqual("action.html?input1=value1&submit=submit");
+                var ajaxargs = $.ajax.calls.mostRecent().args[0];
+                expect(ajaxargs.url).toEqual("action.html");
+                expect(ajaxargs.data).toEqual("input1=value1&submit=submit");
             });
 
             it("does not include submit buttons if not clicked", function() {
                 $form.submit();
-                expect($.ajax.calls[0].args[0].url)
-                    .toEqual("action.html?input1=value1");
+                var ajaxargs = $.ajax.calls.mostRecent().args[0];
+                expect(ajaxargs.url).toEqual("action.html");
+                expect(ajaxargs.data).toEqual("input1=value1");
             });
         });
     });

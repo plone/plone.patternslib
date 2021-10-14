@@ -13,7 +13,7 @@ define(["pat-equaliser"], function(pattern) {
         describe("init", function() {
             it("Return jQuery object", function() {
                 var jq = jasmine.createSpyObj("jQuery", ["each"]);
-                jq.each.andReturn(jq);
+                jq.each.and.returnValue(jq);
                 expect(pattern.init(jq)).toBe(jq);
             });
         });
@@ -23,7 +23,7 @@ define(["pat-equaliser"], function(pattern) {
                 var style,
                     head = document.head || document.getElementsByTagName("head")[0],
                     css = ".small { height: 50px; }\n" +
-                          ".large {height: 100px; }";
+                          ".large { height: 100px; }";
 
                 style = document.createElement("style");
                 style.id="pat-equaliser-style";
@@ -49,7 +49,7 @@ define(["pat-equaliser"], function(pattern) {
                 expect($container.find(".large").height()).toBe(100);
                 expect($container.find(".large").hasClass("equalised")).toBeTruthy();
                 expect($container.find(".small").height()).toBe(100);
-                expect($container.find(".large").hasClass("equalised")).toBeTruthy();
+                expect($container.find(".small").hasClass("equalised")).toBeTruthy();
             });
 
             it("Ignore inline styles", function() {
@@ -61,8 +61,8 @@ define(["pat-equaliser"], function(pattern) {
                 $container.appendTo("#lab");
                 $container.data("pat-equaliser", {transition: "none"});
                 pattern._update($container[0]);
-                expect($container.find(".large").height()).toBe(100);
                 expect($container.find(".small").height()).toBe(100);
+                expect($container.find(".large").height()).toBe(100);
             });
         });
     });

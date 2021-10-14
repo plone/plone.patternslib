@@ -76,7 +76,7 @@ define(["pat-autosuggest"], function(pattern) {
                 spyOn($el, "select2");
 
                 pattern.init($el);
-                expect($el.select2.mostRecentCall.args[0].ajax).toBeDefined();
+                expect($el.select2.calls.mostRecent().args[0].ajax).toBeDefined();
                 utils.removeSelect2();
             });
         });
@@ -149,11 +149,64 @@ define(["pat-autosuggest"], function(pattern) {
                 expect($(".select2-input").length).toBe(1);
                 expect($(".select2-selection-limit").length).toBe(0);
                 $(".select2-input").val("apple").click();
-                expect($(".select2-selection-limit").length).toBe(1);
-                expect($(".select2-selection-limit").text()).toBe("You can only select 1 item");
+                // Now we have a select style control. It has a close button
+                expect($(".select2-search-choice-close").length).toBe(1);
                 utils.removeSelect2();
             });
         });
+
+
+        describe("Placeholder tests", function () {
+            beforeEach(function() {
+                $("div#lab").remove(); // Looks likes some specs don't clean up after themselves.
+                $("<div/>", {id: "lab"}).appendTo(document.body);
+            });
+
+            afterEach(function() {
+                $("#lab").remove();
+            });
+
+            it("A placeholder on the original element is reused on the auto-suggest element", function() {
+
+                var placeholder = "Test placeholder";
+
+                $("<input/>", {
+                    "id": "select2",
+                    "class": "pat-autosuggest",
+                    "placeholder": "Test placeholder",
+                }).appendTo($("div#lab"));
+
+                var $el = $("input.pat-autosuggest");
+
+                expect($el.prop('placeholder')).toBe(placeholder);
+                pattern.init($el);
+                // XXX Placeholder is used as value of the input field.
+                // Change this as soon Select2 changes this odd behavior.
+                expect($(".select2-input").val()).toBe(placeholder);
+                utils.removeSelect2();
+            });
+
+            it("No placeholder doesn't create an automatic one.", function() {
+
+                $("<input/>", {
+                    "id": "select2",
+                    "class": "pat-autosuggest",
+                }).appendTo($("div#lab"));
+
+                var $el = $("input.pat-autosuggest");
+
+                expect($el.prop('placeholder')).toBe('');
+                pattern.init($el);
+                // XXX Placeholder is used as value of the input field.
+                // Change this as soon Select2 changes this odd behavior.
+                expect($(".select2-input").val()).toBe('');
+                utils.removeSelect2();
+            });
+
+
+        });
+
+
     });
 
 });

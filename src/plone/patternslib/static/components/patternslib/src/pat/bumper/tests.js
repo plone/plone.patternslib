@@ -1,5 +1,5 @@
-define(["jquery", "pat-bumper"], function($, Bumper) {
-
+define(["jquery", "pat-bumper", "modernizr"], function($, Bumper, Modernizr) {
+    
     describe("pat-bumper", function() {
         beforeEach(function() {
             $("#lab").remove();
@@ -70,7 +70,11 @@ define(["jquery", "pat-bumper"], function($, Bumper) {
             var pattern = new Bumper($el);
             pattern.init();
             pattern._markBumped(true);
-            expect(pattern.$el.attr('class')).toBe("pat-bumper bumped");
+            if (Modernizr.csspositionsticky) {
+                expect(pattern.$el.attr('class')).toBe("pat-bumper sticky-supported bumped");
+            } else {                
+                expect(pattern.$el.attr('class')).toBe("pat-bumper bumped");
+            }
         });
 
         it("updates classes for an unbumped element", function() {
@@ -85,7 +89,11 @@ define(["jquery", "pat-bumper"], function($, Bumper) {
             var pattern = new Bumper($el);
             pattern.init();
             pattern._markBumped(false);
-            expect(pattern.$el.attr('class')).toBe("pat-bumper plain");
+            if (Modernizr.csspositionsticky) {
+                expect(pattern.$el.attr('class')).toBe("pat-bumper sticky-supported plain");
+            } else {                
+                expect(pattern.$el.attr('class')).toBe("pat-bumper plain");
+            }
         });
 
         it("listens on window scroll if no scrollable container is present", function() {
@@ -96,10 +104,10 @@ define(["jquery", "pat-bumper"], function($, Bumper) {
                 ].join("\n"));
             var $el = $(".pat-bumper");
             var pattern = new Bumper($el);
-            spyOn(pattern, "_updateStatus");
+            var spy_update = spyOn(pattern, "_updateStatus");
             pattern.init();
             window.scrollTo(0, 0);
-            expect(pattern._updateStatus).toHaveBeenCalled();
+            expect(spy_update).toHaveBeenCalled();
         });
 
         it("correctly transitions an element to bumped at the top", function() {
@@ -114,18 +122,18 @@ define(["jquery", "pat-bumper"], function($, Bumper) {
                 ].join("\n"));
             var $el = $(".pat-bumper");
             var pattern = new Bumper($el);
-            spyOn(pattern, "_markBumped");
+            var spy_mark = spyOn(pattern, "_markBumped");
             pattern.init();
             $(".parent")[0].scrollTop = 5;
             pattern._updateStatus();
-            expect(pattern._markBumped).toHaveBeenCalled();
-            expect(pattern._markBumped.mostRecentCall.args[0]).toBeTruthy();
+            expect(spy_mark).toHaveBeenCalled();
+            expect(pattern._markBumped.calls.mostRecent().args[0]).toBeTruthy();
             expect(pattern.$el[0].style.top).toBe("5px");
 
             $(".parent")[0].scrollTop = 13;
             pattern._updateStatus();
-            expect(pattern._markBumped).toHaveBeenCalled();
-            expect(pattern._markBumped.mostRecentCall.args[0]).toBeTruthy();
+            expect(spy_mark).toHaveBeenCalled();
+            expect(pattern._markBumped.calls.mostRecent().args[0]).toBeTruthy();
             expect(pattern.$el[0].style.top).toBe("13px");
         });
 
@@ -145,18 +153,18 @@ define(["jquery", "pat-bumper"], function($, Bumper) {
             $(".parent")[0].scrollLeft = 5;
             pattern._updateStatus();
             expect(pattern._markBumped).toHaveBeenCalled();
-            expect(pattern._markBumped.mostRecentCall.args[0]).toBeTruthy();
+            expect(pattern._markBumped.calls.mostRecent().args[0]).toBeTruthy();
             expect(pattern.$el[0].style.left).toBe("5px");
             $(".parent")[0].scrollLeft = 12;
             pattern._updateStatus();
             expect(pattern._markBumped).toHaveBeenCalled();
-            expect(pattern._markBumped.mostRecentCall.args[0]).toBeTruthy();
+            expect(pattern._markBumped.calls.mostRecent().args[0]).toBeTruthy();
             expect(pattern.$el[0].style.left).toBe("12px");
         });
 
         describe("The init method", function(){
             it("Returns the jQuery-wrapped DOM node", function() {
-                var $el = $('<div class="pat-scroll"></div');
+                var $el = $('<div class="pat-scroll"></div>');
                 var pattern = new Bumper($el);
                 expect(pattern.init($el)).toBe($el);
             });

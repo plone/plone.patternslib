@@ -26,7 +26,7 @@ Use the plugin as follows:
 $('input, textarea').placeholder();
 ```
 
-You’ll still be able to use `jQuery#val()` to get and set the input values. If the element is currently showing a placeholder, `.val()` will return an empty string instead of the placeholder text, just like it does it browsers with a native `@placeholder` implementation. Calling `.val('')` to set an element’s value to the empty string will result in the placeholder text (re)appearing.
+You’ll still be able to use `jQuery#val()` to get and set the input values. If the element is currently showing a placeholder, `.val()` will return an empty string instead of the placeholder text, just like it does in browsers with a native `@placeholder` implementation. Calling `.val('')` to set an element’s value to the empty string will result in the placeholder text (re)appearing.
 
 ### CSS
 
@@ -38,6 +38,14 @@ input, textarea { color: #000; }
 ```
 
 I’d suggest sticking to the `#aaa` color for placeholder text, as it’s the default in most browsers that support `@placeholder`. If you really want to, though, you can [style the placeholder text in some of the browsers that natively support it](http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css/2610741#2610741).
+
+## Installation
+
+You can install jquery-placeholder by using [Bower](http://bower.io).
+
+```bash
+bower install jquery-placeholder
+```
 
 ## Notes
 
@@ -56,7 +64,7 @@ I’d suggest sticking to the `#aaa` color for placeholder text, as it’s the d
 
 ## License
 
-This plugin is dual licensed under the MIT and GPL licenses, just like jQuery itself.
+This plugin is available under [the MIT license](http://mths.be/mit).
 
 ## Thanks to…
 

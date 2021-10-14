@@ -20,6 +20,11 @@ define(["pat-checklist"], function() {
                 $fieldset.append($("<button class='deselect-all'>Deselect all</button>"));
                 $("#lab fieldset.pat-checklist").patternChecklist();
             },
+            fakeInjectCheckBox: function() {
+                var $fieldset = $("fieldset.pat-checklist");
+                $fieldset.append($("<input type='checkbox' name='primates' />"));
+                $fieldset.trigger('patterns-injected');
+            },
             removeCheckList: function () {
                 $("#lab").children("fieldset.pat-checklist").remove();
             },
@@ -141,6 +146,33 @@ define(["pat-checklist"], function() {
                 expect($(".select-all").prop("disabled")).toBe(true);
                 utils.uncheckBox();
                 expect($(".select-all").prop("disabled")).toBe(false);
+            });
+            it("understands injection", function () {
+                expect($(".select-all").prop("disabled")).toBe(true);
+                utils.fakeInjectCheckBox();
+                expect($(".select-all").prop("disabled")).toBe(false);
+                $("[name=primates]").prop('checked', true).change();
+                expect($(".select-all").prop("disabled")).toBe(true);
+            });
+        });
+
+        describe("The function _findSiblings", function() {
+            it("has a scope limited to the current form", function () {
+                utils.createCheckList();
+                // Duplicate the check list with all the items checked
+                $("#lab").append($("#lab").find('.pat-checklist').clone());
+                $(".pat-checklist").last().patternChecklist();
+                expect($('.pat-checklist').first().find(':checked').length).toBe(3);
+                expect($('.pat-checklist').last().find(':checked').length).toBe(3);
+
+                // Click the last form deselect all button
+                $('.pat-checklist').last().find('.deselect-all').click();
+                expect($('.pat-checklist').first().find(':checked').length).toBe(3);
+                expect($('.pat-checklist').last().find(':checked').length).toBe(0);
+                // Clicking again does not touch the selected checkboxes in the other fieldset
+                $('.pat-checklist').last().find('.deselect-all').click();
+                expect($('.pat-checklist').first().find(':checked').length).toBe(3);
+                expect($('.pat-checklist').last().find(':checked').length).toBe(0);
             });
         });
     });
