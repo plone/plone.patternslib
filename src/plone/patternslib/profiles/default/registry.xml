@@ -627,7 +627,7 @@
         <value key="depends">plone</value>
         <value key="jscompilation">++plone++patternslib/bundle-leaflet-compiled.min.js</value>
         <value key="csscompilation">++plone++patternslib/bundle-leaflet-compiled.css</value>
-        <value key="last_compilation">2021-06-10 15:50:00</value>
+        <value key="last_compilation">2022-07-07 19:47:00</value>
         <value key="stub_js_modules">
           <element>jquery.form</element>
           <element>jquery</element>
@@ -656,7 +656,7 @@
         <value key="enabled">True</value>
         <value key="depends">plone</value>
         <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
-        <value key="last_compilation">2019-03-10 00:00:00</value>
+        <value key="last_compilation">2022-07-07 19:47:00</value>
         <value key="stub_js_modules">
           <element>jquery.form</element>
           <element>jquery</element>
