@@ -9,10 +9,15 @@ class HiddenProfiles(object):
         """Hide uninstall profile from site-creation and quickinstaller"""
         return [
             "plone.patternslib:uninstall",
-            "plone.patternslib.upgrades:1001",
-            "plone.patternslib.upgrades:1003",
-            "plone.patternslib.upgrades:1004",
-            "plone.patternslib.upgrades:1005",
-            "plone.patternslib.upgrades:1006",
-            "plone.patternslib.upgrades:1007",
         ]
+
+    def getNonInstallableProducts(self):
+        """Hide the upgrades package from site-creation and quickinstaller.
+
+        Our upgrades profiles are defined in the directory 'upgrades'.
+        Plone sees this is a separate product.
+        So instead of adding each new upgrade profile to the list of
+        non installable profiles above, we can mark the upgrades product
+        as non installable.
+        """
+        return ["plone.patternslib.upgrades"]

@@ -4,6 +4,10 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
+- Update jQuery to 1.12.4 and Patternslib to 2.1.5.
+  Fixes: https://github.com/plone/plone.patternslib/issues/73
+  [thet]
+
 - ``pat-leaflet`` AJAX geoJSON feature
   [petschki]
 
