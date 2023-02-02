@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.2 (unreleased)
+1.3.0 (2023-02-02)
 ------------------
 
 - Update jQuery to 1.12.4 and Patternslib to 2.1.5.
