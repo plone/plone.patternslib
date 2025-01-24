@@ -10,21 +10,23 @@
     <metal:main fill-slot="main">
       <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle"></div>
-        <h1>Injection</h1>
+        <h1 i18n:translate="">Injection</h1>
         <article>
           <a class="pat-inject"
              href="++plone++patternslib/components/patternslib/src/pat/inject/documentation.md"
              data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload"
+             i18n:translate=""
           >Documentation</a>
         </article>
 
-        <h2>Demo</h2>
+        <h2 i18n:translate="">Demo</h2>
         <div class="pattern-demo"
              id="demo"
         >
           <a class="pat-inject"
              href="++plone++patternslib/components/patternslib/src/pat/inject/index.html"
              data-pat-inject="target: #demo; trigger: autoload"
+             i18n:translate=""
           >Load demo</a>
         </div>
 
@@ -32,6 +34,7 @@
           <a class="pat-inject"
              href="++plone++patternslib/components/patternslib/src/pat/inject/documentation.md#documentation"
              data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload"
+             i18n:translate=""
           >Documentation</a>
         </article>
         <div tal:replace="structure provider:plone.belowcontentbody"></div>
