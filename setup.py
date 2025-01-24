@@ -49,12 +49,17 @@ setup(
     python_requires=">=3.9",
     install_requires=[
         "setuptools",
+        "plone.api",
+        "plone.browserlayer",
+        "plone.resource",
         "Products.CMFPlone",
+        "Products.GenericSetup",
+        "zope.i18nmessageid",
+        "zope.interface",
     ],
     extras_require={
         "test": [
             "plone.app.testing",
-            "plone.app.robotframework[debug]",
         ],
     },
     entry_points="""

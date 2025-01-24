@@ -4,3 +4,8 @@
 [meta]
 template = "default"
 commit-id = "18642aac"
+
+[gitignore]
+extra_lines = """
+/tmp/
+"""
