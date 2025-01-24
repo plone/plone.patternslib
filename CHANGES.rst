@@ -42,7 +42,7 @@ Changelog
 - Do not autoinclude ZCML (this was not needed here).
   [jensens]
 
-- Fix dependecy chain, depend on ``Products.CMFPlone`` in ``setup.py``.
+- Fix dependency chain, depend on ``Products.CMFPlone`` in ``setup.py``.
   [jensens]
 
 - Upgrade to pat-leaflet 1.4.0.
@@ -86,7 +86,7 @@ Changelog
 - Fix Leaflet icon integration.
   [thet]
 
-- Register resources with their uncompressed files, whereever they are available.
+- Register resources with their uncompressed files, wherever they are available.
   This helps debugging and the resource registry itself can handle compression on it's own.
   [thet]
 

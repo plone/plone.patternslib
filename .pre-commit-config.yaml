@@ -23,7 +23,7 @@ repos:
     rev: 3.1.0
     hooks:
     -   id: zpretty
-        exclude: src/plone/patternslib/static/components
+        exclude: ^src/plone/patternslib/static/components
 
 ##
 # Add extra configuration options in .meta.toml:
@@ -50,6 +50,7 @@ repos:
     -   id: codespell
         additional_dependencies:
           - tomli
+        exclude: ^src/plone/patternslib/static
 
 ##
 # Add extra configuration options in .meta.toml:
