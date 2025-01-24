@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.3.1 (unreleased)
+2.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update Patternslib
+- Support Plone >= 6.0 and Python >= 3.9
 
 
 1.3.0 (2023-02-02)

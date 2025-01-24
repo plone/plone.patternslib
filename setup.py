@@ -14,24 +14,28 @@ long_description = '\n\n'.join([
 
 setup(
     name='plone.patternslib',
-    version='1.3.1.dev0',
+    version='2.0.0.dev0',
     description="An add-on to make patternslib patterns available within Plone 5.",  # noqa
     long_description=long_description,
+    # See https://pypi.org/classifiers/
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Framework :: Plone :: Addon",
-        "Framework :: Plone :: 5.1",
-        "Framework :: Plone :: 5.2",
+        "Framework :: Plone :: 6.0",
+        "Framework :: Plone :: 6.1",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
-    keywords='Python Plone',
+    keywords='Python Plone Patternslib',
     author='Syslab.com',
     author_email='pilz@syslab.com',
     url='https://pypi.python.org/pypi/plone.patternslib',
@@ -41,6 +45,7 @@ setup(
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
+    python_requires='>=3.9',
     install_requires=[
         'setuptools',
         'Products.CMFPlone',
@@ -48,7 +53,6 @@ setup(
     extras_require={
         'test': [
             'plone.app.testing',
-            'plone.app.contenttypes',
             'plone.app.robotframework[debug]',
         ],
     },
