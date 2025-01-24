@@ -1,33 +1,43 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
       lang="en"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-<metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
+      metal:use-macro="context/main_template/macros/master"
+      xml:lang="en"
+>
+  <body>
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+        <div tal:replace="structure provider:plone.abovecontenttitle"></div>
 
 
-			<div id="demo" class="pattern-demo">
-			    <a href="++plone++patternslib/components/patternslib/src/pat/masonry/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
-			</div>
+        <div class="pattern-demo"
+             id="demo"
+        >
+          <a class="pat-inject"
+             href="++plone++patternslib/components/patternslib/src/pat/masonry/index.html"
+             data-pat-inject="target: #demo; trigger: autoload"
+          >Load demo</a>
+        </div>
 
-			<h1>Masonry</h1>
+        <h1>Masonry</h1>
 
-			<article>
-			    <a href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md"
-			        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
-			</article>
+        <article>
+          <a class="pat-inject"
+             href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md"
+             data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload"
+          >Documentation</a>
+        </article>
 
-			<article>
-			    <a href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md#documentation"
-			        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
-			</article>
+        <article>
+          <a class="pat-inject"
+             href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md#documentation"
+             data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload"
+          >Documentation</a>
+        </article>
 
-    </tal:main-macro>
-</metal:main>
-</body>
+      </tal:main-macro>
+    </metal:main>
+  </body>
 </html>
-

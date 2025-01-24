@@ -1,410 +1,473 @@
-<?xml version="1.0" ?>
-<registry
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="plone">
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plone"
+>
 
-    <!-- ######################################### -->
-    <!-- patternslib dependencies fetched by Bower -->
-    <!-- ######################################### -->
+  <!-- ######################################### -->
+  <!-- patternslib dependencies fetched by Bower -->
+  <!-- ######################################### -->
 
 
-    <!-- already in Plone -->
-    <!--
+  <!-- already in Plone -->
+  <!--
     <records prefix="plone.resources/text"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/requirejs-text/text.js</value>
     </records>
     -->
 
-    <!-- re-define CMFPlones patternslib dependencies. Ours are more recent. -->
-    <records prefix="plone.resources/pat-base"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/base.js</value>
-    </records>
-    <records prefix="plone.resources/pat-compat"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/compat.js</value>
-    </records>
-    <records prefix="plone.resources/pat-registry"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/registry.js</value>
-    </records>
-    <records prefix="plone.resources/pat-jquery-ext"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/jquery-ext.js</value>
-    </records>
-    <records prefix="plone.resources/pat-logger"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/logger.js</value>
-    </records>
-    <records prefix="plone.resources/pat-utils"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/utils.js</value>
-    </records>
-    <records prefix="plone.resources/pat-mockup-parser"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/mockup-parser.js</value>
-    </records>
-    <records prefix="plone.resources/logging"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/logging/src/logging.js</value>
-    </records>
+  <!-- re-define CMFPlones patternslib dependencies. Ours are more recent. -->
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-base"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/base.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-compat"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/compat.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-registry"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/registry.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-jquery-ext"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/jquery-ext.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-logger"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/logger.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-utils"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/utils.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-mockup-parser"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/mockup-parser.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/logging"
+  >
+    <value key="js">++plone++patternslib/components/logging/src/logging.js</value>
+  </records>
 
-    <records prefix="plone.resources/jquery.anythingslider"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/AnythingSlider/js/jquery.anythingslider.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.anythingslider"
+  >
+    <value key="js">++plone++patternslib/components/AnythingSlider/js/jquery.anythingslider.js</value>
+  </records>
 
-    <records prefix="plone.resources/ev-emitter"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/ev-emitter/ev-emitter.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/ev-emitter"
+  >
+    <value key="js">++plone++patternslib/components/ev-emitter/ev-emitter.js</value>
+  </records>
 
-    <!-- not yet functional -->
-    <!--records prefix="plone.resources/fullcalendar"
+  <!-- not yet functional -->
+  <!--records prefix="plone.resources/fullcalendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/fullcalendar/fullcalendar.js</value>
     </records-->
 
-    <records prefix="plone.resources/get-size"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/get-size/get-size.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/get-size"
+  >
+    <value key="js">++plone++patternslib/components/get-size/get-size.js</value>
+  </records>
 
-    <records prefix="plone.resources/imagesloaded"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/imagesloaded/imagesloaded.pkgd.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/imagesloaded"
+  >
+    <value key="js">++plone++patternslib/components/imagesloaded/imagesloaded.pkgd.js</value>
+  </records>
 
-    <records prefix="plone.resources/jquery.browser"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jquery.browser/dist/jquery.browser.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.browser"
+  >
+    <value key="js">++plone++patternslib/components/jquery.browser/dist/jquery.browser.js</value>
+  </records>
 
-    <records prefix="plone.resources/jcrop"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.js</value>
-        <value key="deps">jquery</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jcrop"
+  >
+    <value key="js">++plone++patternslib/components/jcrop/js/jquery.Jcrop.js</value>
+    <value key="deps">jquery</value>
+  </records>
 
-    <records prefix="plone.resources/jquery.placeholder"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.js</value>
-        <value key="deps">jquery</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.placeholder"
+  >
+    <value key="js">++plone++patternslib/components/jquery-placeholder/jquery.placeholder.js</value>
+    <value key="deps">jquery</value>
+  </records>
 
-    <records prefix="plone.resources/jquery.textchange"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/jquery-textchange/jquery.textchange.js</value>
-        <value key="deps">jquery</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.textchange"
+  >
+    <value key="js">++plone++patternslib/components/jquery-textchange/jquery.textchange.js</value>
+    <value key="deps">jquery</value>
+  </records>
 
-    <records prefix="plone.resources/masonry"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/masonry"
+  >
+    <value key="js">++plone++patternslib/components/masonry/dist/masonry.pkgd.js</value>
+  </records>
 
-    <records prefix="plone.resources/desandro-matches-selector"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/desandro-matches-selector/matches-selector.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/desandro-matches-selector"
+  >
+    <value key="js">++plone++patternslib/components/desandro-matches-selector/matches-selector.js</value>
+  </records>
 
-    <records prefix="plone.resources/modernizr"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/modernizr/modernizr.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/modernizr"
+  >
+    <value key="js">++plone++patternslib/components/modernizr/modernizr.js</value>
+  </records>
 
-    <records prefix="plone.resources/modernizr-csspositionsticky"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
-        <value key="deps">modernizr</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/modernizr-csspositionsticky"
+  >
+    <value key="js">++plone++patternslib/components/modernizr/feature-detects/css-positionsticky.js</value>
+    <value key="deps">modernizr</value>
+  </records>
 
-    <records prefix="plone.resources/moment-timezone"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/moment-timezone/moment-timezone.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/moment-timezone"
+  >
+    <value key="js">++plone++patternslib/components/moment-timezone/moment-timezone.js</value>
+  </records>
 
-    <records prefix="plone.resources/moment-timezone-data"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/calendar/moment-timezone-with-data-2010-2020.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/moment-timezone-data"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/calendar/moment-timezone-with-data-2010-2020.js</value>
+  </records>
 
-    <records prefix="plone.resources/outlayer"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/outlayer/outlayer.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/outlayer"
+  >
+    <value key="js">++plone++patternslib/components/outlayer/outlayer.js</value>
+  </records>
 
-    <records prefix="plone.resources/pikaday"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/pikaday/pikaday.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/pikaday/css/pikaday.css</element>
-        </value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pikaday"
+  >
+    <value key="js">++plone++patternslib/components/pikaday/pikaday.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/pikaday/css/pikaday.css</element>
+    </value>
+  </records>
 
-    <records prefix="plone.resources/photoswipe"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/photoswipe/dist/photoswipe.css</element>
-        </value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/photoswipe"
+  >
+    <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/photoswipe/dist/photoswipe.css</element>
+    </value>
+  </records>
 
-    <records prefix="plone.resources/photoswipe-ui"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe-ui-default.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/photoswipe/dist/default-skin/default-skin.css</element>
-        </value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/photoswipe-ui"
+  >
+    <value key="js">++plone++patternslib/components/photoswipe/dist/photoswipe-ui-default.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/photoswipe/dist/default-skin/default-skin.css</element>
+    </value>
+  </records>
 
-    <records prefix="plone.resources/prefixfree"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/prefixfree/prefixfree.min.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/prefixfree"
+  >
+    <value key="js">++plone++patternslib/components/prefixfree/prefixfree.min.js</value>
+  </records>
 
-    <records prefix="plone.resources/showdown"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/showdown/compressed/showdown.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/showdown"
+  >
+    <value key="js">++plone++patternslib/components/showdown/compressed/showdown.js</value>
+  </records>
 
-    <records prefix="plone.resources/showdown-github"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/showdown/compressed/extensions/github.min.js</value>
-        <value key="deps">showdown</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/showdown-github"
+  >
+    <value key="js">++plone++patternslib/components/showdown/compressed/extensions/github.min.js</value>
+    <value key="deps">showdown</value>
+  </records>
 
-    <records prefix="plone.resources/showdown-table"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/showdown/compressed/extensions/table.min.js</value>
-        <value key="deps">showdown</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/showdown-table"
+  >
+    <value key="js">++plone++patternslib/components/showdown/compressed/extensions/table.min.js</value>
+    <value key="deps">showdown</value>
+  </records>
 
-    <records prefix="plone.resources/slides"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/slides/src/slides.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/slides"
+  >
+    <value key="js">++plone++patternslib/components/slides/src/slides.js</value>
+  </records>
 
-    <records prefix="plone.resources/spectrum"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/spectrum/spectrum.js</value>
-        <value key="deps">jquery</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/spectrum"
+  >
+    <value key="js">++plone++patternslib/components/spectrum/spectrum.js</value>
+    <value key="deps">jquery</value>
+  </records>
 
-    <records prefix="plone.resources/stickyfill"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Stickyfill/dist/stickyfill.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/stickyfill"
+  >
+    <value key="js">++plone++patternslib/components/Stickyfill/dist/stickyfill.js</value>
+  </records>
 
-    <records prefix="plone.resources/validate"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/validate/validate.js</value>
-    </records>
-
-
-    <!-- Leaflet dependencies -->
-
-    <records prefix="plone.resources/leaflet"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/leaflet/dist/leaflet-src.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/leaflet/dist/leaflet.css</element>
-        </value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-fullscreen"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Leaflet.fullscreen/dist/Leaflet.fullscreen.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/Leaflet.fullscreen/dist/leaflet.fullscreen.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-providers"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/leaflet-providers/leaflet-providers.js</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-geosearch"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.control.geosearch.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/L.GeoSearch/src/css/l.geosearch.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-geosearch-esri"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.esri.js</value>
-        <value key="deps">leaflet-geosearch</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-geosearch-bing"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.bing.js</value>
-        <value key="deps">leaflet-geosearch</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-geosearch-google"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.google.js</value>
-        <value key="deps">leaflet-geosearch</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-geosearch-openstreetmap"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.openstreetmap.js</value>
-        <value key="deps">leaflet-geosearch</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-markercluster"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/leaflet.markercluster/dist/leaflet.markercluster-src.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.Default.css</element>
-            <!--element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.css</element--><!-- TODO: Needs resource registry bugfix: only the last CSS entry is currently compiled. -->
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-awesomemarkers"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-locatecontrol"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/leaflet.locatecontrol/src/L.Control.Locate.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/leaflet.locatecontrol/dist/L.Control.Locate.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-minimap"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Leaflet-MiniMap/dist/Control.MiniMap.min.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/Leaflet-MiniMap/dist/Control.MiniMap.min.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-sleep"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Leaflet.Sleep/Leaflet.Sleep.js</value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/leaflet-simplemarkers"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
-
-    <records prefix="plone.resources/font-awesome"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="css">
-            <element>++plone++patternslib/font-awesome-integration.less</element>
-        </value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/validate"
+  >
+    <value key="js">++plone++patternslib/components/validate/validate.js</value>
+  </records>
 
 
-    <!-- #################### -->
-    <!-- patternslib patterns -->
-    <!-- #################### -->
+  <!-- Leaflet dependencies -->
 
-    <records prefix="plone.resources/pat-leaflet"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/pat-leaflet/src/pat-leaflet.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/pat-leaflet/src/pat-leaflet.css</element>
-        </value>
-        <value key="deps">leaflet</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet"
+  >
+    <value key="js">++plone++patternslib/components/leaflet/dist/leaflet-src.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/leaflet/dist/leaflet.css</element>
+    </value>
+  </records>
 
-    <records prefix="plone.resources/pat-depends_parse"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/lib/depends_parse.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-fullscreen"
+  >
+    <value key="js">++plone++patternslib/components/Leaflet.fullscreen/dist/Leaflet.fullscreen.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/Leaflet.fullscreen/dist/leaflet.fullscreen.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
 
-    <records prefix="plone.resources/pat-dependshandler"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/lib/dependshandler.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-providers"
+  >
+    <value key="js">++plone++patternslib/components/leaflet-providers/leaflet-providers.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-input-change-events"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/lib/input-change-events.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch"
+  >
+    <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.control.geosearch.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/L.GeoSearch/src/css/l.geosearch.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
 
-    <records prefix="plone.resources/pat-htmlparser"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/lib/htmlparser.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-esri"
+  >
+    <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.esri.js</value>
+    <value key="deps">leaflet-geosearch</value>
+  </records>
 
-    <records prefix="plone.resources/pat-parser"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/parser.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-bing"
+  >
+    <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.bing.js</value>
+    <value key="deps">leaflet-geosearch</value>
+  </records>
 
-    <records prefix="plone.resources/pat-remove"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/remove.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-google"
+  >
+    <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.google.js</value>
+    <value key="deps">leaflet-geosearch</value>
+  </records>
 
-    <records prefix="plone.resources/pat-store"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/core/store.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-openstreetmap"
+  >
+    <value key="js">++plone++patternslib/components/L.GeoSearch/src/js/l.geosearch.provider.openstreetmap.js</value>
+    <value key="deps">leaflet-geosearch</value>
+  </records>
 
-    <records prefix="plone.resources/pat-ajax"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/ajax/ajax.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-markercluster"
+  >
+    <value key="js">++plone++patternslib/components/leaflet.markercluster/dist/leaflet.markercluster-src.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.Default.css</element>
+      <!--element>++plone++patternslib/components/leaflet.markercluster/dist/MarkerCluster.css</element--><!-- TODO: Needs resource registry bugfix: only the last CSS entry is currently compiled. -->
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
 
-    <records prefix="plone.resources/pat-auto-scale"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/auto-scale/auto-scale.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-awesomemarkers"
+  >
+    <value key="js">++plone++patternslib/components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
 
-    <records prefix="plone.resources/pat-auto-submit"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/auto-submit/auto-submit.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-locatecontrol"
+  >
+    <value key="js">++plone++patternslib/components/leaflet.locatecontrol/src/L.Control.Locate.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/leaflet.locatecontrol/dist/L.Control.Locate.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
 
-    <records prefix="plone.resources/pat-auto-suggest"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/auto-suggest/auto-suggest.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-minimap"
+  >
+    <value key="js">++plone++patternslib/components/Leaflet-MiniMap/dist/Control.MiniMap.min.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/Leaflet-MiniMap/dist/Control.MiniMap.min.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
 
-    <!-- Conflicts with mockup autofocus -->
-    <!--records prefix="plone.resources/pat-autofocus"
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-sleep"
+  >
+    <value key="js">++plone++patternslib/components/Leaflet.Sleep/Leaflet.Sleep.js</value>
+    <value key="deps">leaflet</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-simplemarkers"
+  >
+    <value key="js">++plone++patternslib/components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/Leaflet.SimpleMarkers/lib/Control.SimpleMarkers.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/font-awesome"
+  >
+    <value key="css">
+      <element>++plone++patternslib/font-awesome-integration.less</element>
+    </value>
+  </records>
+
+
+  <!-- #################### -->
+  <!-- patternslib patterns -->
+  <!-- #################### -->
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-leaflet"
+  >
+    <value key="js">++plone++patternslib/components/pat-leaflet/src/pat-leaflet.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/pat-leaflet/src/pat-leaflet.css</element>
+    </value>
+    <value key="deps">leaflet</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-depends_parse"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/lib/depends_parse.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-dependshandler"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/lib/dependshandler.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-input-change-events"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/lib/input-change-events.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-htmlparser"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/lib/htmlparser.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-parser"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/parser.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-remove"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/remove.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-store"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/core/store.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-ajax"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/ajax/ajax.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-auto-scale"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/auto-scale/auto-scale.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-auto-submit"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/auto-submit/auto-submit.js</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-auto-suggest"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/auto-suggest/auto-suggest.js</value>
+  </records>
+
+  <!-- Conflicts with mockup autofocus -->
+  <!--records prefix="plone.resources/pat-autofocus"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/autofocus/autofocus.js</value>
     </records-->
 
-    <records prefix="plone.resources/pat-breadcrumbs"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/breadcrumbs/breadcrumbs.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-breadcrumbs"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/breadcrumbs/breadcrumbs.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-bumper"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/bumper/bumper.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-bumper"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/bumper/bumper.js</value>
+  </records>
 
-    <!-- pat-calendar needs a lot of backend code to make it useful. Disable
+  <!-- pat-calendar needs a lot of backend code to make it useful. Disable
          for the time being.
     <records prefix="plone.resources/pat-calendar"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
@@ -412,281 +475,326 @@
     </records>
     -->
 
-<!--     <records prefix="plone.resources/pat-carousel"
+  <!--     <records prefix="plone.resources/pat-carousel"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/carousel/carousel.js</value>
     </records>
  -->
-    <records prefix="plone.resources/pat-checked-flag"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/checked-flag/checked-flag.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-checked-flag"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/checked-flag/checked-flag.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-checklist"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/checklist/checklist.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-checklist"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/checklist/checklist.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-clone"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/clone/clone.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-clone"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/clone/clone.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-collapsible"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/collapsible/collapsible.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-collapsible"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/collapsible/collapsible.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-colour-picker"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/colour-picker/colour-picker.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-colour-picker"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/colour-picker/colour-picker.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-date-picker"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/date-picker/date-picker.js</value>
-        <value key="url">++plone++patternslib/components/patternslib/src/pat/date-picker</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-date-picker"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/date-picker/date-picker.js</value>
+    <value key="url">++plone++patternslib/components/patternslib/src/pat/date-picker</value>
+  </records>
 
-    <records prefix="plone.resources/pat-datetime-picker"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.js</value>
-        <value key="css">
-            <element>++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.css</element>
-        </value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-datetime-picker"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.js</value>
+    <value key="css">
+      <element>++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.css</element>
+    </value>
+  </records>
 
-    <records prefix="plone.resources/pat-depends"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/depends/depends.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-depends"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/depends/depends.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-equaliser"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/equaliser/equaliser.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-equaliser"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/equaliser/equaliser.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-expandable"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/expandable-tree/expandable-tree.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-expandable"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/expandable-tree/expandable-tree.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-focus"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/focus/focus.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-focus"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/focus/focus.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-form-state"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/form-state/form-state.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-form-state"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/form-state/form-state.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-forward"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/forward/forward.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-forward"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/forward/forward.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-gallery"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/gallery/gallery.js</value>
-        <value key="url">++plone++patternslib/components/patternslib/src/pat/gallery</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-gallery"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/gallery/gallery.js</value>
+    <value key="url">++plone++patternslib/components/patternslib/src/pat/gallery</value>
+  </records>
 
-    <records prefix="plone.resources/pat-grid"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/grid/grid.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-grid"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/grid/grid.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-image-crop"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/image-crop/image-crop.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-image-crop"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/image-crop/image-crop.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-inject"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/inject/inject.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-inject"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/inject/inject.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-legend"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/legend/legend.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-legend"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/legend/legend.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-markdown"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/markdown/markdown.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-markdown"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/markdown/markdown.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-masonry"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/masonry/masonry.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-masonry"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/masonry/masonry.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-menu"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/menu/menu.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-menu"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/menu/menu.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-modal"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/modal/modal.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-modal"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/modal/modal.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-navigation"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/navigation/navigation.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-navigation"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/navigation/navigation.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-placeholder"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/placeholder/placeholder.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-placeholder"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/placeholder/placeholder.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-scroll"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/scroll/scroll.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-scroll"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/scroll/scroll.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-selectbox"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/selectbox/selectbox.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-selectbox"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/selectbox/selectbox.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-slides"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/slides/slides.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-slides"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/slides/slides.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-slideshow-builder"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/slideshow-builder/slideshow-builder.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-slideshow-builder"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/slideshow-builder/slideshow-builder.js</value>
+  </records>
 
-    <!-- Conflicts with mockup sortable -->
-    <!--records prefix="plone.resources/pat-sortable"
+  <!-- Conflicts with mockup sortable -->
+  <!--records prefix="plone.resources/pat-sortable"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/sortable/sortable.js</value>
     </records-->
 
-    <records prefix="plone.resources/pat-stacks"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/stacks/stacks.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-stacks"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/stacks/stacks.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-sticky"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/sticky/sticky.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-sticky"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/sticky/sticky.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-subform"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/subform/subform.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-subform"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/subform/subform.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-switch"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/switch/switch.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-switch"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/switch/switch.js</value>
+  </records>
 
-    <!-- Conflicts with mockup toggle -->
-    <!--records prefix="plone.resources/pat-toggle"
+  <!-- Conflicts with mockup toggle -->
+  <!--records prefix="plone.resources/pat-toggle"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/toggle/toggle.js</value>
     </records-->
 
-    <!-- Conflicts with mockup tooltip -->
-    <!--records prefix="plone.resources/pat-tooltip"
+  <!-- Conflicts with mockup tooltip -->
+  <!--records prefix="plone.resources/pat-tooltip"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
         <value key="js">++plone++patternslib/components/patternslib/src/pat/tooltip/tooltip.js</value>
     </records-->
 
-    <records prefix="plone.resources/pat-validation"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/validation/validation.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-validation"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/validation/validation.js</value>
+  </records>
 
-    <records prefix="plone.resources/pat-zoom"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/components/patternslib/src/pat/zoom/zoom.js</value>
-    </records>
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-zoom"
+  >
+    <value key="js">++plone++patternslib/components/patternslib/src/pat/zoom/zoom.js</value>
+  </records>
 
-    <!-- Registration of the patternslib patterns into the plone bundle -->
-    <records prefix="plone.resources/bundle-leaflet"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++plone++patternslib/bundle-leaflet.js</value>
-        <value key="css">
-            <element>++plone++patternslib/bundle-leaflet.less</element>
-        </value>
-    </records>
-    <records prefix="plone.bundles/bundle-leaflet"
-             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-        <value key="resources">
-            <element>bundle-leaflet</element>
-        </value>
-        <value key="enabled">True</value>
-        <value key="depends">plone</value>
-        <value key="jscompilation">++plone++patternslib/bundle-leaflet-compiled.min.js</value>
-        <value key="csscompilation">++plone++patternslib/bundle-leaflet-compiled.css</value>
-        <value key="last_compilation">2022-07-07 19:47:00</value>
-        <value key="stub_js_modules">
-          <element>jquery.form</element>
-          <element>jquery</element>
-          <element>pat-base</element>
-          <element>pat-compat</element>
-          <element>pat-logger</element>
-          <element>pat-mockup-parser</element>
-          <element>pat-registry</element>
-          <element>pat-utils</element>
-          <element>select2</element>
-          <element>underscore</element>
-          <element>moment</element>
-        </value>
-    </records>
+  <!-- Registration of the patternslib patterns into the plone bundle -->
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/bundle-leaflet"
+  >
+    <value key="js">++plone++patternslib/bundle-leaflet.js</value>
+    <value key="css">
+      <element>++plone++patternslib/bundle-leaflet.less</element>
+    </value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IBundleRegistry"
+           prefix="plone.bundles/bundle-leaflet"
+  >
+    <value key="resources">
+      <element>bundle-leaflet</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="depends">plone</value>
+    <value key="jscompilation">++plone++patternslib/bundle-leaflet-compiled.min.js</value>
+    <value key="csscompilation">++plone++patternslib/bundle-leaflet-compiled.css</value>
+    <value key="last_compilation">2022-07-07 19:47:00</value>
+    <value key="stub_js_modules">
+      <element>jquery.form</element>
+      <element>jquery</element>
+      <element>pat-base</element>
+      <element>pat-compat</element>
+      <element>pat-logger</element>
+      <element>pat-mockup-parser</element>
+      <element>pat-registry</element>
+      <element>pat-utils</element>
+      <element>select2</element>
+      <element>underscore</element>
+      <element>moment</element>
+    </value>
+  </records>
 
-    <!-- Registration of the patternslib patterns into the plone bundle -->
-    <records prefix="plone.resources/patterns"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="js">++resource++patterns.js</value>
-    </records>
-    <records prefix="plone.bundles/patterns"
-             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
-        <value key="resources" purge="false">
-            <element>patterns</element>
-        </value>
-        <value key="enabled">True</value>
-        <value key="depends">plone</value>
-        <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
-        <value key="last_compilation">2022-07-07 19:47:00</value>
-        <value key="stub_js_modules">
-          <element>jquery.form</element>
-          <element>jquery</element>
-          <element>pat-base</element>
-          <element>pat-compat</element>
-          <element>pat-logger</element>
-          <element>pat-mockup-parser</element>
-          <element>pat-registry</element>
-          <element>pat-utils</element>
-          <element>select2</element>
-          <element>underscore</element>
-          <element>moment</element>
-        </value>
-    </records>
+  <!-- Registration of the patternslib patterns into the plone bundle -->
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/patterns"
+  >
+    <value key="js">++resource++patterns.js</value>
+  </records>
+  <records interface="Products.CMFPlone.interfaces.IBundleRegistry"
+           prefix="plone.bundles/patterns"
+  >
+    <value key="resources"
+           purge="false"
+    >
+      <element>patterns</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="depends">plone</value>
+    <value key="jscompilation">++plone++patternslib/patterns-compiled.min.js</value>
+    <value key="last_compilation">2022-07-07 19:47:00</value>
+    <value key="stub_js_modules">
+      <element>jquery.form</element>
+      <element>jquery</element>
+      <element>pat-base</element>
+      <element>pat-compat</element>
+      <element>pat-logger</element>
+      <element>pat-mockup-parser</element>
+      <element>pat-registry</element>
+      <element>pat-utils</element>
+      <element>select2</element>
+      <element>underscore</element>
+      <element>moment</element>
+    </value>
+  </records>
 
-    <!-- upgrade -->
-    <records remove="True"
-            prefix="plone.resources/eventie"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
-    <records remove="True"
-            prefix="plone.resources/get-style-property"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
-    <records remove="True"
-            prefix="plone.resources/matches-selector"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
-    <records remove="True"
-            prefix="plone.resources/tpl"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
-    <records remove="True"
-            prefix="plone.resources/jquery.textchange"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
+  <!-- upgrade -->
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/eventie"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/get-style-property"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/matches-selector"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/tpl"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.textchange"
+           remove="True"
+  />
 
 </registry>
