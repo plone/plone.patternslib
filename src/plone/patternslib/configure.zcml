@@ -16,11 +16,6 @@
       file="meta.zcml"
       />
 
-  <browser:resource
-      name="patterns.js"
-      file="static/patterns.js"
-      />
-
   <plone:static
       directory="static"
       name="patternslib"
