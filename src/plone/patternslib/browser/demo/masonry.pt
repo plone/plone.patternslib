@@ -16,7 +16,7 @@
              id="demo"
         >
           <a class="pat-inject"
-             href="++plone++patternslib/components/patternslib/src/pat/masonry/index.html"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/masonry/index.html"
              data-pat-inject="target: #demo; trigger: autoload"
              i18n:translate=""
           >Load demo</a>
@@ -26,7 +26,7 @@
 
         <article>
           <a class="pat-inject"
-             href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/masonry/documentation.md"
              data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload"
              i18n:translate=""
           >Documentation</a>
@@ -34,7 +34,7 @@
 
         <article>
           <a class="pat-inject"
-             href="++plone++patternslib/components/patternslib/src/pat/masonry/documentation.md#documentation"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/masonry/documentation.md#documentation"
              data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload"
              i18n:translate=""
           >Documentation</a>

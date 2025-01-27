@@ -14,7 +14,7 @@
         <h1 i18n:translate="">Depends</h1>
         <article>
           <a class="pat-inject"
-             href="++plone++patternslib/components/patternslib/src/pat//depends/documentation.md"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat//depends/documentation.md"
              data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload"
              i18n:translate=""
           >Documentation</a>
@@ -25,7 +25,7 @@
              id="demo"
         >
           <a class="pat-inject"
-             href="++plone++patternslib/components/patternslib/src/pat//depends/index.html"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat//depends/index.html"
              data-pat-inject="target: #demo; trigger: autoload"
              i18n:translate=""
           >Load demo</a>
@@ -33,7 +33,7 @@
 
         <article>
           <a class="pat-inject"
-             href="++plone++patternslib/components/patternslib/src/pat//depends/documentation.md#documentation"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat//depends/documentation.md#documentation"
              data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload"
              i18n:translate=""
           >Documentation</a>
