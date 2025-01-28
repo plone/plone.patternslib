@@ -11,6 +11,12 @@
       <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle"></div>
 
+        <style>
+          .pattern-demo .sizer,
+          .pattern-demo .item {
+              width: 33%;
+          }
+        </style>
 
         <div class="pattern-demo"
              id="demo"
