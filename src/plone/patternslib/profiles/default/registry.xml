@@ -4,7 +4,7 @@
            prefix="plone.bundles/patterns"
   >
     <value key="enabled">True</value>
-    <value key="jscompilation">++plone++patternslib/js/remote.min.js</value>
+    <value key="jscompilation">++plone++patternslib/remote.min.js</value>
     <value key="csscompilation" />
     <value key="load_async">False</value>
     <value key="load_defer">False</value>
