@@ -7,17 +7,10 @@
   <include package=".browser" />
   <include package=".upgrades" />
 
-  <include
-      package="plone.resource"
-      file="meta.zcml"
-      />
-
-  <plone:static
-      directory="static"
+  <browser:resourceDirectory
       name="patternslib"
-      type="plone"
+      directory="static"
       />
-
 
   <genericsetup:registerProfile
       name="default"
