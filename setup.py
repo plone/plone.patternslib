@@ -6,9 +6,8 @@ from setuptools import setup
 
 long_description = "\n\n".join(
     [
-        open("README.rst").read(),
-        open("CONTRIBUTORS.rst").read(),
-        open("CHANGES.rst").read(),
+        open("README.md").read(),
+        open("CHANGES.md").read(),
     ]
 )
 
@@ -16,8 +15,9 @@ long_description = "\n\n".join(
 setup(
     name="plone.patternslib",
     version="2.0.0.dev0",
-    description="An add-on to make patternslib patterns available within Plone 5.",  # noqa
+    description="An add-on to make Patternslib available to Plone.",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     # See https://pypi.org/classifiers/
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -38,10 +38,10 @@ setup(
     ],
     keywords="Python Plone Patternslib",
     author="Syslab.com",
-    author_email="pilz@syslab.com",
-    url="https://pypi.python.org/pypi/plone.patternslib",
+    author_email="devel@syslab.com",
+    url="https://github.com/plone/plone.patternslib",
     license="GPL version 2",
-    packages=find_packages("src", exclude=["ez_setup"]),
+    packages=find_packages("src"),
     namespace_packages=["plone"],
     package_dir={"": "src"},
     include_package_data=True,
@@ -49,17 +49,14 @@ setup(
     python_requires=">=3.9",
     install_requires=[
         "setuptools",
-        "plone.api",
-        "plone.browserlayer",
-        "plone.resource",
         "Products.CMFPlone",
         "Products.GenericSetup",
-        "zope.i18nmessageid",
         "zope.interface",
     ],
     extras_require={
         "test": [
             "plone.app.testing",
+            "plone.base",
         ],
     },
     entry_points="""
