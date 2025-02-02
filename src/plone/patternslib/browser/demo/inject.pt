@@ -7,16 +7,23 @@
       xml:lang="en"
 >
   <body>
-    <metal:main fill-slot="main">
-      <tal:main-macro metal:define-macro="main">
-        <div tal:replace="structure provider:plone.abovecontenttitle"></div>
+
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+
         <h1 i18n:translate="">Injection</h1>
+
         <article>
           <a class="pat-inject"
              href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/inject/documentation.md"
-             data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload"
+             data-pat-inject="
+                 data-type: markdown;
+                 source: ##Description;
+                 target: self::element;
+                 trigger: autoload;
+             "
              i18n:translate=""
-          >Documentation</a>
+          >Description</a>
         </article>
 
         <h2 i18n:translate="">Demo</h2>
@@ -25,20 +32,29 @@
         >
           <a class="pat-inject"
              href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/inject/index.html"
-             data-pat-inject="target: #demo; trigger: autoload"
+             data-pat-inject="
+                 target: #demo;
+                 trigger: autoload;
+             "
              i18n:translate=""
           >Load demo</a>
         </div>
 
         <article>
           <a class="pat-inject"
-             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/inject/documentation.md#documentation"
-             data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/inject/documentation.md"
+             data-pat-inject="
+                 data-type: markdown;
+                 source: ##Documentation;
+                 target: self::element;
+                 trigger: autoload;
+             "
              i18n:translate=""
           >Documentation</a>
         </article>
-        <div tal:replace="structure provider:plone.belowcontentbody"></div>
-      </tal:main-macro>
-    </metal:main>
+
+      </metal:content-core>
+    </metal:content-core>
+
   </body>
 </html>
