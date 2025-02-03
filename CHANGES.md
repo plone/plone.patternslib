@@ -2,6 +2,22 @@
 
 <!-- towncrier release notes start -->
 
+## 9.9.16.0a1 (2025-02-03)
+
+### Breaking changes:
+
+- Upgrade for Plone 6 and Python >= 3.9 only.
+  [ale, thet]
+
+### New features:
+
+- Update Patternslib to 9.9.16.
+
+### Internal:
+
+- Update configuration files.
+  [plone devs]
+
 
 # 1.3.0 (2023-02-02)
 
