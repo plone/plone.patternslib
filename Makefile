@@ -40,7 +40,7 @@ endif
 	@echo "🧪 Git add and commit."
 
 	@# Store Patternslib reference
-	@sed -i "s/version=[^,]*/version=\"$(PATTERNSLIB_VERSION).dev0\"/" setup.py
+	@sed -i "s/version=[^,]*/version=\"$(PATTERNSLIB_VERSION).0.dev0\"/" setup.py
 	@git add $(STATIC_DIR) setup.py
 
 	@# Add changelog entry

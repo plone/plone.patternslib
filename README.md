@@ -20,6 +20,15 @@ Patternslib distribution.
 There are plans to make it available in a separate package.
 
 
+## Versioning scheme
+
+The version number of plone.patternslib follows the Patternslib version numbers
+with an added sub-patch level and a possible pre-release suffix.
+
+E.g. if the Patternslib version is 9.9.16 possible plone.patternslib versions
+are `9.9.16.0`, `9.9.16.0a1`, `9.9.16.1` and so on.
+
+
 ## Implementation
 
 This package includes the Patternslib bundle in a resource directory.
