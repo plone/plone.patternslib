@@ -22,11 +22,19 @@ There are plans to make it available in a separate package.
 
 ## Versioning scheme
 
-The version number of plone.patternslib follows the Patternslib version numbers
-with an added sub-patch level and a possible pre-release suffix.
+The version number of plone.patternslib directly follows the Patternslib version
+numbers.
 
-E.g. if the Patternslib version is 9.9.16 possible plone.patternslib versions
-are `9.9.16.0`, `9.9.16.0a1`, `9.9.16.1` and so on.
+Possible version numbers are:
+
+- 9.9.16
+- 9.10.0-alpha.0
+- 9.10.1-beta.2
+- 9.10.1
+
+Due to strict version parsing of the Python packaging tools we cannot add our
+own patch levels other that `.dev0`, `.dev1` and so on.
+If you want to release a pre-release version, use the dev suffix.
 
 
 ## Implementation
