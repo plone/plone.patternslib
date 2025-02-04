@@ -14,7 +14,7 @@ long_description = "\n\n".join(
 
 setup(
     name="plone.patternslib",
-    version="9.9.16",
+    version="9.10.1-beta.2.dev0",
     description="An add-on to make Patternslib available to Plone.",
     long_description=long_description,
     long_description_content_type="text/markdown",
