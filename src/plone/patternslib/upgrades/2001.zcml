@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:registerProfile
+      name="2001"
+      title="Order Patternslib bundle at the end"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/2001"
+      />
+
+  <genericsetup:upgradeSteps
+      profile="plone.patternslib:default"
+      source="2000"
+      destination="2001"
+      >
+
+    <genericsetup:upgradeDepends
+        title="Order Patternslib bundle at the end"
+        import_profile="plone.patternslib.upgrades:2001"
+        />
+
+  </genericsetup:upgradeSteps>
+
+</configure>

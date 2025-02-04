@@ -9,6 +9,6 @@
     <value key="load_async">False</value>
     <value key="load_defer">False</value>
     <value key="expression" />
-    <value key="depends">plone</value>
+    <value key="depends">all</value>
   </records>
 </registry>
