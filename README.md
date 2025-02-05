@@ -44,6 +44,34 @@ Possible version numbers are:
 - 9.10.1    # Patternslib 9.10.1
 
 
+## Updating Patternslib
+
+Use a branch for updating Patternslib.
+
+To update Patternslib to the latest released version run:
+
+```bash
+make update-patterns
+```
+
+or to update Patternslib to an arbitrary version - e.g. a pre-release:
+
+```bash
+PATTERNSLIB_VERSION=9.10.1-beta.2 make update-patterns
+```
+
+This does the following:
+
+- Download the latest or speficied Patternslib release from GitHub,
+- Copy the Patternslib bundle files to the resource directory in: `src/plone/patternslib/static`,
+- Update the version number in the `setup.py` file,
+- Write a news file,
+- Commit the changes.
+
+You can then make further changes or push your branch and create a pull request.
+Or update the version number for a plone.patternslib specific patch level.
+
+
 ## Implementation
 
 This package includes the Patternslib bundle in a resource directory.
