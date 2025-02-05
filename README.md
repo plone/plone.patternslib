@@ -62,11 +62,11 @@ PATTERNSLIB_VERSION=9.10.1-beta.2 make update-patterns
 
 This does the following:
 
-- Download the latest or speficied Patternslib release from GitHub,
-- Copy the Patternslib bundle files to the resource directory in: `src/plone/patternslib/static`,
-- Update the version number in the `setup.py` file,
-- Write a news file,
-- Commit the changes.
+- Downloads the latest or a specified Patternslib release from GitHub.
+- Copies the Patternslib bundle files to the resource directory at `src/plone/patternslib/static`.
+- Updates the version number in the `setup.py` file.
+- Generates a news file.
+- Commits the changes.
 
 You can then make further changes or push your branch and create a pull request.
 Or update the version number for a plone.patternslib specific patch level.
