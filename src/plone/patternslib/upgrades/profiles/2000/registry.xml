@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+
+  <records interface="plone.base.interfaces.IBundleRegistry"
+           prefix="plone.bundles/patterns"
+  >
+    <value key="enabled">True</value>
+    <value key="jscompilation">++resource++patternslib/remote.min.js</value>
+    <value key="csscompilation" />
+    <value key="load_async">False</value>
+    <value key="load_defer">False</value>
+    <value key="expression" />
+    <value key="depends">plone</value>
+  </records>
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-base"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-compat"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-registry"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-jquery-ext"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-logger"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-utils"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-mockup-parser"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/logging"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.anythingslider"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/ev-emitter"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/get-size"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/imagesloaded"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.browser"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jcrop"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.placeholder"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/jquery.textchange"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/masonry"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/desandro-matches-selector"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/modernizr"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/modernizr-csspositionsticky"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/moment-timezone"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/moment-timezone-data"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/outlayer"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pikaday"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/photoswipe"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/photoswipe-ui"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/prefixfree"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/showdown"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/showdown-github"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/showdown-table"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/slides"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/spectrum"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/stickyfill"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/validate"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-fullscreen"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-providers"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-esri"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-bing"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-google"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-geosearch-openstreetmap"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-markercluster"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-awesomemarkers"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-locatecontrol"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-minimap"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-sleep"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/leaflet-simplemarkers"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/font-awesome"
+           remove="True"
+  />
+
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-leaflet"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-depends_parse"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-dependshandler"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-input-change-events"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-htmlparser"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-parser"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-remove"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-store"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-ajax"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-auto-scale"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-auto-submit"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-auto-suggest"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-breadcrumbs"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-bumper"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-checked-flag"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-checklist"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-clone"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-collapsible"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-colour-picker"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-date-picker"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-datetime-picker"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-depends"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-equaliser"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-expandable"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-focus"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-form-state"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-forward"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-gallery"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-grid"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-image-crop"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-inject"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-legend"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-markdown"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-masonry"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-menu"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-modal"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-navigation"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-placeholder"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-scroll"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-selectbox"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-slides"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-slideshow-builder"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-stacks"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-sticky"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-subform"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-switch"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-validation"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/pat-zoom"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/bundle-leaflet"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IBundleRegistry"
+           prefix="plone.bundles/bundle-leaflet"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/patterns"
+           remove="True"
+  />
+
+</registry>

@@ -1,7 +1,10 @@
 graft src/plone
 graft docs
 include *.json
-include *.rst
+include *.md
 include .bowerrc
 include LICENSE
+include Makefile
 global-exclude *.pyc
+recursive-exclude news *
+exclude news

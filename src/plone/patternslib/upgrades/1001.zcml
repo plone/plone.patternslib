@@ -1,14 +1,28 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
 
-  <genericsetup:upgradeStep
+  <genericsetup:registerProfile
+      name="1001"
       title="Remove browser layer"
       description="Remove unneeded browser layer.."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/1001"
+      />
+
+  <genericsetup:upgradeSteps
+      profile="plone.patternslib:default"
       source="1000"
       destination="1001"
-      handler="plone.patternslib.upgrades.upgrade_1000_1001"
-      profile="plone.patternslib:default"
-      />
+      >
+
+    <genericsetup:upgradeDepends
+        title="Remove browser layer"
+        import_profile="plone.patternslib.upgrades:1001"
+        />
+
+  </genericsetup:upgradeSteps>
 
 </configure>

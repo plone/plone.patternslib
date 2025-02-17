@@ -1,37 +1,66 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
       lang="en"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-<metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main">
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
+      metal:use-macro="context/main_template/macros/master"
+      xml:lang="en"
+>
+  <body>
+
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+
         <style type="text/css">
           .mode-Green {color: green;}
           .mode-Blue {color: blue;}
           .mode-Red {color: red;}
         </style>
 
-			<h1>Switch</h1>
+        <h1 i18n:translate="">Switch</h1>
 
-			<article>
-			    <a href="++plone++patternslib/components/patternslib/src/pat/switch/documentation.md"
-			        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Description; target: self::element; trigger: autoload">Documentation</a>
-			</article>
+        <article>
+          <a class="pat-inject"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/switch/documentation.md"
+             data-pat-inject="
+                 data-type: markdown;
+                 source: ##Description;
+                 target: self::element;
+                 trigger: autoload;
+             "
+             i18n:translate=""
+          >Description</a>
+        </article>
 
-			<h2>Demo</h2>
-			<div id="demo" class="pattern-demo">
-			    <a href="++plone++patternslib/components/patternslib/src/pat/switch/index.html" class="pat-inject" data-pat-inject="target: #demo; trigger: autoload">Load demo</a>
-			</div>
+        <h2 i18n:translate="">Demo</h2>
+        <div class="pattern-demo"
+             id="demo"
+        >
+          <a class="pat-inject"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/switch/index.html"
+             data-pat-inject="
+                 target: #demo;
+                 trigger: autoload;
+             "
+             i18n:translate=""
+          >Load demo</a>
+        </div>
 
-			<article>
-			    <a href="++plone++patternslib/components/patternslib/src/pat/switch/documentation.md#documentation"
-			        class="pat-inject" data-pat-inject="data-type: markdown; source: ##Documentation; target: self::element; trigger: autoload">Documentation</a>
-			</article>
+        <article>
+          <a class="pat-inject"
+             href="https://raw.githubusercontent.com/Patternslib/Patterns/refs/heads/master/src/pat/switch/documentation.md"
+             data-pat-inject="
+                 data-type: markdown;
+                 source: ##Documentation;
+                 target: self::element;
+                 trigger: autoload;
+             "
+             i18n:translate=""
+          >Documentation</a>
+        </article>
 
-    </tal:main-macro>
-</metal:main>
-</body>
+      </metal:content-core>
+    </metal:content-core>
+
+  </body>
 </html>

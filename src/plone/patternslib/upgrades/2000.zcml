@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    >
+
+  <genericsetup:registerProfile
+      name="2000"
+      title="Plone 6 upgrade profile"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/2000"
+      />
+
+  <genericsetup:upgradeSteps
+      profile="plone.patternslib:default"
+      source="*"
+      destination="2000"
+      >
+
+    <genericsetup:upgradeDepends
+        title="Update the Patternslib bundle and clean up the old registered"
+        import_profile="plone.patternslib.upgrades:2000"
+        />
+
+  </genericsetup:upgradeSteps>
+
+</configure>
