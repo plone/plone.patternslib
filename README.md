@@ -2,6 +2,15 @@
 
 An add-on to make [Patternslib](http://patternslib.com/) available to Plone 6.
 
+## References
+
+- Patternslib repository: https://github.com/patternslib/Patterns
+- Patternslib GitHub releases: https://github.com/Patternslib/Patterns/releases
+- Patternslib npm packages: https://www.npmjs.com/package/@patternslib/patternslib
+
+- plone.patternslib repository: https://github.com/plone/plone.patternslib
+- plone.patternslib Python packages: https://pypi.org/project/plone.patternslib/
+
 
 ## Features
 
@@ -27,21 +36,28 @@ numbers and can include a plone.patternlsib specific PATCH level.
 
 This is the scheme:
 
-PA ... Patternslib
-PL ... plone.patternslib
+PA ... Patternslib version
+PL ... plone.patternslib version
 
 ```python
-f"${PA_MAJOR}.${PA_MINOR}.${PA_PATCH}.${PL_PATCH}-${PA_PRE_RELEASE}.${PL_PRE_RELEASE}"
+f"${PA_MAJOR}.${PA_MINOR}.${PA_PATCH}.${PL_PATCH}${PA_PRE_RELEASE}.${PL_DEV_VERSION}"
 ```
 
 Possible version numbers are:
 
 - 9.9.16      # Patternslib 9.9.16
 - 9.9.16.1    # Patternslib 9.9.16 with a plone.patternslib specific patch
-- 9.10.0-alpha.0 # Patternslib 9.10.0-alpha.0
-- 9.10.1-beta.2 # Patternslib 9.10.1-beta.2
-- 9.10.1.1-beta.2 # Patternslib 9.10.1-beta.2 with a plone.patternslib specific patch
-- 9.10.1    # Patternslib 9.10.1
+- 9.10.0a0    # Patternslib 9.10.0-alpha.0
+- 9.10.1b2    # Patternslib 9.10.1-beta.2
+- 9.10.1b2.dev0  # Development version of the above.
+- 9.10.1.1b2  # Patternslib 9.10.1-beta.2 with a plone.patternslib specific patch
+- 9.10.1      # Patternslib 9.10.1
+
+
+Our update script updates the setup.py version from the Patternslib version
+number, which is a [semver compatible version specifier](https://semver.org/).
+When releasing, the [zest.releaser scripts](https://github.com/zestsoftware/zest.releaser)
+replaces that to a [Python compatible version scheme](https://peps.python.org/pep-0440/#version-scheme).
 
 
 ## Updating Patternslib
