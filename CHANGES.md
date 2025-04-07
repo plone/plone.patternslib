@@ -2,6 +2,18 @@
 
 <!-- towncrier release notes start -->
 
+## 9.10.1b3 (2025-04-07)
+
+### New features:
+
+- Update Patternslib to 9.10.1-beta.3.
+
+### Bug fixes:
+
+- Do not create a file extension when creating towncrier news fragments to comply with the towncrier configuration.
+  [thet]
+
+
 ## 9.9.16 (2025-02-17)
 
 No significant changes.
