@@ -10,6 +10,7 @@ filename = "CHANGES.md"
 start_string = "<!-- towncrier release notes start -->\n"
 title_format = "## {version} ({project_date})"
 underlines = ["", "", ""]
+create_add_extension = false
 
 [[tool.towncrier.type]]
 directory = "breaking"
