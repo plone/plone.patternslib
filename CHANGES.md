@@ -2,6 +2,13 @@
 
 <!-- towncrier release notes start -->
 
+## 9.10.3 (2025-07-04)
+
+### New features:
+
+- Update Patternslib to 9.10.3.
+
+
 ## 9.10.2 (2025-07-01)
 
 ### New features:
