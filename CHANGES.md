@@ -2,6 +2,18 @@
 
 <!-- towncrier release notes start -->
 
+## 9.10.3.1 (2025-09-04)
+
+### Bug fixes:
+
+- Blacklist unwanted Patterns.
+
+  Add a patternslib-preinit.js resource as bundle in the resource registry.
+  Currently this script blacklists any unwanted Patternslib Patterns. Most
+  prominent this is "pat-legend" which would transform any "legend" tags to
+  "p" tags and break form-tabbing with pat-autotoc. (patternslib-preinit)
+
+
 ## 9.10.3 (2025-07-04)
 
 ### New features:
