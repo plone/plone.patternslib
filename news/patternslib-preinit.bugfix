@@ -1,0 +1,6 @@
+Blacklist unwanted Patterns.
+
+Add a patternslib-preinit.js resource as bundle in the resource registry.
+Currently this script blacklists any unwanted Patternslib Patterns. Most
+prominent this is "pat-legend" which would transform any "legend" tags to
+"p" tags and break form-tabbing with pat-autotoc.

@@ -6,4 +6,8 @@
            prefix="plone.bundles/patterns"
            remove="True"
   />
+  <records interface="plone.base.interfaces.IBundleRegistry"
+           prefix="plone.bundles/patterns-preinit"
+           remove="True"
+  />
 </registry>

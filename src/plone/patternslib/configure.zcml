@@ -7,6 +7,10 @@
   <include package=".browser" />
   <include package=".upgrades" />
 
+  <browser:resource
+      name="patternslib-preinit.js"
+      file="patternslib-preinit.js"
+      />
   <browser:resourceDirectory
       name="patternslib"
       directory="static"
