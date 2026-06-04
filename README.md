@@ -2,6 +2,15 @@
 
 An add-on to make [Patternslib](http://patternslib.com/) available to Plone 6.
 
+## Compatibility
+
+This package is compatible with Plone 6.
+
+In version 9.10.6 we switched to native namespaces, which are supported by Plone 6.2+.
+
+For Plone 6.0 and 6.1 you need to additionally install
+[horse-with-no-namespace](https://pypi.org/project/horse-with-no-namespace/).
+
 ## References
 
 - Patternslib repository: https://github.com/patternslib/Patterns
@@ -10,7 +19,6 @@ An add-on to make [Patternslib](http://patternslib.com/) available to Plone 6.
 
 - plone.patternslib repository: https://github.com/plone/plone.patternslib
 - plone.patternslib Python packages: https://pypi.org/project/plone.patternslib/
-
 
 ## Features
 
@@ -28,7 +36,6 @@ Please note - pat-leaflet is yet not included as it is not part of the
 Patternslib distribution.
 There are plans to make it available in a separate package.
 
-
 ## Versioning scheme
 
 The version number of plone.patternslib directly follows the Patternslib version
@@ -45,20 +52,18 @@ f"${PA_MAJOR}.${PA_MINOR}.${PA_PATCH}.${PL_PATCH}${PA_PRE_RELEASE}.${PL_DEV_VERS
 
 Possible version numbers are:
 
-- 9.9.16      # Patternslib 9.9.16
-- 9.9.16.1    # Patternslib 9.9.16 with a plone.patternslib specific patch
-- 9.10.0a0    # Patternslib 9.10.0-alpha.0
-- 9.10.1b2    # Patternslib 9.10.1-beta.2
-- 9.10.1b2.dev0  # Development version of the above.
-- 9.10.1.1b2  # Patternslib 9.10.1-beta.2 with a plone.patternslib specific patch
-- 9.10.1      # Patternslib 9.10.1
-
+- 9.9.16 # Patternslib 9.9.16
+- 9.9.16.1 # Patternslib 9.9.16 with a plone.patternslib specific patch
+- 9.10.0a0 # Patternslib 9.10.0-alpha.0
+- 9.10.1b2 # Patternslib 9.10.1-beta.2
+- 9.10.1b2.dev0 # Development version of the above.
+- 9.10.1.1b2 # Patternslib 9.10.1-beta.2 with a plone.patternslib specific patch
+- 9.10.1 # Patternslib 9.10.1
 
 Our update script updates the setup.py version from the Patternslib version
 number, which is a [semver compatible version specifier](https://semver.org/).
 When releasing, the [zest.releaser scripts](https://github.com/zestsoftware/zest.releaser)
 replaces that to a [Python compatible version scheme](https://peps.python.org/pep-0440/#version-scheme).
-
 
 ## Updating Patternslib
 
@@ -87,7 +92,6 @@ This does the following:
 You can then make further changes or push your branch and create a pull request.
 Or update the version number for a plone.patternslib specific patch level.
 
-
 ## Implementation
 
 This package includes the Patternslib bundle in a resource directory.
@@ -102,13 +106,11 @@ You can find more info on module federation here:
 
 https://github.com/Patternslib/Patterns/blob/master/docs/developer/module-federation.md
 
-
 ## Limitations
 
 Some of the Patternslib patterns have the same name like patterns in Mockup.
 They are still included but not registered. The Patterns registry does not
 register patterns of the same name twice.
-
 
 ## Examples
 
@@ -116,11 +118,10 @@ There are example browser views for four patterns in the browser
 directory. If all went well, you can test the following patterns by
 calling their browser view examples on your plone site:
 
--   `@@pat-depends`
--   `@@pat-inject`
--   `@@pat-masonry`
--   `@@pat-switch`
-
+- `@@pat-depends`
+- `@@pat-inject`
+- `@@pat-masonry`
+- `@@pat-switch`
 
 ## Development
 
@@ -138,14 +139,12 @@ PATTERNSLIB_VERSION=9.10.1-beta.1 make update-patterns
 
 ## Contribute
 
--   Issue Tracker: <https://github.com/plone/plone.patternslib/issues>
--   Source Code: <https://github.com/plone/plone.patternslib>
-
+- Issue Tracker: <https://github.com/plone/plone.patternslib/issues>
+- Source Code: <https://github.com/plone/plone.patternslib>
 
 ## Support
 
 If you are having issues, please put them into the issue tracker.
-
 
 ## License
 
