@@ -9,3 +9,11 @@ commit-id = "18642aac"
 extra_lines = """
 /tmp/
 """
+
+[pre_commit]
+codespell_extra_lines = """
+        args: ['--skip', '*.po,*.js,*.map']
+"""
+
+[pyproject]
+codespell_skip = "./src/plone/patternslib/static"
