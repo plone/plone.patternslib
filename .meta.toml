@@ -17,3 +17,11 @@ codespell_extra_lines = """
 
 [pyproject]
 codespell_skip = "./src/plone/patternslib/static"
+
+[tox]
+test_matrix = {
+  "6.3" = ["3.14", "3.10"],
+  "6.2" = ["3.14", "3.10"],
+  "6.1" = ["3.13", "3.10"],
+  "6.0" = ["3.13", "3.9"],
+}
