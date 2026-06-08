@@ -1,8 +1,6 @@
 """Installer for the plone.patternslib package."""
 
-from setuptools import find_packages
 from setuptools import setup
-
 
 long_description = "\n\n".join(
     [
@@ -23,9 +21,11 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: Addon",
         "Framework :: Plone :: 6.0",
         "Framework :: Plone :: 6.1",
+        "Framework :: Plone :: 6.2",
+        "Framework :: Plone :: 6.3",
+        "Framework :: Plone :: Addon",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: 3.9",
@@ -33,22 +33,18 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
         "Operating System :: OS Independent",
-        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
     keywords="Python Plone Patternslib",
     author="Syslab.com",
     author_email="devel@syslab.com",
     url="https://github.com/plone/plone.patternslib",
-    license="GPL version 2",
-    packages=find_packages("src"),
-    namespace_packages=["plone"],
-    package_dir={"": "src"},
+    license="GPL-2.0-only",
     include_package_data=True,
     zip_safe=False,
     python_requires=">=3.9",
     install_requires=[
-        "setuptools",
         "Products.CMFPlone",
         "Products.GenericSetup",
         "zope.interface",

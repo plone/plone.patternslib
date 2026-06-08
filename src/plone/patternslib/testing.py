@@ -4,7 +4,6 @@ from plone.app.testing.helpers import PloneWithPackageLayer
 
 import plone.patternslib
 
-
 PLONE_PATTERNSLIB_FIXTURE = PloneWithPackageLayer(
     bases=(PLONE_INTEGRATION_TESTING,),
     name="PlonePatternslibLayer",
