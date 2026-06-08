@@ -2,6 +2,25 @@
 
 <!-- towncrier release notes start -->
 
+## 9.10.6 (2026-06-08)
+
+
+### Breaking changes
+
+- Replace ``pkg_resources`` namespace with PEP 420 native namespace.
+  Native namespaces are supported by Plone 6.2+. For Plone 6.0 and 6.1 you need to
+  additionally install `horse-with-no-namespace`. #3928
+
+
+### New features
+
+- Update Patternslib to 9.10.6. 
+
+
+### Internal
+
+- Update configuration files @plone 
+
 ## 9.10.5 (2026-06-06)
 
 ### New features:
