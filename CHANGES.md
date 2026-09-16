@@ -2,6 +2,18 @@
 
 <!-- towncrier release notes start -->
 
+## 9.10.7 (2026-09-16)
+
+
+### New features
+
+- Update Patternslib to 9.10.7. 
+
+
+### Internal
+
+- Update configuration files @plone 
+
 ## 9.10.6 (2026-06-08)
 
 
