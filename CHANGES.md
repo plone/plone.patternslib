@@ -2,6 +2,16 @@
 
 <!-- towncrier release notes start -->
 
+## 9.11.0.1 (2026-09-17)
+
+
+### Bug fixes
+
+- Don't override but extend the Patterns blacklist.
+
+  When initializing the Patterns blacklist, don't override but extend it. This
+  preserves the blacklist, if it was already defined before. 
+
 ## 9.11.0 (2026-09-16)
 
 
