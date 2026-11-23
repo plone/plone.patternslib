@@ -17,3 +17,4 @@ codespell_extra_lines = """
 
 [pyproject]
 codespell_skip = "./src/plone/patternslib/static"
+dependencies_ignores = "['Products.CMFPlone']"

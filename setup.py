@@ -46,6 +46,7 @@ setup(
     python_requires=">=3.9",
     install_requires=[
         "Products.CMFPlone",
+        "plone.base",
         "Products.GenericSetup",
         "zope.interface",
     ],

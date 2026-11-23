@@ -85,6 +85,7 @@ skip = "*.po,./src/plone/patternslib/static"
 ##
 
 [tool.dependencychecker]
+ignore-packages = ['Products.CMFPlone']
 Zope = [
   # Zope own provided namespaces
   'App', 'OFS', 'Products.Five', 'Products.OFSP', 'Products.PageTemplates',
