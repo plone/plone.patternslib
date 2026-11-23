@@ -45,13 +45,13 @@ setup(
     zip_safe=False,
     python_requires=">=3.9",
     install_requires=[
-        "Products.CMFPlone",
         "plone.base",
         "Products.GenericSetup",
         "zope.interface",
     ],
     extras_require={
         "test": [
+            "Products.CMFPlone",
             "plone.api",
             "plone.app.testing",
             "plone.base",

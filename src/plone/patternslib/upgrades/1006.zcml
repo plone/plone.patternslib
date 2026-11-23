@@ -8,7 +8,7 @@
       title="Register pat-datetime-picker"
       description="Configuration for version 1006"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      for="plone.base.interfaces.siteroot.IMigratingPloneSiteRoot"
       directory="profiles/1006"
       />
 
