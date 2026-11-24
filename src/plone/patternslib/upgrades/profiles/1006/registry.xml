@@ -3,7 +3,7 @@
           i18n:domain="plone"
 >
 
-  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+  <records interface="plone.base.interfaces.IResourceRegistry"
            prefix="plone.resources/pat-datetime-picker"
   >
     <value key="js">++plone++patternslib/components/patternslib/src/pat/datetime-picker/datetime-picker.js</value>
