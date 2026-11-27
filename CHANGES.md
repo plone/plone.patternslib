@@ -2,6 +2,14 @@
 
 <!-- towncrier release notes start -->
 
+## 9.11.1.1 (2026-11-27)
+
+
+### Internal
+
+- Fix deprecation warnings.
+  @ale-rt 
+
 ## 9.11.1 (2026-09-19)
 
 
